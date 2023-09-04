@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     async function getUserName(){
       try{
-        const res= await axios.get("https://fash-ti87.vercel.app/api/users/getUserName",{withCredentials: true});
+        const res= await axios.get("https://fash-rstf.onrender.com/api/users/getUserName",{withCredentials: true});
         console.log(res.data)
         setUserName(res.data.userName);
       }catch(err){

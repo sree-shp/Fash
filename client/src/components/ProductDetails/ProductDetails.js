@@ -21,7 +21,7 @@ function ProductDetails() {
         async function fetchData()  {
             try{
                 setLoading(true);
-            const res = await axios.get("https://fash-ti87.vercel.app/api/products/getProductDetails",
+            const res = await axios.get("https://fash-rstf.onrender.com/api/products/getProductDetails",
             {
                 params: {
                     _id: params.id 
@@ -43,7 +43,7 @@ function ProductDetails() {
         
         try{
             setLoading(true);
-            const res = await axios.post("https://fash-ti87.vercel.app/api/cart/addToCart",
+            const res = await axios.post("https://fash-rstf.onrender.com/api/cart/addToCart",
             {
                 
                     

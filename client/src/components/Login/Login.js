@@ -34,7 +34,7 @@ function Login(props) {
     try{
       setLoading(true);
       setMessage("Checking Credentials");
-      const res = await axios.post("https://fash-ti87.vercel.app/api/users/login",{
+      const res = await axios.post("https://fash-rstf.onrender.com/api/users/login",{
         email,
         password
       },{

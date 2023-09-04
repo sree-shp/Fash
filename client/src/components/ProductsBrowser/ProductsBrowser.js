@@ -19,7 +19,7 @@ function ProductsBrowser(props) {
             try{
                 setLoading(true);
                 const res = await axios.get( 
-                    "https://fash-ti87.vercel.app/api/products/getProducts",
+                    "https://fash-rstf.onrender.com/api/products/getProducts",
                     {
                         params: {
                             name: props.title

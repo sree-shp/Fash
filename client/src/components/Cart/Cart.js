@@ -19,7 +19,7 @@ function Cart(props){
             try{
                 setLoading(true);
                 setMessage("Loading your cart")
-                const res = await axios.get("https://fash-ti87.vercel.app/api/cart/getCart",
+                const res = await axios.get("https://fash-rstf.onrender.com/api/cart/getCart",
                 {
                     withCredentials: true
                 });
@@ -63,7 +63,7 @@ function Cart(props){
         try{
             setLoading(true);
             setMessage("Placing Order")
-            const res = await axios.post("https://fash-ti87.vercel.app/api/orders/placeOrder",{
+            const res = await axios.post("https://fash-rstf.onrender.com/api/orders/placeOrder",{
                 products: cartData.product,
                 total: cartData.total
             },{
