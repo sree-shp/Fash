@@ -1,0 +1,33 @@
+
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 5% 5% 0% 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login form{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.email, .password{
+    padding: 5%;
+    border-radius: 8px;
+    border: 1px solid;
+}
+
+.email-label, .password-label{
+    font-size: 1.25vw;
+}
+
+.login-button{
+    background-color: #E5E0FF;
+    border: none;
+    font-size: 1.5vw;
+    border-radius: 42px;
+    padding: 10px 40px;
+}

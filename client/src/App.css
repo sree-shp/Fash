@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,800&display=swap');
+
+.App{
+    overflow-x: hidden ;
+    margin: 0;
+    padding: 0;
+}
+
+Link{
+    text-decoration: "none"; 
+    color: black;
+}
+

@@ -1,0 +1,38 @@
+.deals{
+    text-align: center;
+    background-color: #FFF2F2; 
+    background-size: cover;
+    border-radius: 16px;
+    padding: 5%;
+}
+
+.deals-img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.deals-details{
+    height: 30vh;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+}
+
+.deals-name{
+    margin-bottom: 0px;
+}
+
+.deals-discount{
+    margin-top: 0px;
+}
+
+.deals-shop-now{
+    font-size: 2vw;
+    color: white;
+    background-color: #7286D3;
+    border-radius: 10px;
+    border: 0px;
+    padding: 10px 40px;
+}

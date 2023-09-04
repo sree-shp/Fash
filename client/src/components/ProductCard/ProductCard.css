@@ -1,0 +1,30 @@
+.product-img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.price-wrapper{
+    display: flex;
+    gap: 20px;
+}
+
+.product-price{
+    font-weight: 500;
+}
+
+.origin-price{
+    text-decoration: line-through;
+    color: #9b9b9b;
+}
+
+.product-discount{
+    color: orange;
+}
+
+.product-card-wrapper{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: left;
+    gap: 20px;
+}

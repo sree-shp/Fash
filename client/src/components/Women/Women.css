@@ -1,0 +1,58 @@
+.women-img1{
+    width: 35vw;
+    position: absolute;
+    right: -30px;
+    bottom: -150px;
+    z-index: 75;
+}
+
+.women-img2{
+    width: 30vw;
+    position: absolute;
+    left: 0px;
+    bottom: -100px;
+    z-index: 50;
+}
+
+.second-section{
+    position: relative;
+    z-index: 100;
+    background-color: white;
+    padding: 5% 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+@media (max-width: 1200px) {
+    .women-img1{
+        bottom: -150px;
+        right: -30px;
+    }
+
+    .women-img2{
+        bottom: -100px
+    }
+}
+
+@media (max-width: 768px) {
+    .women-img1{
+        bottom: -75px
+    }
+
+    .women-img2{
+        bottom: -50px
+    }
+}
+
+@media (max-width: 425px) {
+    .women-img1{
+        width: 75vw;
+        bottom: -100px;
+        right: -50px;
+    }
+
+    .women-img2{
+        width: 70vw;
+        bottom: -50px;
+        left: -30px;
+    }
+}

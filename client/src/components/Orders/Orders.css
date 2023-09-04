@@ -1,0 +1,60 @@
+.orders{
+    padding: 0% 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.order-wrapper{
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    /* padding: 2% 0%; */
+}
+
+.order-id{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.order-details{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    border-bottom: 1px solid #ccc;
+    padding: 2%;
+}
+
+.order-item-img{
+    max-width: 15%;
+    border-radius: 16px;
+}
+
+.order-item-details{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    padding: 2%
+}
+
+.order-column{
+    display: flex;
+    flex-direction: row;
+}
+
+.order-sub-column{
+    padding-left: 2%;
+}
+
+.no-orders{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.no-orders img{
+    max-width: 20%
+}
+
+.no-orders span{
+    font-size: 1.25rem;
+    font-weight: 500;
+}

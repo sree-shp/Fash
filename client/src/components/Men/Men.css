@@ -1,0 +1,78 @@
+.men-img1{
+    width: 35vw;
+    position: absolute;
+    right: -70px;
+    bottom: -300px;
+    z-index: 75;
+}
+
+.men-img2{
+    width: 35vw;
+    position: absolute;
+    left: 0px;
+    bottom: -350px;
+    z-index: 50;
+}
+
+.second-section{
+    position: relative;
+    z-index: 100;
+    background-color: white;
+    padding: 5% 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.men-category-wrapper{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    gap: 25px;
+}
+
+.category-link{
+    text-decoration: none;
+    color: black;
+}
+
+
+@media (max-width: 1200px) {
+    .men-img1{
+        bottom: -200px;
+        right: -30px;
+    }
+
+    .men-img2{
+        bottom: -200px
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .female{
+        bottom: -80px;
+        left: -20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .men-img1{
+        bottom: -125px;
+    }
+
+    .men-img2{
+        bottom: -150px;
+    }
+}
+
+@media (max-width: 425px) {
+    .men-img1{
+        width: 75vw;
+        bottom: -100px
+    }
+
+    .men-img2{
+        width: 75vw;
+        bottom: -125px;
+        left: 10px;
+    }
+}

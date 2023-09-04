@@ -1,0 +1,16 @@
+.Filters{
+    border: 1px solid #ccc;
+    font-family: 'Poppins', sans-serif;
+    padding: 2.5% 1% ;
+}
+
+.brands-filter, .price-filter{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-wrapper{
+    display: flex;
+    gap: 10px;
+}

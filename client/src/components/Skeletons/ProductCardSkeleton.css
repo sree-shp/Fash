@@ -1,0 +1,28 @@
+.card-skeleton{
+    display: flex;
+    flex-direction: column;
+    /* margin: 2%; */
+}
+
+.img-container{
+    border-radius: 10px;
+    background-color: #ccc;
+    width: 100%;
+    margin: 2% 0%;
+}
+
+.text-container{
+    border-radius: 10px;
+    margin: 5px 0px;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    /* margin: 0% 5%;  */
+    grid-row-gap: 50px;
+}
+
+.wrapper{
+    margin: 2% 5%;
+}

@@ -1,0 +1,60 @@
+.kids-img1{
+    width: 35vw;
+    position: absolute;
+    right: -30px;
+    bottom: -200px;
+    z-index: 75;
+}
+
+.kids-img2{
+    width: 30vw;
+    position: absolute;
+    left: -50px;
+    bottom: -200px;
+    z-index: 50;
+}
+
+.second-section{
+    position: relative;
+    z-index: 100;
+    background-color: white;
+    padding: 5% 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+@media (max-width: 1200px) {
+    .kids-img1{
+        bottom: -150px;
+        right: -30px;
+    }
+
+    .kids-img2{
+        bottom: -175px
+    }
+}
+
+@media (max-width: 768px) {
+    .kids-img1{
+        bottom: -100px;
+       
+    }
+
+    .kids-img2{
+        bottom: -100px;
+        left: 0px;
+    }
+}
+
+@media (max-width: 425px) {
+    .kids-img1{
+        width: 75vw;
+        bottom: -100px;
+        right: -35px;
+    }
+
+    .kids-img2{
+        width: 70vw;
+        bottom: -150px;
+        left: -30px;
+    }
+}

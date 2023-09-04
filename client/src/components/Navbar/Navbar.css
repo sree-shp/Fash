@@ -1,0 +1,691 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+
+
+
+
+    .Navbar{
+        font-family: 'Poppins', sans-serif;
+        position: relative;
+        display: grid;
+        grid-template-columns: 10% 30% 40% auto;
+        z-index: 10000;
+        padding: 0% 5%;
+        align-items: center;
+        gap: 25px;
+        box-shadow: 2px 5px 8px #888888;
+    }
+
+    Link h5{
+        text-decoration: "none"; 
+        color: black;
+    }
+    .categories{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }    
+
+    .last-menu{
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        /* padding:  0%; */
+    }
+
+    /* .last-menu div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 45% 0%;
+    } */
+
+    .profile-container, .cart-container, .wishlist-container{
+        
+        padding: 45% 0%;
+    }
+
+    .profile-container, .cart-wrapper, .wishlist-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    a{
+        color: black;
+        text-decoration: none;
+    }
+
+    .last-menu p{
+        margin: 0;
+        font-size: small;
+    }
+
+    .cart-icon, .wishlist-icon, .profile-icon{
+        width: 40%;
+    }
+
+    .brand-name{
+        font-family: 'Unica One', cursive;
+        font-size: 3.5vw;
+        font-weight: 600;
+        position: relative;
+        z-index: 3000;
+        text-decoration: none;
+        color: black;
+    }
+
+    .search-textbox{
+        width: 96%;
+        padding: 2%;
+        border: 1px solid #ededed;
+        outline: none;
+    }
+
+    .men-heading-container, .women-heading-container, .kids-heading-container, .lifestyle-heading-container{
+        padding: 6% 7%;
+        position: relative;
+        text-decoration: none;
+        color: black;
+    }
+
+    .men-wrapper, .women-wrapper, .kids-wrapper, .lifestyle-wrapper{
+        background-color: white;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 10%;
+        width: 40%;
+        padding: 0% 2%;
+        z-index: 100;         
+    }
+
+    .men-heading-container:hover + .men-wrapper, .women-heading-container:hover + .women-wrapper, .kids-heading-container:hover + .kids-wrapper, .lifestyle-heading-container:hover + .lifestyle-wrapper, .men-wrapper:hover, .women-wrapper:hover, .kids-wrapper:hover, .lifestyle-wrapper:hover{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+    .men-heading-container::after,  .women-heading-container::after, .kids-heading-container::after, .lifestyle-heading-container::after{
+        content: " ";
+        height: 3px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+    }
+
+    .men-heading-container::after{
+        background-color: #637ae0;
+    }
+
+    .women-heading-container::after{
+        background-color: #ff3b3b;
+    }
+
+    .kids-heading-container::after{
+        background-color: orange;
+    }
+
+    .lifestyle-heading-container::after{
+        background-color: #0db7af;
+    }
+    
+    .men-heading-container:hover::after,  .women-heading-container:hover::after, .kids-heading-container:hover::after, .lifestyle-heading-container:hover::after{
+        width: 100%;
+    }
+
+    .men-sub-category-heading{
+        color: #637ae0;
+        position: relative;
+    }
+
+    .men-link, .women-link, .kids-link, .lifestyle-link{
+        text-decoration: none;
+        color: black;
+    }
+
+    .women-sub-category-heading{
+        color: #ff3b3b;
+    }
+
+    .kids-sub-category-heading{
+        color: orange;
+    }
+
+    .lifestyle-sub-category-heading{
+        color: #0db7af;
+    }
+
+    .sub-category-links:hover{
+        font-weight: 600;
+    }
+
+    
+
+    .profile-wrapper{
+        position: absolute;
+        background-color: white;
+        width: 30%; 
+        padding: 2% 0% 2% 0%;
+        z-index: 10000;
+        right: 5%;
+        top: 100%;
+        display: none ;
+        box-shadow: 2px 5px 8px #888888;
+    }
+
+    .profile-links-wrapper{
+        padding: 0% 5%;
+    }
+
+    .profile-container:hover + .profile-wrapper{
+        display: block;
+    }
+    
+    .profile-wrapper:hover{
+        display: block;
+    }
+
+    .profile-icon{
+        position: relative;
+    }
+    .profile-icon::after{
+        content: " ";
+        height: 3px;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        width: 100%;
+        background: black;
+    }
+
+    .profile-icon:hover::after{
+        width: 100%;
+    }
+
+    .profile-links{
+        font-size: 1rem !important;
+    }    
+
+    .login-register-button{
+        background-color: #f4555d;
+        border: none;
+        border-radius: 10px;
+        padding: 10px 40px;
+        width: 50%;
+        color: white;
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 4%;
+        display: flex;
+        justify-content: center;
+        margin: 2% 0%;
+    }
+
+    .hamburger-menu{
+        display: none;
+    }
+
+    .hamburger-menu{
+        display: none;
+    }
+
+    .active{
+        display: none !important;
+    }
+
+    .welcome, .username{
+        margin: 0;
+    }
+
+    .welcome-text{
+        padding: 2% 5%;
+    }
+/* @media (min-width: 1024px) and (max-width: 1200px) {
+    .Navbar{
+        gap: 10px;
+    }
+    
+    .men-heading-container, .women-heading-container, .kids-heading-container, .lifestyle-heading-container{
+        padding: 4% 4%;
+    }
+    
+    .search-container{
+        flex-grow: 8;
+        margin: 0% 1%;
+    }
+    
+    .search-icon, .wishlist-icon, .profile-icon{
+        width: 2.5%;
+        padding: 4% 1%;
+    }
+
+    .men-wrapper, .women-wrapper, .kids-wrapper, .lifestyle-wrapper, .profile-wrapper{
+        top: 13.0%;     
+    }
+
+    .profile-wrapper{
+        top: 100%;
+    }
+
+    .men-wrapper, .women-wrapper, .kids-wrapper, .lifestyle-wrapper{
+        top: 100%;
+    }
+
+}
+
+@media (min-width:768px) and (max-width: 1024px){
+    .Navbar{
+        gap: 10px;
+    }
+    
+    .men-heading-container, .women-heading-container, .kids-heading-container, .lifestyle-heading-container{
+        padding: 4% 4%;
+    }
+    
+    .search-container{
+        flex-grow: 8;
+        margin: 0% 1%;
+    }
+    
+    .search-icon, .wishlist-icon, .profile-icon{
+        width: 2.5%;
+        padding: 5% 1%;
+    }
+
+    .men-wrapper, .women-wrapper, .kids-wrapper, .lifestyle-wrapper, .profile-wrapper{
+        top: 13.0%;     
+    }
+
+    .category-item{
+        font-size: 1.75vw;
+    }
+
+    .profile-wrapper{
+        top: 100%;
+    }
+
+    .men-wrapper, .women-wrapper, .kids-wrapper, .lifestyle-wrapper{
+        top: 100%;
+    }
+}
+
+@media (min-width:425px) and (max-width: 768px) {
+    .men-heading-container, .women-heading-container, .kids-heading-container, .lifestyle-heading-container{
+        padding: 4% 4%;
+    }
+    .Navbar{
+        height: 12vw;
+    }
+
+    .brand-name{
+        font-size: 6vw;
+    }
+
+    .categories, .search-textbox{
+        display: none;
+    }
+
+    .search-icon, .wishlist-icon, .profile-icon{
+        width: 4%;
+        padding: 2.5% 1%;
+    }
+
+    .hamburger-menu{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 7px;
+        z-index: 2000;
+    }
+    
+    .hamburger-item{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .user-icon, .settings-icon, .men-icon, .women-icon, .kids-icon, .orders-icon{
+        width: 10%;
+        height: 10%;
+    }
+    
+    .hamburger-menu div{
+        background-color: black;
+        width: 25px;
+        height: 4px;
+        border-radius: 32px;
+    }
+    
+    .hamburger-wrapper{
+        font-family: 'Poppins', sans-serif;
+        height: 100vh;
+        width: 50vw;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 1000;
+        background-color: white;
+        padding: 25% 4%;
+    }
+    
+    .categories, .search-textbox{
+        display: none;
+    }
+
+    .profile-wrapper{
+        display: none;
+    }
+    
+    .active{
+        display: none !important;
+    }
+}
+
+
+@media (max-width:425px) {
+    .Navbar{
+        height: 20vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 1.5% 3%;
+        box-shadow: 2px 5px 8px #888888;
+    }
+
+    .brand-name{
+        font-family: 'Unica One', cursive;
+        flex-grow: 2;
+        font-size: 8vw;
+        font-weight: 600;
+        position: relative;
+        z-index: 3000;
+        text-decoration: none;
+        color: black;
+    }
+
+    .categories, .search-textbox{
+        display: none;
+    }
+
+    .search-icon, .wishlist-icon, .profile-icon{
+        width: 5%;
+        padding: 2.5% 1%;
+    }
+
+    .hamburger-menu{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 7px;
+        z-index: 2000;
+    }
+    
+    .hamburger-item{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .user-icon, .settings-icon, .men-icon, .women-icon, .kids-icon, .orders-icon{
+        width: 10%;
+        height: 10%;
+    }
+    
+    .hamburger-menu div{
+        background-color: black;
+        width: 25px;
+        height: 4px;
+        border-radius: 32px;
+    }
+    
+    .hamburger-wrapper{
+        font-family: 'Poppins', sans-serif;
+        height: 100vh;
+        width: 50vw;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 1000;
+        background-color: white;
+        padding: 25% 4%;
+    }
+    
+    .categories, .search-textbox{
+        display: none;
+    }
+
+    .profile-wrapper{
+        display: none;
+    }
+    
+    .active{
+        display: none !important;
+    }
+} */
+
+/* .navbar{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+    box-shadow: 2px 5px 8px #888888;
+    padding: 0% 5%;
+}
+
+.brand-name{
+    flex-grow: 13;
+    text-align: left;
+    font-size: 7vw;
+    font-weight: 550;
+    position: relative;
+    z-index: 3000;
+    text-decoration: none;
+    color: black;
+}
+
+.user-icon, .settings-icon, .men-icon, .women-icon, .kids-icon, .orders-icon{
+    width: 10%;
+    height: 10%;
+}
+
+.hamburger-menu{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 7px;
+    position: relative;
+    z-index: 2000;
+}
+
+.hamburger-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.hamburger-menu div{
+    background-color: black;
+    width: 30px;
+    height: 4px;
+    border-radius: 32px;
+}
+
+.hamburger-wrapper{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 50vw;
+    z-index: 1000;
+    background-color: white;
+    padding: 19% 4%;
+}
+
+.categories, .search-textbox{
+    display: none;
+}
+
+.active{
+    display: none !important;
+} */
+
+/* @media (min-width: 1024px) {
+    .navbar{
+        padding: 0% 5%;
+        height: 13vh;
+        position: relative;
+        z-index: 10000;
+    }
+
+    .brand-name{
+        font-size: 2.5vw;
+        padding-right: 50px;
+        flex-grow: 1;
+    }
+
+    .categories{
+        display: flex;
+        flex-direction: row;
+        flex-grow: 7;
+    }
+    
+    .category-item{
+        padding: 0% 5%;
+    }
+
+    .men-heading-container, .women-heading-container, .kids-heading-container, .lifestyle-heading-container{
+        padding: 7% 5%;
+    }
+
+    .men-wrapper, .women-wrapper, .kids-wrapper, .lifestyle-wrapper{
+        background-color: white;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 10%;
+        width: 40%;
+        padding: 0% 2%;
+        z-index: 100;         
+    }
+
+    .men-heading-container:hover + .men-wrapper, .women-heading-container:hover + .women-wrapper, .kids-heading-container:hover + .kids-wrapper, .lifestyle-heading-container:hover + .lifestyle-wrapper, .men-wrapper:hover, .women-wrapper:hover, .kids-wrapper:hover, .lifestyle-wrapper:hover{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+    
+    .men-sub-category-heading{
+        color: #637ae0;
+    }
+
+    .women-sub-category-heading{
+        color: #ff3b3b;
+    }
+
+    .kids-sub-category-heading{
+        color: orange;
+    }
+
+    .lifestyle-sub-category-heading{
+        color: #0db7af;
+    }
+
+    .sub-category-links:hover{
+        font-weight: 600;
+    }
+
+    .search-textbox{
+        width: 30%;
+        padding: 0.75%;
+        border: 1px solid #ededed;
+        outline: none;
+        display: initial;
+    }
+
+    .navbar-icons-container{
+        display: flex;
+        flex-direction: row;
+        width: 20%;
+    }
+
+    .search-icon-container, .location-icon-container, .profile-icon-container{
+        position: relative;
+    }
+
+    .search-icon, .location-icon, .profile-icon, .settings-icon, .men-icon, .women-icon, .kids-icon, .orders-icon{
+        width: 60%;
+        height: 80%;  
+    }
+
+    .profile-wrapper{
+        position: absolute;
+        background-color: white;
+        width: 20%; 
+        padding: 0% 2%;
+        z-index: 10000;
+        right: 5%;
+        top: 100%;
+        display: none;
+        box-shadow: 2px 5px 8px #888888;
+    }
+
+    .profile-icon-container:hover + .profile-wrapper{
+        display: block;
+    }
+    
+    .profile-wrapper:hover{
+        display: block;
+    }
+
+    .login-register-button{
+        background-color: #f4555d;
+        border: none;
+        border-radius: 32px;
+        padding: 10px 40px;
+        width: 100%;
+        color: white;
+        font-size: 1vw;
+        font-weight: 500;
+        margin-bottom: 4%;
+    }
+
+    .hamburger-menu{
+        display: none;
+    }  
+}    */
+
+/* @media (max-width: 425px) {
+    .navbar{
+        height: 20vw;
+    }
+
+    .brand-name{
+        width: 75%;
+    }
+
+    .profile-wrapper{
+        display: none;
+    }
+
+    .search-icon, .location-icon, .profile-icon{
+        width: 100%;
+    }
+
+    .navbar-icons-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 25px;
+        width: 55%;
+    }
+
+    .search-icon-container, .location-icon-container, .profile-icon-container{
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+} */

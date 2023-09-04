@@ -1,0 +1,51 @@
+.product-details{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 5% 0%;
+    /* height: 60vh; */
+    font-family: "Poppins";
+}
+
+.heading{
+    padding: 0% 0% 5%;
+}
+
+.product-brand-name, .product-desc{
+    margin: 0px;
+}
+
+.product-desc{
+    color: #535665;
+}
+
+.price{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.discount-percentage{
+    color: #ff905a;
+}
+
+.original-price{
+    text-decoration: line-through;
+    color: #484b57;
+}
+ 
+.place-order{
+    padding: 5% 0%;
+}
+
+.select-size-heading{
+    margin: 10px 0px;
+    font-weight: 500;
+}
+
+.photos-pane{
+    padding: 0% 0% 0% 0%;
+}
+
+.details-pane{
+    padding: 5% 10%
+} 

@@ -1,0 +1,26 @@
+.footer{
+    background-color: #fafbfc;
+    padding: 2% 5% 0% 5%;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    position: relative;
+    z-index: 100;
+}
+
+.socials{
+    padding-bottom: 2%;
+}
+
+.socials-links{
+    display: flex;
+    justify-content:  center;
+}
+
+.socials-links-img{
+    width: 2%;
+    padding: 0% 1%;
+}
+
+.rights{
+    color: #ccc;
+}

@@ -1,0 +1,32 @@
+.register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 5% 5% 0% 5%;
+    font-family: 'Poppins', sans-serif;
+}
+
+.register form{
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.email, .password, .name, .telephone {
+    padding: 5%;
+    border-radius: 8px;
+    border: 1px solid;
+}
+
+.email-label, .password-label, .telephone-label, .name-label{
+    font-size: 1.25vw;
+}
+
+.register-button{
+    background-color: #E5E0FF;
+    border: none;
+    font-size: 1.5vw;
+    border-radius: 42px;
+    padding: 10px 40px;
+}
