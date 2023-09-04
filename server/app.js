@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 const app = express();
 app.use(cors(
   {
-    origin: "http://localhost:3000",
+    origin: "https://fash-store.vercel.app",
     credentials: true
   }
 ));
