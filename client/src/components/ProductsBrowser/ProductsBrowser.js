@@ -19,7 +19,7 @@ function ProductsBrowser(props) {
             try{
                 setLoading(true);
                 const res = await axios.get( 
-                    "http://localhost:4000/api/products/getProducts",
+                    "https://fash-ti87.vercel.app/api/products/getProducts",
                     {
                         params: {
                             name: props.title

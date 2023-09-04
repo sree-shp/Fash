@@ -14,7 +14,7 @@ function CartItem( props){
         try{
             setLoading(true);
             setMessage("Removing cart item");
-            const res = await axios.post("http://localhost:4000/api/cart/removeItem",{
+            const res = await axios.post("https://fash-ti87.vercel.app/api/cart/removeItem",{
                 id: props.id,
             },{
                 withCredentials: true
