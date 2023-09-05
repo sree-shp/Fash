@@ -26,7 +26,7 @@ function Register(props) {
     try{
       setLoading(true);
       setMessage(" Validating Credentials");
-      const res = await axios.post("http://localhost:4000/api/users/register",{
+      const res = await axios.post("https://fash-server.onrender.com/api/users/register",{
         name,
         email,
         telephone,
