@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 const app = express();
 app.use(cors(
   {
-    // origin: "https://fash-rstf.onrender.com",
+    origin: "https://fash-store.vercel.app",
     credentials: true
   }
 ));
@@ -22,7 +22,7 @@ app.use("/api/products", require("./routes/products"));
 app.use("/api/cart", require("./routes/cart"));
 app.use("/api/orders", require("./routes/order"))
 
-console.log(process.env.DATABASE)
+
 
 mongoose.connect(process.env.DATABASE, {
   useNewUrlParser: true,

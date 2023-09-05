@@ -14,7 +14,7 @@ function CartItem( props){
         try{
             setLoading(true);
             setMessage("Removing cart item");
-            const res = await axios.post("https://fash-rstf.onrender.com/api/cart/removeItem",{
+            const res = await axios.post("https://fash-server.onrender.com/api/cart/removeItem",{
                 id: props.id,
             },{
                 withCredentials: true

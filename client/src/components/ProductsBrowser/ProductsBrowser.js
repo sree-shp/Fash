@@ -19,7 +19,7 @@ function ProductsBrowser(props) {
             try{
                 setLoading(true);
                 const res = await axios.get( 
-                    "https://fash-rstf.onrender.com/api/products/getProducts",
+                    "https://fash-server.onrender.com/api/products/getProducts",
                     {
                         params: {
                             name: props.title
