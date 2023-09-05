@@ -22,6 +22,7 @@ app.use("/api/products", require("./routes/products"));
 app.use("/api/cart", require("./routes/cart"));
 app.use("/api/orders", require("./routes/order"))
 
+console.log(process.env.DATABASE)
 
 mongoose.connect(process.env.DATABASE, {
   useNewUrlParser: true,
@@ -30,6 +31,8 @@ mongoose.connect(process.env.DATABASE, {
 }).then(() => {
   console.log("DB Connected")
 }).catch( error => console.log(error))
+
+
 
 const PORT = process.env.PORT || 4000;
 
