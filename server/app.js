@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 const app = express();
 app.use(cors(
   {
-    origin: "https://fash-rstf.onrender.com",
+    // origin: "https://fash-rstf.onrender.com",
     credentials: true
   }
 ));
@@ -29,7 +29,7 @@ mongoose.connect(process.env.DATABASE, {
   
 }).then(() => {
   console.log("DB Connected")
-});
+}).catch( error => console.log(error))
 
 const PORT = process.env.PORT || 4000;
 
