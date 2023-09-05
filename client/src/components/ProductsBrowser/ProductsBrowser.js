@@ -19,7 +19,7 @@ function ProductsBrowser(props) {
             try{
                 setLoading(true);
                 const res = await axios.get( 
-                    "https://fash-server.onrender.com/api/products/getProducts",
+                    "http://localhost:4000/api/products/getProducts",
                     {
                         params: {
                             name: props.title
@@ -46,6 +46,8 @@ function ProductsBrowser(props) {
             
             {!loading && !error  && <ProductContainer
                 ProductContainerName={props.title}
+                productSubCategory={props.subCategory}
+                productGroup={props.group}
                 list={data}
             />}
             {error && <Error msg={error}/>}

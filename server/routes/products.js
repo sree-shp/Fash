@@ -7,6 +7,7 @@ const ProductInventory = require('../models/ProductInventory');
 
 router.get("/getProducts", async (req, res) => {
     const query = req.query;
+    console.log(query)
     try{
         const categoryId = await ProductCategory.findOne(query).select("_id");
         console.log(categoryId);

@@ -21,7 +21,7 @@ function ProductDetails() {
         async function fetchData()  {
             try{
                 setLoading(true);
-            const res = await axios.get("https://fash-server.onrender.com/api/products/getProductDetails",
+            const res = await axios.get("http://localhost:4000/api/products/getProductDetails",
             {
                 params: {
                     _id: params.id 
@@ -43,7 +43,7 @@ function ProductDetails() {
         
         try{
             setLoading(true);
-            const res = await axios.post("https://fash-server.onrender.com/api/cart/addToCart",
+            const res = await axios.post("http://localhost:4000/api/cart/addToCart",
             {
                 
                     

@@ -28,3 +28,34 @@
     text-align: left;
     gap: 20px;
 }
+
+.wishlist-label{
+    background-image: url("https://cdn-icons-png.flaticon.com/512/2107/2107845.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    width: 15%;
+}
+.product-wishlist{
+    display: none;
+}
+
+.product-details-wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 5% 0%;
+}
+
+.product-name{
+    margin: 0;
+}
+
+.product-card{
+    padding: 4%;
+}
+
+.product-card:hover{
+    border: 1px solid grey;
+    border-radius: 10px;
+}

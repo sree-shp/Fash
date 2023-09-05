@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Home.css";
 import Footer from "../Footer/Footer";
 import Category from "../Category/Category";
@@ -12,23 +13,27 @@ import Banner from "../Banner/Banner";
 
 function createCategoryCard(category) {
   return (
+    <Link to= {"/Men/"+ category.subCategory+"/" + category.name}  >
     <Category
       key={category.id}
       img={category.img}
       name={category.name}
       discount={category.discount}
     />
+    </Link>
   );
 }
 
 function createDealsCard(deals) {
   return (
+    <Link to={"/" + deals.name}>
     <Deals
       key={deals.id}
       img={deals.img}
       name={deals.name}
       discount={deals.discount}
     />
+    </Link>
   );
 }
 

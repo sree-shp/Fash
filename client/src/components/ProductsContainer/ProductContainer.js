@@ -16,7 +16,7 @@ function ProductContainer(props) {
 function createProductCard(product) {
   
   return (
-    <Link to={"/Men/" + props.ProductContainerName+ "/" + product._id}  >
+    <Link to={"/"+ props.productGroup+"/"+props.productSubCategory+"/" + props.ProductContainerName+ "/" + product._id}  >
     <ProductCard
       key={product._id}
       productImg={product.images[0]}

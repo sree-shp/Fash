@@ -19,7 +19,7 @@ function Cart(props){
             try{
                 setLoading(true);
                 setMessage("Loading your cart")
-                const res = await axios.get("https://fash-server.onrender.com/api/cart/getCart",
+                const res = await axios.get("http://localhost:4000/api/cart/getCart",
                 {
                     withCredentials: true
                 });
@@ -63,7 +63,7 @@ function Cart(props){
         try{
             setLoading(true);
             setMessage("Placing Order")
-            const res = await axios.post("https://fash-server.onrender.com/api/orders/placeOrder",{
+            const res = await axios.post("http://localhost:4000/api/orders/placeOrder",{
                 products: cartData.product,
                 total: cartData.total
             },{

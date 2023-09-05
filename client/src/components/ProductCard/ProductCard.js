@@ -10,7 +10,8 @@ function ProductCard(props) {
     <div className="product-card" >
       
       <img className="product-img" src={props.productImg} alt="" />
-      <div className="product-details">
+      
+      <div className="product-details-wrapper">
         <h3 className="product-name">{props.productBrand}</h3>
         
         <div className="price-wrapper">
@@ -18,11 +19,7 @@ function ProductCard(props) {
           <p className="origin-price">{props.originPrice}</p>
           <p className="product-discount">{props.discount}</p>
         </div>
-
-        <button className="produt-wishlist" type="submit">
-          WISHLIST
-        </button>
-      </div>
+        </div>
     </div>
   );
 }
