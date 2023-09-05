@@ -47,7 +47,7 @@ async function registerUser(req, res) {
         res.status(200).json( {msg: "User registered successfully", userId: user.id})
     } catch(err){
         console.error(err.message);
-        res.status(500).send('Server error');
+        res.status(500).json({msg: 'Server error', error: err.message});
     }
    
 }
@@ -57,7 +57,7 @@ async function authUser (req, res, next){
         const user = await User.findById(req.user.id).select('-password');
         res.json(user);
     } catch(err){
-        res.status(500).send('Server error')
+        res.status(500).json({msg: 'Server error', error: err.message})
     }
 
 }
@@ -103,7 +103,7 @@ async function loginUser(req, res){
         res.status(200).json({ msg: "User Logged in successfully", userName: user.name });
     }catch(err){
         console.error(err.message);
-        return res.status(500).json({ msg: "Server error"});
+        return res.status(500).json({ msg: "Server error", error: err.message});
     }
 }
 

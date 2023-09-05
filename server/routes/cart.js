@@ -15,7 +15,7 @@ router.get("/getCart", auth, async (req, res) => {
 
     }catch(err){
         console.error(err.message);
-        res.status(400).json({msg: "Server error"});
+        res.status(400).json({msg: "Server error", error: err.message });
     }
 })
 
@@ -50,7 +50,7 @@ router.post("/addToCart", auth, async (req, res) => {
 
     }catch(err){
         console.error(err);
-        res.status(400).json({ msg: "Server Error" });
+        res.status(400).json({ msg: "Server Error", error: err.message });
     }
 })
 
@@ -72,7 +72,7 @@ router.post("/removeItem", auth, async (req, res) => {
         res.status(200).json({msg: "Removed from cart"})
     }catch(err){
         console.error(err.message)
-        res.status(400).json({ msg: "Server Error" });
+        res.status(400).json({ msg: "Server Error", error: err.message });
     }
 })
 

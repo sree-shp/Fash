@@ -15,7 +15,7 @@ router.get("/getProducts", async (req, res) => {
     }
     catch(err){
         console.error(err.message);
-        return res.status(400).json({msg: "Server Error"})
+        return res.status(400).json({msg: "Server Error", error: err.message})
     }
 });
 
@@ -27,7 +27,7 @@ router.get("/getProductDetails", async (req, res) => {
     }
     catch(err){
         console.error(err.message);
-        return res.status(400).json({msg: "Server Error"})
+        return res.status(400).json({msg: "Server Error", error: err.message})
     }
 });
 
@@ -61,7 +61,7 @@ router.post("/createProductInventory", async (req, res) => {
     })
     res.status(200).json({ msg : "Inventory added"});
 } catch(err){
-    res.status(400).json({ msg: "Server Error"});
+    res.status(400).json({ msg: "Server Error", error: err.message});
 }
 })
 
@@ -79,7 +79,7 @@ router.post("/addInventoryId", async (req, res) => {
     res.status(200).json({msg: "Inventory Id added"});
 } catch(err){
     console.error(err.message);
-    res.status(400).json({ msg: "Server Error"});
+    res.status(400).json({ msg: "Server Error", error: err.message});
 }
 })
 
@@ -90,7 +90,7 @@ router.post("/addProducts", async (req, res) => {
         res.status(200).json({msg: "Product added"})
     } catch(err){
         console.error(err.message);
-        res.status(400).json({msg: "Server error"});
+        res.status(400).json({msg: "Server error", error: err.message});
     }
 })
 

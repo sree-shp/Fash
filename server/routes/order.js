@@ -14,7 +14,7 @@ router.post("/placeOrder",auth,  async (req,res) => {
         res.status(200).json({msg: "Order Placed"})
     }catch(err){
         console.error(err.message)
-        res.status(400).json({msg: "Server Error"});
+        res.status(400).json({msg: "Server Error", error: err.message});
     }
 })
 
@@ -26,7 +26,7 @@ router.get("/getOrders", auth, async(req, res) => {
         res.status(200).json({order});
     } catch(err){
         console.error(err.message);
-        res.status(400).json({msg: "Server Error"});
+        res.status(400).json({msg: "Server Error", error: err.message});
     }
 })
 
