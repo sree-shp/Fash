@@ -12,7 +12,7 @@ function ProductDetails() {
     const [loading, setLoading] = useState(false);
     const [error, setError ] = useState("");
     const discount = 15;
-    const [selectSize, setSelectSize] = useState();
+    const [selectSize, setSelectSize] = useState("S");
     const [isAdded, setIsAdded] = useState(false)
     
     
@@ -21,7 +21,7 @@ function ProductDetails() {
         async function fetchData()  {
             try{
                 setLoading(true);
-            const res = await axios.get("https://fash-server.onrender.com/api/products/getProductDetails",
+            const res = await axios.get("http://localhost:4000/api/products/getProductDetails",
             {
                 params: {
                     _id: params.id 
@@ -43,7 +43,7 @@ function ProductDetails() {
         
         try{
             setLoading(true);
-            const res = await axios.post("https://fash-server.onrender.com/api/cart/addToCart",
+            const res = await axios.post("http://localhost:4000/api/cart/addToCart",
             {
                 
                     
@@ -70,6 +70,7 @@ function ProductDetails() {
 
     function handleSizeChange(event) {
         setSelectSize(event.target.value);
+        console.log(event.target.value)
     }
 
     return(
@@ -80,6 +81,7 @@ function ProductDetails() {
                 {!loading && !error && data && <Photos images={data.images}/>}
                 {error && <Error />}
             </div>
+            <div className="details-wrapper">
             <div className="details-pane">
                 <div className="heading">
                     {data && <><h1 className="product-brand-name">{data.brand}</h1>
@@ -100,27 +102,32 @@ function ProductDetails() {
                     <p className="select-size-heading">Select Size</p>
                         <form className="order-form" onSubmit={handleFormSubmit}>
                            
-                            <div className="select size">
-                                <label className="small">
+                            <div className="select-size">
+                                <label className={"size " + (selectSize === "XS" ? "select" : "")} for="xs" >
                                     <input 
+                                        id="xs"
                                         type="radio" 
                                         value="XS" 
                                         name="size" 
                                         checked={"size" === "XS"}
                                         onChange={handleSizeChange}
-                                         />XS
+                                    />
+                                    XS
                                 </label>
-                                <label>
+                                <label for="s" className={"size " + (selectSize === "S" ? "select" : "")}>
                                 <input 
+                                    id="s"
                                         type="radio" 
                                         value="S" 
                                         name="size" 
                                         checked={"size" === "S"}
                                         onChange={handleSizeChange}
+                                        
                                          />S
                                 </label>
-                                <label>
+                                <label for="m" className={"size " + (selectSize === "M" ? "select" : "")}>
                                 <input 
+                                    id="m"
                                         type="radio" 
                                         value="M" 
                                         name="size" 
@@ -128,8 +135,9 @@ function ProductDetails() {
                                         onChange={handleSizeChange}
                                          />M
                                 </label>
-                                <label>
+                                <label for="l" className={"size " + (selectSize === "L" ? "select" : "")}>
                                 <input 
+                                    id="l"
                                         type="radio" 
                                         value="L" 
                                         name="size" 
@@ -137,8 +145,9 @@ function ProductDetails() {
                                         onChange={handleSizeChange}
                                          />L
                                 </label>
-                                <label>
+                                <label for="xl" className={"size " + (selectSize === "XL" ? "select" : "")}>
                                     <input 
+                                        id="xl"
                                             type="radio" 
                                             value="XL" 
                                             name="size" 
@@ -147,11 +156,12 @@ function ProductDetails() {
                                             />XL
                                 </label>
                                 <br />
-                                 <button type="submit">Add to Cart</button>
                             </div>
+                            <button  className="add-to-cart-btn" type="submit">Add to Cart</button>
                         </form>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     )

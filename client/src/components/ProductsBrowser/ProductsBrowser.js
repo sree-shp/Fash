@@ -12,14 +12,14 @@ function ProductsBrowser(props) {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
+    const [filters, setFilters] = useState([]);
     
-
     useEffect(function () {
        async function fetchData(){
             try{
                 setLoading(true);
                 const res = await axios.get( 
-                    "https://fash-server.onrender.com/api/products/getProducts",
+                    "http://localhost:4000/api/products/getProducts",
                     {
                         params: {
                             name: props.title
@@ -38,10 +38,40 @@ function ProductsBrowser(props) {
        fetchData(); 
     }, [props.title])
 
+    useEffect(
+      function () {
+        async function fetchData() {
+          try {
+            setLoading(true);
+            const res = await axios.get(
+              "http://localhost:4000/api/products/getProducts",
+              {
+                params: {
+                  name: props.title,
+                  filters: filters
+                }
+              }
+            );
+            setData(res.data);
+            if (res.data.length === 0) {
+              setError("No Matches Found");
+            } else setError("");
+            console.log(res);
+            setLoading(false);
+          } catch (err) {
+            console.error(err.message);
+            setError("Something went Wrong");
+            setLoading(false);
+          }
+        }
+        fetchData();
+      },
+      [filters]
+    );
 
     return (
         <div className="product-browser">
-            <Filters />
+            <Filters filters={filters} setFilters={setFilters}/>
             {loading && <ProductCardSkeleton />}
             
             {!loading && !error  && <ProductContainer

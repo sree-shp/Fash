@@ -3,9 +3,12 @@ import "./Photos.css"
 
 function Photos(props) {
     const [img, setImg] = useState(props.images);
-    function createPhotosGrid(photo){
+    const [selectedImg, setSelectedImg] = useState(0);
+    
+
+    function createPhotosGrid(photo, index){
         return(
-            <div className="photo-card">
+            <div className={(selectedImg === index ? "highlight-image ": "photo-card ")} key={index} onClick = { () => {setSelectedImg(index)}}>
                <img className="photo-card-img" src={photo} />
             </div>
         )
@@ -17,7 +20,7 @@ function Photos(props) {
                  
              </div>
              <div className="photo-display">
-                <img className="photo-display-img" src={img[0]} />
+                <img className="photo-display-img" src={img[selectedImg]} />
                 
              </div>
              

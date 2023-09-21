@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     async function getUserName(){
       try{
-        const res= await axios.get("https://fash-server.onrender.com/api/users/getUserName",{withCredentials: true});
+        const res= await axios.get("http://localhost:4000/api/users/getUserName",{withCredentials: true});
         console.log(res.data)
         setUserName(res.data.userName);
       }catch(err){
@@ -49,14 +49,28 @@ function App() {
         <Route path="/Orders" element={<Orders />} />
         
         {/* Category Routes */}
-        <Route path="/Top Wear" element={<ProductBrowser title="Top Wear"/>} />
+        <Route path="/TopWear" element={<ProductBrowser title="TopWear"/>} />
+        <Route path="/TopWear/:id" element={<ProductDetails/>} />
         <Route path="/Western Wear" element={<ProductBrowser title="Western Wear"/>} />
-        <Route path="/Active Wear" element={<ProductBrowser title="Active Wear"/>} />
-        <Route path="/Boys Clothing" element={<ProductBrowser title="Boys Clothing"/>} />
-        <Route path="/Sports Wear" element={<ProductBrowser title="Sports Wear"/>} />
-        <Route path="/Bath" element={<ProductBrowser title="Bath"/>} />
-        <Route path="/Foot Wear" element={<ProductBrowser title="Foot Wear"/>} />
-        <Route path="/Girls Clothing" element={<ProductBrowser title="Girls Clothing"/>} />
+        <Route path="/Western Wear/:id" element={<ProductDetails/>} />
+
+        <Route path="/ActiveWear" element={<ProductBrowser title="ActiveWear"/>} />
+        <Route path="/ActiveWear/:id" element={<ProductDetails/>} />
+
+        <Route path="/BottomWear" element={<ProductBrowser title="BottomWear"/>} />
+        <Route path="/BottomWear/:id" element={<ProductDetails/>} />
+
+        <Route path="/Sports & ActiveWear" element={<ProductBrowser title="Sports & ActiveWear"/>} />
+        <Route path="/Sports & ActiveWear/:id" element={<ProductDetails />} />
+
+        <Route path="/Indian & Fusion wear" element={<ProductBrowser title="Indian & Fusion wear"/>} />
+        <Route path="/Indian & Fusion wear/:id" element={<ProductDetails />} />
+
+        <Route path="/FootWear" element={<ProductBrowser title="FootWear"/>} />
+        <Route path="/FootWear/:id" element={<ProductDetails/>} />
+
+        <Route path="/FootWear" element={<ProductBrowser title="FootWear"/>} />
+        <Route path="/FootWear/:id" element={<ProductDetails/>} />
 
       
         {/* Men Routes */}

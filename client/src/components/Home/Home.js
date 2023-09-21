@@ -13,7 +13,7 @@ import Banner from "../Banner/Banner";
 
 function createCategoryCard(category) {
   return (
-    <Link to= {"/Men/"+ category.subCategory+"/" + category.name}  >
+    <Link to= {"/" + category.name}  >
     <Category
       key={category.id}
       img={category.img}

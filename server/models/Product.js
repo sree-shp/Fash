@@ -24,8 +24,12 @@ const productsSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    discount_id: {
-        type: ObjectId,
+    discountedPrice: {
+        type: Number,
+        default: 0
+    },
+    discount: {
+        type: Number,
     },
     rating: {
         type: Number

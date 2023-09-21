@@ -5,13 +5,28 @@ const Category = require("../models/ProductCategory");
 const ProductCategory = require('../models/ProductCategory');
 const ProductInventory = require('../models/ProductInventory');
 
+
 router.get("/getProducts", async (req, res) => {
-    const query = req.query;
-    console.log(query)
+    const query = req.query.name;
+    const filters = req.query.filters;
+    console.log(filters);
+    
     try{
-        const categoryId = await ProductCategory.findOne(query).select("_id");
-        console.log(categoryId);
-        const products = await Products.find({category_id: categoryId});
+        const categoryId = await ProductCategory.find({$or: [{name: query}, {subCategory: query}]}).select("_id");
+        
+        let products = await Products.find({category_id : {$in: categoryId}});
+        if(filters){
+            products = await Products.find({
+              $and: [
+                {
+                  category_id: { $in: categoryId }
+                },
+                { $and: filters }
+              ],
+            });
+
+        }
+
         res.status(200).json(products)
     }
     catch(err){
@@ -95,5 +110,52 @@ router.post("/addProducts", async (req, res) => {
     }
 })
 
+router.post("/addDiscount", async (req,res) => {
+    const query = req.body.brand;
+    const discount = req.body.discount;
+    try{
+        await Products.updateMany({discount: {$exists: false}}, {$set: {discount: 25}});
+        res.status(200).json({msg: "discount added"})
+
+    }catch(err){
+        console.error(err.message);
+        res.status(400).json({msg: "Server Error", error: err.message});
+    }
+})
+
+router.post("/addDiscountedPrice", async (req, res) => {
+  try { 
+    let products = await Products.find(
+      { discount: { $exists: true } },
+    );
+    products.forEach(async (item) => {
+        let disPrice = Math.round(item.price - (item.price * (item.discount/100))) ;
+        console.log(disPrice);
+        await Products.updateOne({_id: item.id}, {$set: {discountedPrice: disPrice}})
+    })
+    // products.forEach((item) => {
+    //     console.log(item.discount);
+    //     if(item.discount){
+    //         item.discountedPrice=  (item.price - (item.price * (item.discount/100)));
+    //     console.log(item);
+    //     }
+    // })
+
+    
+
+    console.log(await Products.find(
+      { discount: { $exists: true } },
+    ));
+    
+    res.status(200).json({ msg: "discount added" });
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ msg: "Server Error", error: err.message });
+  }
+});
+
+
+
 
 module.exports = router;
+

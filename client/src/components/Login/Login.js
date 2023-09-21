@@ -34,7 +34,7 @@ function Login(props) {
     try{
       setLoading(true);
       setMessage("Checking Credentials");
-      const res = await axios.post("https://fash-server.onrender.com/api/users/login",{
+      const res = await axios.post("http://localhost:4000/api/users/login",{
         email,
         password
       },{

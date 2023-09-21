@@ -1,33 +1,44 @@
 .photos{
-    display: grid;
-    grid-template-columns: 25% auto ;
-
+    display: grid; 
+     grid-template-columns: 25% auto ;
+    /* display: flex;
+    justify-content: flex-end; */
 }
 
 .photo-display-img{
-    max-width: 100%;
+    width: 100%;
     height: auto;
     object-fit: fill; 
 }
 
 .photo-display{
     display: flex;
-    justify-content: flex-start;
-    width: 100%;
+    justify-content: flex-end;
+    flex-grow: 10;
+    width: 80%;
+}
+.highlight-image{
+    max-width: 35%;
 }
 
 .photo-card{
-    max-width: 40%;
+    max-width: 30%;
+}
+
+.photo-card-img:hover{
+    border: 1px solid black;
 }
 
 .photo-card-img{
-    max-width: 80%;
+    max-width: 100%;
+    border-radius: 4px;
 }
 
-.photo-options{
+ .photo-options{
     display: flex;
     flex-direction: column;
-    padding: 15% 0%;
+    width: 100%;
     justify-content: center;
     align-items: center;
-}
+} 
+

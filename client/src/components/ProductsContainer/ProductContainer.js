@@ -13,17 +13,48 @@ function ProductContainer(props) {
   }, [props.list]);
 
   
-function createProductCard(product) {
+function createProductCard(product, index) {
   
   return (
-    <Link to={"/"+ props.productGroup+"/"+props.productSubCategory+"/" + props.ProductContainerName+ "/" + product._id}  >
-    <ProductCard
-      key={product._id}
-      productImg={product.images[0]}
-      productBrand={product.brand}
-      productPrice={product.price}
-    />
-    </Link>
+    <>
+      {props.productGroup ? (
+        <li key={index}>
+          <Link
+            to={
+              "/" +
+              props.productGroup +
+              "/" +
+              props.productSubCategory +
+              "/" +
+              props.ProductContainerName +
+              "/" +
+              product._id
+            }>
+            <ProductCard
+              key={index}
+              productImg={product.images[0]}
+              productBrand={product.brand}
+              productPrice={product.price}
+              productDiscountedPrice={product.discountedPrice}
+              productDiscount={product.discount}
+            />
+          </Link>
+        </li>
+      ) : (
+        <li key={index}>
+          <Link to={"/" + props.ProductContainerName + "/" + product._id}>
+            <ProductCard
+              key={index}
+              productImg={product.images[0]}
+              productBrand={product.brand}
+              productPrice={product.price}
+              productDiscountedPrice={product.discountedPrice}
+              productDiscount={product.discount}
+            />
+          </Link>
+        </li>
+      )}
+    </>
   );
 }
 
