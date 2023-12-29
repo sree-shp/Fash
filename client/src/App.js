@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     async function getUserName(){
       try{
-        const res= await axios.get("http://localhost:4000/api/users/getUserName",{withCredentials: true});
+        const res= await axios.get("https://fash-server.onrender.com/api/users/getUserName",{withCredentials: true});
         console.log(res.data)
         setUserName(res.data.userName);
       }catch(err){
@@ -71,6 +71,8 @@ function App() {
 
         <Route path="/FootWear" element={<ProductBrowser title="FootWear"/>} />
         <Route path="/FootWear/:id" element={<ProductDetails/>} />
+
+       
 
       
         {/* Men Routes */}

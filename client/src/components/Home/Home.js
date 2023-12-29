@@ -42,7 +42,7 @@ function Home() {
     <div className="Home">
       {/* Banner */}
 
-      <Banner>
+      <Banner >
         <img className="male" src={male} alt="" />
         <img className="female" src={female} alt="" />
       </Banner>
