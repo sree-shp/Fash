@@ -6,8 +6,6 @@ import Category from "../Category/Category";
 import categories from "../Category/HomeCategory/categories";
 import Deals from "../Deals/Deals";
 import dealsList from "../Deals/Deallist";
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import male from "./pngegg (1).png";
 import female from "./PngItem_384787.png";
 import Banner from "../Banner/Banner";
