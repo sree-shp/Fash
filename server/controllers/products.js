@@ -69,11 +69,11 @@ async function GetEndOfSeasonSaleProducts(req, res) {
   filters && (queryObj = JSON.parse(queryStr));
 
   try {
-    const categoryId = await ProductCategory.find({ group: title }).select(
+    const categoryId = await ProductCategory.find({ group: group }).select(
       "_id"
     );
     let products;
-    if (title) {
+    if (group) {
       //Products which match the fetched category Ids are found and stored in products
 
       // If filters are received from the frontend, find products based on filters
