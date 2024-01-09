@@ -3,11 +3,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.order-wrapper{
+/* .order-wrapper{
     border: 1px solid #ccc;
     border-radius: 20px;
-    /* padding: 2% 0%; */
-}
+    padding: 2% 0%;
+} */
 
 .order-id{
     font-weight: 600;
@@ -17,19 +17,21 @@
 .order-details{
     display: grid;
     grid-template-columns: 80% 20%;
-    border-bottom: 1px solid #ccc;
-    padding: 2%;
+    padding: 1% 0%;
+}
+
+.order-details-wrapper{
+    padding: 2% 0%;
 }
 
 .order-item-img{
     max-width: 15%;
-    border-radius: 16px;
 }
 
 .order-item-details{
     display: grid;
     grid-template-columns: 80% 20%;
-    padding: 2%
+    /* padding: 2% */
 }
 
 .order-column{

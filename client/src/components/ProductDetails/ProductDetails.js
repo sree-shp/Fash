@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Loading from "../Skeletons/ProductCardSkeleton";
+import Loading from "../Modals/Loading";
 import Photos from "../Photos/Photos";
 import "./ProductDetails.css";
-import Error from "../Error/Error";
+import Error from "../Modals/Error";
 
 function ProductDetails() {
     const params = useParams();
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError ] = useState("");
+    const [errorMsg, setErrorMsg] = useState("");
     const discount = 15;
     const [selectSize, setSelectSize] = useState("S");
     const [isAdded, setIsAdded] = useState(false)
@@ -43,43 +44,48 @@ function ProductDetails() {
         
         try{
             setLoading(true);
-            const res = await axios.post("https://fash-server.onrender.com/api/cart/addToCart",
-            {
-                
-                    
-                    productId: data._id,
-                    quantity: 1,
-                    size: selectSize,
-                    price: data.price,
-                    img: data.images[0],
-                    name: data.name,
-                    brand: data.brand
-                
-            },{
-                withCredentials: true
-            })
+            const res = await axios.post(
+              "https://fash-server.onrender.com/api/cart/addToCart",
+              {
+                productId: data._id,
+                quantity: 1,
+                size: selectSize,
+                price: data.price,
+                img: data.images[0],
+                name: data.name,
+                brand: data.brand,
+              },
+              {
+                withCredentials: true,
+              }
+            );
+            
             setLoading(false);
             setIsAdded(true);
-
         }catch(err){
             console.error(err.message);
-            setError("Something went wrong");
-            setLoading("false");
+            setLoading(false)
+            setError(true);
+            setErrorMsg("Login/Resgister to add to cart")
+            setTimeout(() => {
+              setError(false);
+            }, 1000);
+            console.error(err.message);
         }
     }
 
     function handleSizeChange(event) {
         setSelectSize(event.target.value);
-        console.log(event.target.value)
+       
     }
 
     return(
         <div className="product-details">
             <div className="photos-pane">
                 
-                {loading && <Loading />}
+                {loading && <Loading msg="Loading Product..."/>}
                 {!loading && !error && data && <Photos images={data.images}/>}
-                {error && <Error />}
+                {error && <Error msg={errorMsg}/>}
             </div>
             <div className="details-wrapper">
             <div className="details-pane">

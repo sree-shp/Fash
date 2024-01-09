@@ -1,24 +1,26 @@
 const categories = [
   {
     id: 1,
-    img: "https://i.pinimg.com/564x/70/42/cc/7042ccb6510b79f47715ae233e812ff9.jpg",
+    img: "https://img.freepik.com/free-photo/serious-young-man-standing-isolated-grey_171337-10538.jpg?t=st=1704263366~exp=1704263966~hmac=e2b83502e4afc6fff95a4c199e4f6d915331d26eea7c00965363b94394e8e5c0",
     name: "TopWear",
-    
+    color: "#205d5d",
+
     discount: "50-80% Off",
   },
 
   {
     id: 2,
-    img: "https://i.pinimg.com/564x/d4/a0/f2/d4a0f24c594059e103ce79043a2abdc1.jpg",
+    img: "https://img.freepik.com/premium-photo/full-length-relaxed-young-man-white-shirt-jeans-hat-sunglasses_171337-78599.jpg",
     name: "BottomWear",
-    subCategory: "TopWear",
+    color: "#1b3a4e",
     discount: "50-80% Off",
   },
 
   {
     id: 3,
-    img: "https://i.pinimg.com/736x/27/f7/fe/27f7fe533c2bad11313e5cf7bb10f3a0.jpg",
+    img: "https://i.pinimg.com/564x/34/5f/30/345f30f71f69011ef7e378a3cf1d2384.jpg",
     name: "FootWear",
+    color: "black",
     subCategory: "TopWear",
     discount: "30-70% Off",
   },
@@ -27,40 +29,18 @@ const categories = [
     id: 4,
     img: "https://i.pinimg.com/564x/e7/e1/8b/e7e18bd09a8bcdc044cd0e9390163cfd.jpg",
     name: "ActiveWear",
+    color: "#582314",
     subCategory: "BottomWear",
     discount: "30-70% Off",
   },
 
   {
     id: 5,
-    img: "https://i.pinimg.com/564x/34/5f/30/345f30f71f69011ef7e378a3cf1d2384.jpg",
+    img: "https://img.freepik.com/free-photo/stunning-dark-blonde-model-elegant-clothing_132075-7611.jpg?t=st=1704264031~exp=1704264631~hmac=1946e6d60cef96f8c73d239fae96a3a42173a1371d38e9689517eccec32c88a3",
     name: "Western Wear",
+    color: "#b29980",
     subCategory: "BottomWear",
     discount: "30-80% Off",
-  },
-
-  {
-    id: 6,
-    img: "https://i.pinimg.com/564x/12/c3/3d/12c33de3ed03f7287b5ba4dd15c302d6.jpg",
-    name: "Indian & Fusion wear",
-    subCategory: "BottomWear",
-    discount: "40-70% Off",
-  },
-
-  {
-    id: 7,
-    img: "https://i.pinimg.com/564x/cc/75/3f/cc753f3ec43afebfc4fff0da006ffc34.jpg",
-    name: "Sports & ActiveWear",
-    subCategory: "FootWear",
-    discount: "40-70% Off",
-  },
-
-  {
-    id: 8,
-    img: "https://i.pinimg.com/736x/80/53/f3/8053f3d78aceac3a8fbe7c143d2b1480.jpg",
-    name: "FootWear",
-    subCategory: "FootWear",
-    discount: "50-70% Off",
   },
 ];
 

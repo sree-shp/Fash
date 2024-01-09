@@ -1,5 +1,6 @@
 import React from "react";
 import "./Banner.css";
+import { Link } from "react-router-dom";
 
 function Banner(props) {
   return (
@@ -9,7 +10,9 @@ function Banner(props) {
           END OF SEASON <br /> SALE
         </h1>
         <h2 className="discount">40-70%</h2>
-        <button className="shop-now">Shop Now</button>
+        <Link to={props.EoSSLink}>
+          <button className="shop-now">Shop Now</button>
+        </Link>
       </div>
 
       {props.children}

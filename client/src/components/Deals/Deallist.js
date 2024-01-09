@@ -2,7 +2,7 @@ const dealsList = [
   {
     id: 1,
     img: "https://i.pinimg.com/736x/b8/d5/ed/b8d5edf7690b9e89374fd7d2cc102ca3.jpg",
-    name: "Kurtas",
+    name: "Jeans",
     discount: "Under 599",
   },
 
@@ -23,7 +23,7 @@ const dealsList = [
   {
     id: 4,
     img: "https://i.pinimg.com/564x/6b/58/d0/6b58d0dd7ac21ff6a9eac8bee4e95bd5.jpg",
-    name: "Casual shoes",
+    name: "Tracksuits",
     discount: "Upto 70% Off",
   },
 ];

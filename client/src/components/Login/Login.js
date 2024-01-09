@@ -24,7 +24,7 @@ function Login(props) {
     setFormData(
       {...formData, [e.target.name]:  e.target.value}
       );
-      console.log(e.target.value)
+      
     }
 
   let msg=""
@@ -53,12 +53,12 @@ function Login(props) {
       
     }catch(err){
       setLoading(false)
-      console.log(err)
+      
         setMessage(err.response .data.msg);
       setError(true);
       setTimeout(() => {
         setError(false);
-        console.log("jello")
+        
       }, 1000)
       console.error(err.message)      
     }

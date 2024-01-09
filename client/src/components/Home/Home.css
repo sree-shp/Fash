@@ -16,9 +16,9 @@
 
 .category-wrapper{
     display: grid;
-    grid-template-columns: auto auto auto auto ;
+    grid-template-columns: auto auto auto auto auto;
     text-align: center;
-    gap: 25px;
+   
 }
 
 .third-section{
@@ -27,9 +27,15 @@
 }
 
 .deals-wrapper{
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    gap: 50px 25px;
+    /* height: 200px; */
+}
+
+.carasouel-images{
+    position: relative;
+}
+
+.bg-img-carasouel{
+    height: 600px;
 }
 
 @media (max-width: 768px) {

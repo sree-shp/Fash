@@ -1,58 +1,42 @@
 const categories = [
   {
     id: 1,
-    img: "https://i.pinimg.com/564x/70/42/cc/7042ccb6510b79f47715ae233e812ff9.jpg",
-    name: "Indian Wear",
+    img: "https://img.freepik.com/free-photo/close-up-boy-wearing-blue-sneakers-practicing-with-green-skateboard-active-urban-lifestyle-youth-training-hobby-activity-active-outdoor-sport-kids-child-skateboarding_158595-6227.jpg?t=st=1704351001~exp=1704351601~hmac=cfd0be3dec53faee7561d1391933ec6c4dafe45fcdb9011feb632e2bfd554d77",
+    name: "T-Shirts",
     discount: "50-80% Off",
+    color: "#7daebc",
   },
 
   {
     id: 2,
-    img: "https://i.pinimg.com/564x/d4/a0/f2/d4a0f24c594059e103ce79043a2abdc1.jpg",
-    name: "Indian Wear",
+    img: "https://img.freepik.com/free-photo/front-view-cute-child-boy-white-t-shirt-yellow-jeans-holding-green-skateboard-blue-floor_179666-1008.jpg?t=st=1704350869~exp=1704351469~hmac=a31b97ea3c58cebe21849c2ae8339816d52bbe0d04730c100ff1b084d29ccab5",
+    name: "Shorts",
     discount: "50-80% Off",
+    color: "#493327",
   },
 
   {
     id: 3,
-    img: "https://i.pinimg.com/736x/27/f7/fe/27f7fe533c2bad11313e5cf7bb10f3a0.jpg",
-    name: "Active Wear",
+    img: "https://img.freepik.com/free-photo/close-up-cute-child-portrait_23-2149153275.jpg?w=826&t=st=1704350816~exp=1704351416~hmac=d56d5fc13d6bc42d16477952b93b0a9876ab8a4675fd583e5cb008a2516fdf96",
+    name: "Tops",
     discount: "30-70% Off",
+    color: "black",
   },
 
   {
     id: 4,
-    img: "https://i.pinimg.com/564x/e7/e1/8b/e7e18bd09a8bcdc044cd0e9390163cfd.jpg",
-    name: "Active Wear",
+    img: "https://img.freepik.com/free-photo/different-color-flip-flops-beach_23-2148164614.jpg?t=st=1704350717~exp=1704351317~hmac=97caf2fa31212f737d59f81b09119cbf4c754893445522994c46ac3781860def",
+    name: "Flip Flops",
     discount: "30-70% Off",
+    color: "#bf2c2a",
   },
 
   {
     id: 5,
-    img: "https://i.pinimg.com/564x/34/5f/30/345f30f71f69011ef7e378a3cf1d2384.jpg",
-    name: "Sports Wear ",
+    img: "https://img.freepik.com/free-photo/top-view-baby-with-stuffed-toy_23-2150573695.jpg?t=st=1704350556~exp=1704351156~hmac=674ed5afafdbd22ddfd5e5fade749a5cb75839f4700074d86fcb4ffb7c9f3e95",
+    name: "Bodysuits",
     discount: "30-80% Off",
-  },
-
-  {
-    id: 6,
-    img: "https://i.pinimg.com/564x/12/c3/3d/12c33de3ed03f7287b5ba4dd15c302d6.jpg",
-    name: "Formal Wear",
-    discount: "40-70% Off",
-  },
-
-  {
-    id: 7,
-    img: "https://i.pinimg.com/564x/cc/75/3f/cc753f3ec43afebfc4fff0da006ffc34.jpg",
-    name: "Formal Wear",
-    discount: "40-70% Off",
-  },
-
-  {
-    id: 8,
-    img: "https://i.pinimg.com/736x/80/53/f3/8053f3d78aceac3a8fbe7c143d2b1480.jpg",
-    name: "Kids Wear",
-    discount: "50-70% Off",
+    color: "#a6826c",
   },
 ];
 

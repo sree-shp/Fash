@@ -2,14 +2,21 @@ import React from "react";
 import { useState } from "react";
 
 function BrandsFilter({filters, setFilters}){
+
+    // State for check boxes 
     const [ brandsChecked, setBrandsChecked ] = useState(
         new Array(5).fill(false)
       );
+
+    // Handler function 
+    // Finds which the choice is selected and updates the brands checked state
     function handleBrandsChange(event, position){
-        console.log(event)
+        // Store a new array
+        // if index matches the position, its value is toggled to either true or false
         const updatedBrandsState = brandsChecked.map((item, index) => 
           index === position ? !item : item
         )
+        // The state is updated from which we can find out which choice has
         setBrandsChecked(updatedBrandsState);
         if(!brandsChecked[position]){
           setFilters([...filters, {brand: event.target.value}]);

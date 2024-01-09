@@ -41,7 +41,7 @@ function Orders() {
     // To Create list of Order Items 
 
     function createOrderItem(order){
-       console.log(order.orderItems)
+       
         return(
             <OrderList
                 key={order._id}

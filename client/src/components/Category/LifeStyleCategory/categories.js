@@ -1,58 +1,42 @@
 const categories = [
   {
     id: 1,
-    img: "https://i.pinimg.com/564x/70/42/cc/7042ccb6510b79f47715ae233e812ff9.jpg",
-    name: "Indian Wear",
+    img: "https://img.freepik.com/free-photo/straw-hat-blue-flip-flop-sunglasses-kept-beach-blanket_1252-515.jpg?t=st=1704351271~exp=1704351871~hmac=70c6ff586db1675afcc9550b131eac1cc730940af4af74bde494db97049c47e9",
+    name: "Beach Towels",
     discount: "50-80% Off",
+    color: "#f8857d",
   },
 
   {
     id: 2,
-    img: "https://i.pinimg.com/564x/d4/a0/f2/d4a0f24c594059e103ce79043a2abdc1.jpg",
-    name: "Indian Wear",
+    img: "https://img.freepik.com/free-photo/comfortable-pillow-bed_74190-6904.jpg?t=st=1704351359~exp=1704351959~hmac=67958b9084310516941f8257e3827ef47ed7201ee63a03ec359ac2d8461a0913",
+    name: "Table Lamps",
     discount: "50-80% Off",
+    color: "#493b21",
   },
 
   {
     id: 3,
-    img: "https://i.pinimg.com/736x/27/f7/fe/27f7fe533c2bad11313e5cf7bb10f3a0.jpg",
-    name: "Active Wear",
+    img: "https://img.freepik.com/free-photo/high-angle-cozy-bed-arrangement_23-2150326149.jpg?t=st=1704351465~exp=1704352065~hmac=09e692f2667e02d95ee9d47748d605cca010250c9387124e8662702aeb4d0c92",
+    name: "Bedsheets",
     discount: "30-70% Off",
+    color: "#342c27",
   },
 
   {
     id: 4,
-    img: "https://i.pinimg.com/564x/e7/e1/8b/e7e18bd09a8bcdc044cd0e9390163cfd.jpg",
-    name: "Active Wear",
+    img: "https://img.freepik.com/free-photo/beautiful-composition-spa-bath-concept_23-2148094127.jpg?t=st=1704351583~exp=1704352183~hmac=ffa43ba7cdbfc9e8b3db62045d295e0ba8f320bd161a28b672ea88d43f9293eb",
+    name: "Bath Towels",
     discount: "30-70% Off",
+    color: "#406348",
   },
 
   {
     id: 5,
-    img: "https://i.pinimg.com/564x/34/5f/30/345f30f71f69011ef7e378a3cf1d2384.jpg",
-    name: "Sports Wear ",
+    img: "https://img.freepik.com/premium-photo/cute-orange-themed-clock-green-clock-with-gradient-green-background-green-clock-with-copy-space_768106-4695.jpg",
+    name: "Clocks",
     discount: "30-80% Off",
-  },
-
-  {
-    id: 6,
-    img: "https://i.pinimg.com/564x/12/c3/3d/12c33de3ed03f7287b5ba4dd15c302d6.jpg",
-    name: "Formal Wear",
-    discount: "40-70% Off",
-  },
-
-  {
-    id: 7,
-    img: "https://i.pinimg.com/564x/cc/75/3f/cc753f3ec43afebfc4fff0da006ffc34.jpg",
-    name: "Formal Wear",
-    discount: "40-70% Off",
-  },
-
-  {
-    id: 8,
-    img: "https://i.pinimg.com/736x/80/53/f3/8053f3d78aceac3a8fbe7c143d2b1480.jpg",
-    name: "Kids Wear",
-    discount: "50-70% Off",
+    color: "#e48319",
   },
 ];
 

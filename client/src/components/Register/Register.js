@@ -41,8 +41,6 @@ function Register(props) {
         setTimeout(() => {
           navigate("/");
         }, 1000);
-       
-        
       }
       else{
        

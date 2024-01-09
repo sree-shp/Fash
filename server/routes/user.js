@@ -5,10 +5,10 @@ const { check,validationResult, body } = require("express-validator");
 const User = require('../models/User');
 const auth = require("../middleware/auth");
 const jwt = require("jsonwebtoken")
+const {registerUser, GetUserName} = require("../controllers/user");
 
 
-
-
+// Route to register a new user
 router.post(
     "/register", 
     [
@@ -18,30 +18,13 @@ router.post(
         body("telephone", "Enter a valid Phone number").isLength(10)
     ],
 
-    Controller.registerUser
+    registerUser
 );
 
-router.get("/getUserName", async (req, res) => {
-    const token = req.cookies.token;
-    console.log(token)
-    if(!token){
-        return res.status(401).json({msg: "no token found"})
-    }
+// Route to get user name
+router.get("/getUserName", GetUserName);
 
-    try{
-        const decoded = jwt.verify(token, process.env.SECRET);
-        const UserId = decoded.user.id;
-        console.log(UserId)
-        const userName = await User.find({_id: UserId}).select("name");
-        console.log(userName)
-        res.status(200).json({userName: userName[0].name});
-           
-    } catch (err){
-        console.error(err.message)
-        res.status(401).json({ msg: "Token is not valid", error: err.message});
-    }
-});
-
+// Route to login a user
 router.post(
     '/login', 
     [

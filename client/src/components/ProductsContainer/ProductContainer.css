@@ -1,3 +1,25 @@
 .product-container{
+    margin: 2.5% 5%;
+}
+
+.product-sort-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sort-container{
+    flex-grow: 1;
+}
+
+.product-container-heading{
+    flex-grow: 10;
+}
+
+.sort-container select{
+    padding: 2%;
     margin: 0% 5%;
+    border: 1px solid #ededed;
+    background-color: white;
+    font-family: Poppins ;
 }

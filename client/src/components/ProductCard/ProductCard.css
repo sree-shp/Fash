@@ -1,25 +1,29 @@
 .product-img{
     width: 100%;
     object-fit: cover;
-    border-radius: 10px;
 }
 
 .price-wrapper{
     display: flex;
-    gap: 20px;
+    flex-grow: 2;
 }
 
 .product-price{
     font-weight: 500;
+    padding: 0% 5% 0% 0%;
 }
 
 .origin-price{
     text-decoration: line-through;
     color: #9b9b9b;
+    padding: 0% 5%;
 }
 
 .product-discount{
     color: orange;
+    flex-grow: 1;
+    text-align: right;
+    padding-right: 1%;
 }
 
 .product-card-wrapper{
@@ -55,7 +59,3 @@
     padding: 4%;
 }
 
-.product-card:hover{
-    border: 1px solid grey;
-    border-radius: 10px;
-}

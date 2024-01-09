@@ -5,8 +5,9 @@ function DiscountFilter({ filters, setFilters }) {
   const [discount, setDiscount] = useState();
 
   function handleDiscountChange(event) {
-    console.log(event.target.value)
+    
     setDiscount(event.target.value);
+    let temp=event.target.value
     let res;
     filters.forEach((item) => {
       if (item.hasOwnProperty("discount")) return (res = true);
@@ -14,29 +15,30 @@ function DiscountFilter({ filters, setFilters }) {
     let result;
     switch (event.target.value) {
       case "10":
-        result = { $lte: 10 };
+        result = { discount: { "[lte]": "10" } };
         break;
       case "20":
-        result = { $lte: 20 };
+        result = { discount: { "[lte]": "20" } };
         break;
       case "30":
-        result = { $lte: 30 };
+        result = { discount: { "[lte]": "30" } };
         break;
       case "40":
-        result = { $lte: 40 };
+        result = { discount: { "[lte]": "40" } };
         break;
       case "50":
-        result = { $lte: 50};
+        result = {discount: { "[lte]": "50" }};
         break;
     }
-    console.log(result)
+    
+
     if (!res) {
-      setFilters([...filters, { discount: result }]);
+      setFilters([...filters, result]);
     } else {
       setFilters(
-        filters.filter((item) => {
+        filters.filter((item, discount) => {
           if (item.hasOwnProperty("discount")) {
-            item.discount = result;
+          item.discount = {"[lte]": temp}
             return item;
           } else {
             return item;

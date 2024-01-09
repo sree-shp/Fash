@@ -14,9 +14,11 @@ function ProductCard(props) {
         <h3 className="product-name">{props.productBrand}</h3>
 
         <div className="price-wrapper">
-          <p className="product-price">{props.productDiscountedPrice}</p>
-          <p className="origin-price">{props.productPrice}</p>
-          <p className="product-discount">{props.productDiscount}%</p>
+          <div className="price-wrapper">
+            <p className="product-price">Rs {props.productDiscountedPrice}</p>
+            <p className="origin-price">{props.productPrice}</p>
+          </div>
+          <p className="product-discount">{props.productDiscount}% Off</p>
         </div>
       </div>
     </div>

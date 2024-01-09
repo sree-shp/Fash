@@ -1,71 +1,71 @@
 const menCategories = [
   {
     id: 1,
-    img: "https://assets.myntassets.com/h_1440,q_720,w_1080/v1/assets/images/productimage/2019/12/12/1aab2a18-6774-4f83-b292-fe301755a3351576102551329-1.jpg",
+    img: "https://img.freepik.com/free-photo/young-handsome-man-posing_144627-28067.jpg?t=st=1704346599~exp=1704347199~hmac=7603aeac3d1442b4938359709c6ade8445a2369980989d03f0f91375297387e6",
     name: "T-Shirts",
+    color: "black",
   },
 
   {
     id: 2,
-    img: "https://assets.myntassets.com/h_1440,q_720,w_1080/v1/assets/images/21189754/2023/1/9/8b9c4d9d-7058-4149-ab48-8f9c037ffbac1673266930952-WROGN-Men-Shirts-511673266930480-1.jpg",
+    img: "https://img.freepik.com/premium-photo/young-bearded-man-model-fashion-wearing-plaid-shirt-with-green-blind-him_1139-1350.jpg",
     name: "Casual Shirts",
+    color: "#a73539",
   },
 
   {
     id: 3,
-    img: "https://assets.myntassets.com/h_1440,q_720,w_1080/v1/assets/images/16070530/2021/12/7/eebece5d-e9b8-4388-b9b9-19a316b6bc3d1638861329151-Raymond-Men-Shirts-5801638861328641-1.jpg",
-    name: " Formal Shirts",
+    img: "https://img.freepik.com/free-photo/serious-young-man-standing-isolated-grey_171337-10386.jpg?t=st=1704346853~exp=1704347453~hmac=321e306b2da1a74f211227627c85c8623dfbbe235810120854304b7f0b866c3b",
+    name: "Formal Shirts",
+    color: "#144445",
   },
 
   {
     id: 4,
-    img: "https://assets.myntassets.com/h_1440,q_720,w_1080/v1/assets/images/18074862/2022/9/22/af2b889b-dfca-41d2-826b-2d7109ecbdd21663838474317-Levis-Men-Blue-512-Tapered-Fit-Light-Fade-Stretchable-Jeans--1.jpg",
+    img: "https://img.freepik.com/free-photo/young-curly-man-sitting-studio-chair-isolated-white-wall_231208-1181.jpg?t=st=1704346943~exp=1704347543~hmac=ce358be5e3e3ded172cfa38430b360decae4d02ee623fe9440f98660e40530ae",
     name: "Jeans",
+    color: "#272e3c",
   },
 
   {
     id: 5,
-    img: "https://assets.myntassets.com/h_1440,q_720,w_1080/v1/assets/images/8881403/2019/3/7/bbef6185-80a9-46f4-a76a-a94284ab41711551958900994-DENNISON-Men-Grey-Smart-Tapered-Fit-Solid-Formal-Trousers-31-1.jpg",
+    img: "https://img.freepik.com/premium-photo/portrait-happy-young-formal-dressed-man-leaning_171337-31372.jpg",
     name: "Casual Trousers",
+    color: "#654134",
   },
 
-  {
-    id: 6,
-    img: "https://assets.myntassets.com/h_1440,q_720,w_1080/v1/assets/images/19854486/2022/9/9/13b34179-076a-4b51-ab51-476789ac0ae91662723942230PeterEnglandMenGreySlimFitTrousers1.jpg",
-    name: "Formal Trousers",
-  },
+  // {
+  //   id: 6,
+  //   img: "https://img.freepik.com/free-photo/business-african-american-happy-man_1303-2179.jpg?t=st=1704347158~exp=1704347758~hmac=48fa7acf97c074093be4e3d6e92973327f11ffb0e824a157c0c0fa2c8ad1a916",
+  //   name: "Formal Trousers",
+  //   color: "#272117",
+  // },
 
-  {
-    id: 7,
-    img: "https://assets.myntassets.com/h_1440,q_720,w_1080/v1/assets/images/17425548/2022/9/8/77ef6940-a1a1-40af-bf58-e92bc349b8d11662633779415RoadsterMenBlackSneakers1.jpg",
-    name: "Casual Shoes",
-  },
-  {
-    id: 8,
-    img: "https://assets.myntassets.com/h_1440,q_720,w_1080/v1/assets/images/17146694/2023/1/27/8a482cb8-e373-433e-8f47-db4a68cc28431674799619665-ADIDAS-Men-Sports-Shoes-4391674799619444-2.jpg",
-    name: "Sports Shoes",
-  },
-  {
-    id: 9,
-    img: "https://assets.myntassets.com/h_1440,q_720,w_1080/v1/assets/images/16877398/2022/2/18/18fa246d-cd88-4c9c-bb7d-f1a901a0956c1645161686971-Louis-Philippe-Men-Formal-Shoes-7801645161686574-1.jpg",
-    name: "Formal Shoes",
-  },
+  // {
+  //   id: 7,
+  //   img: "https://img.freepik.com/premium-photo/male-legs-white-leather-summer-shoes-comfortable-men-s-white-sneakers-with-laces-casual-men-s-sneakers_173815-42687.jpg",
+  //   name: "Casual Shoes",
+  //   color: "#748489",
+  // },
+  // {
+  //   id: 8,
+  //   img: "https://img.freepik.com/premium-photo/hand-holds-hanging-gray-running-sneakers-by-laces-black-wall-hand-with-new-sport-shoe-stability-cushion-running-shoes-close-up_179369-789.jpg?w=360",
+  //   name: "Sports Shoes",
+  //   color: "#68b6db",
+  // },
+  // {
+  //   id: 9,
+  //   img: "https://img.freepik.com/premium-photo/business-man-accesories-concept_772702-389.jpg",
+  //   name: "Formal Shoes",
+  //   color: "#b17047",
+  // },
 
-  {
-    id: 10,
-    img: "https://assets.myntassets.com/h_1440,q_720,w_1080/v1/assets/images/10106341/2019/9/5/e5bd4bb5-b746-44b1-92fd-1b20906c60031567656798859-HRX-by-Hrithik-Roshan-Men-Tshirts-5601567656797772-1.jpg",
-    name: "Active T-Shirts",
-  },
-  {
-    id: 11,
-    img: "https://assets.myntassets.com/h_1440,q_720,w_1080/v1/assets/images/6791058/2018/11/28/45451b7c-6543-405e-b882-6cd1f4fa17521543388587952-HRX-by-Hrithik-Roshan-Active-Black-Solid-Track-Pants-461543388587221-1.jpg",
-    name: "Track Pants & Shorts",
-  },
-  {
-    id: 12,
-    img: "https://assets.myntassets.com/h_1440,q_720,w_1080/v1/assets/images/18962632/2022/8/26/6baaca64-1bc9-441c-bd90-7d69a47977b01661511535057-AS-M-NK-CLUB-LND-WVN-TRK-SUIT-1581661511534321-1.jpg",
-    name: "Track Suits",
-  },
+  // {
+  //   id: 10,
+  //   img: "https://img.freepik.com/free-photo/young-man-training-gym-bodybuilding_23-2149552274.jpg?t=st=1704347706~exp=1704348306~hmac=fc522a843163d7608233c68e5920d4807a5c0f032cbd07a5f5f9be8ffd712eb2",
+  //   name: "Active T-Shirts",
+  //   color: "#242c3c",
+  // },
 ];
 
 export default menCategories;

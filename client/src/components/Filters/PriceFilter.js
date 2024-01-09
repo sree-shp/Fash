@@ -7,23 +7,48 @@ function PriceFilter({ filters, setFilters }){
       );
 
     function handlePriceChange(event, position){
-        console.log(event)
-        let result;
+        
+        let result1,result2;
         switch (event.target.value) {
           case "100-1000":
-            result = { $gt: 100, $lt: 1000 };
+            result1 = {
+              discountedPrice: {
+                "[gt]": "100",
+              },
+            };
+            result2 = { discountedPrice: { "[lt]": "1000" } };
             break;
           case "1000-2000":
-            result = { $gt: 1000, $lt: 2000 };
+            result1 = {
+              discountedPrice: {
+                "[gt]": "1000",
+              },
+            };
+            result2 = { discountedPrice: { "[lt]": "2000" } };
             break;
           case "2000-3000":
-            result = { $gt: 2000, $lt: 3000 };
+           result1 = {
+             discountedPrice: {
+               "[gt]": "2000",
+             },
+           };
+           result2 = { discountedPrice: { "[lt]": "3000" } };
             break;
           case "3000-4000":
-            result = { $gt: 3000, $lt: 4000 };
+           result1 = {
+             discountedPrice: {
+               "[gt]": "3000",
+             },
+           };
+           result2 = { discountedPrice: { "[lt]": "4000" } };
             break;
           case ">4000":
-            result = { $gt: 4000};
+            result1 = {
+              discountedPrice: {
+                "[gt]": "4000",
+              },
+            };
+            result2 = {discountedPrice: {"[lt]": "10000"}}
             break;
         }
         const updatedPriceState = priceChecked.map((item, index) => 
@@ -31,12 +56,13 @@ function PriceFilter({ filters, setFilters }){
         )
         setPriceChecked(updatedPriceState);
         if(!priceChecked[position]){
-          setFilters([...filters, {discountedPrice: result}]);
+          setFilters((filters) => ([...filters, result1]));
+         
+          setFilters((filters) => ([...filters, result2]));
         }
         else{
           setFilters(filters.filter((item) => {
-
-              if (item.discountedPrice.$gt === result.$gt) {
+              if (JSON.stringify(item) === JSON.stringify(result1) || JSON.stringify(item) === JSON.stringify(result2)) {
                 return;
               } else {
                 return item;

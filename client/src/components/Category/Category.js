@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Category.css";
 
 function Category(props) {
-  return (
-    <div className="category">
-      <div className="image-backdrop-container">
-        <div className="image-container">
-          <img className="category-image" src={props.img} alt="" />
-        </div>
-      </div>
+  const [active, setActive] = useState(false);
 
-      <div className="category-details">
-        <h2 className="category-name">{props.name}</h2>
+  function onMouseEnter(){
+      setActive(true)
+  }
+
+  function onMouseLeave() {
+    setActive(false);
+  }
+  return (
+    <div className="category" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+      <div className="image-container" >
+        <img className={"category-image " +  (active? "zoom-in": "zoom-out")} src={props.img} alt="" />
+        <div className="category-details">
+          <div
+            className={"category-color-card " + (active ? "active": "inactive")}
+            style={{ backgroundColor: props.color }}></div>
+          <h2 className="category-name">{props.name}</h2>
+        </div>
       </div>
     </div>
   );

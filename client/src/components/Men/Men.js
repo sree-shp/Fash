@@ -18,6 +18,7 @@ function createCategoryCard(category) {
           img={category.img}
           name={category.name}
           discount={category.discount}
+          color={category.color}
         />
       </Link>
     </div>
@@ -27,7 +28,7 @@ function createCategoryCard(category) {
 function Men() {
   return (
     <div className="Men">
-      <Banner>
+      <Banner EoSSLink="/End Of Season Sale/Men">
         <img className="men-img2" src={MImg1} alt="" />
         <img className="men-img1" src={MImg2} alt="" />
       </Banner>

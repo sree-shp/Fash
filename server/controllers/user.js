@@ -81,7 +81,7 @@ async function loginUser(req, res){
         }
 
         const isMatch = await bcrypt.compare(password, user.password);
-        console.log(isMatch)
+        
 
         if(!isMatch){
             return res.status(400).json({ msg: "Invalid Credentials"});
@@ -96,7 +96,7 @@ async function loginUser(req, res){
             process.env.SECRET,
             {expiresIn: 3600000},
         )
-        console.log(token)
+       
         res.cookie("token", token,{
             withCredentials: true
         })
@@ -107,4 +107,29 @@ async function loginUser(req, res){
     }
 }
 
-module.exports = {registerUser, authUser, loginUser};
+async function GetUserName(req, res){
+    // Store the token from the cookies
+    const token = req.cookies.token;
+    // Check if the token is present
+    if (!token) {
+        // If token is present, send status as 401(Unauthorized) along with msg no token found
+        return res.status(401).json({ msg: "no token found" });
+    }
+    try {
+        // Store the decoded json web token with the Secret key
+        const decoded = jwt.verify(token, process.env.SECRET);
+        // Store the user Id from the decoded json web token
+        const UserId = decoded.user.id;
+        // Find the user for the given userId and select only the name
+        const userName = await User.find({ _id: UserId }).select("name");
+        // Send the status 200(All Ok) along with the username as json object
+        res.status(200).json({ userName: userName[0].name });
+    } catch (err) {
+      // Log the error message to the console
+      console.error(err.message);
+      // Send the status as 400(Bad Request) along with the error message
+      res.status(401).json({ msg: "Token is not valid", error: err.message });
+    }
+};
+
+module.exports = {registerUser, authUser, loginUser, GetUserName};
