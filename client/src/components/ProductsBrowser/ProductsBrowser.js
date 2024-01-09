@@ -46,7 +46,7 @@ function ProductsBrowser(props) {
             
             if(props.EoSS){
                res = await axios.get(
-                 "http://localhost:4000/api/products/getEndOfSeasonSaleProducts",
+                 "https://fash-server.onrender.com/api/products/getEndOfSeasonSaleProducts",
                  {
                    params: {
                      group: props.title,
@@ -59,7 +59,7 @@ function ProductsBrowser(props) {
           
             }else{
                  res = await axios.get(
-                   "http://localhost:4000/api/products/getProducts",
+                   "https://fash-server.onrender.com/api/products/getProducts",
                    {
                      params: {
                        name: props.title,

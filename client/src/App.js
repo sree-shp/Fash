@@ -19,7 +19,7 @@ function App() {
     async function getUserName(){
       try{
         const res= await axios.get(
-          "http://localhost:4000/api/users/getUserName",
+          "https://fash-server.onrender.com/api/users/getUserName",
           {
             withCredentials: true
           });

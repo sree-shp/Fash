@@ -20,7 +20,7 @@ function Orders() {
             try{
                 setLoading(true);
                 setMessage("Loading Your Orders");
-                const res = await axios.get("http://localhost:4000/api/orders/getOrders",{
+                const res = await axios.get("https://fash-server.onrender.com/api/orders/getOrders",{
                     withCredentials: true
                 })
                 setOrders(res.data.order)

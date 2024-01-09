@@ -6,9 +6,7 @@ import SearchBox from "./SearchBox";
 import LastMenu from "./LastMenu";
 
 
-function Navbar(props) {
-
-  const { userName, setUserName, removeCookies } = props;
+function Navbar({ userName, setUserName, removeCookies }) {
   
   return (
     <div className="Navbar">
