@@ -34,7 +34,7 @@ function Cart(props){
           //Store the response from the server
           //It will return 401 status(unauthorized) when not logged in
           const res = await axios.get(
-            "https://fash-server.onrender.com/api/cart/getCart",
+            "http://localhost:4000/api/cart/getCart",
             {
               withCredentials: true,
             }
@@ -94,7 +94,7 @@ function Cart(props){
             setMessage("Placing Order")
 
             // Post request to place order 
-            const res = await axios.post("https://fash-server.onrender.com/api/orders/placeOrder",{
+            const res = await axios.post("http://localhost:4000/api/orders/placeOrder",{
                 products: cartData.product,
                 total: cartData.total
             },{

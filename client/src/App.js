@@ -9,7 +9,7 @@ import axios from "axios";
 import RoutesList from "./Routes";
 
 function App() {
-  const[removeCookies] = useCookies();
+  const[cookies, setCookie, removeCookies] = useCookies();
   const[userName, setUserName] = useState("");
   const [selectedId, setSelectedId] = useState();
 
@@ -19,7 +19,7 @@ function App() {
     async function getUserName(){
       try{
         const res= await axios.get(
-          "https://fash-server.onrender.com/api/users/getUserName",
+          "http://localhost:4000/api/users/getUserName",
           {
             withCredentials: true
           });
@@ -36,12 +36,12 @@ function App() {
     <div className="App">
       {/* Navbar  */}
       <Navbar
-        userName
-        setUserName
-        removeCookies
-        selectedId
+        userName={userName}
+        setUserName={setUserName}
+        removeCookies={removeCookies}
+        selectedId={selectedId}
       />
-      <RoutesList userName setUserName selectedId setSelectedId/>
+      <RoutesList userName={userName} setUserName={setUserName} selectedId={selectedId} setSelectedId={selectedId}/>
       
     </div>
   );

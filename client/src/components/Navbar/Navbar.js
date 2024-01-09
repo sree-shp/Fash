@@ -18,9 +18,9 @@ function Navbar(props) {
       <Category />
       <SearchBox />
       <LastMenu 
-      userName 
-      setUserName
-      removeCookies
+      userName={userName}
+      setUserName={setUserName}
+      removeCookies={removeCookies}
       />
     </div>
   );

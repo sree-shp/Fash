@@ -25,7 +25,7 @@ function SearchBox() {
         setLoading(true);
         //Store the response from the axios get method with the searchQuery sent as params
         const res = await axios.get(
-          "https://fash-server.onrender.com/api/search/searchByProducts",
+          "http://localhost:4000/api/search/searchByProducts",
           {
             params: {
               searchQuery: search,
