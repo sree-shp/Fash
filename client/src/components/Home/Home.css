@@ -1,52 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-
-.Home{
-    background-color: white;
+.home{
+    text-align: center;
 }
 
 .second-section{
     position: relative;
+    padding: 5%;
     z-index: 100;
-    background-color: white;
-    padding: 5% 5%;
     font-family: 'Poppins', sans-serif;
+    background-color: #7743DB;
+}
+
+.second-section-heading{
+    text-align: left;
+    font-size: 1.75rem;
+    font-weight: 600;
 }
 
 .category-wrapper{
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     text-align: center;
-   
+    justify-content: center;
 }
 
-.third-section{
-    padding: 0% 5% 5%;
-    font-family: 'Poppins', sans-serif;
-}
 
-.deals-wrapper{
-    /* height: 200px; */
-}
-
-.carasouel-images{
-    position: relative;
-}
-
-.bg-img-carasouel{
-    height: 600px;
-}
-
-@media (max-width: 768px) {
-
-    .category-wrapper{
-        grid-template-columns: auto auto auto;
+@media (max-width: 425px){
+    .home{
+        padding: 2% 0%;
     }
-
-    .deals-wrapper{
-        grid-template-columns: auto;
-    }
-} 
-
-
+}

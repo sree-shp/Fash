@@ -3,31 +3,78 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    padding: 5% 5% 0% 5%;
+    padding: 1.5rem 3rem;
     font-family: 'Poppins', sans-serif;
+}
+
+.login-heading{
+    font-size: 2rem;
+    font-weight: 600
 }
 
 .login form{
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: 100%;
+    gap: 10px;
+}
+
+.login form div{
+    display: flex;
+    flex-direction: column;
 }
 
 .email, .password{
-    padding: 5%;
-    border-radius: 8px;
-    border: 1px solid;
+    border-radius: 16px;
+    border: 2px solid;
+    padding: 1rem;
+}
+
+.email[placeholder], .password[placeholder]{
+    font-size: 0.90rem;
 }
 
 .email-label, .password-label{
-    font-size: 1.25vw;
+    font-size: 1rem;
+    margin: 0.75rem 0;
 }
 
 .login-button{
-    background-color: #E5E0FF;
-    border: none;
-    font-size: 1.5vw;
-    border-radius: 42px;
+    background-color: #e63946;
+    color: white;
+    border: 2px solid #e63946;
+    font-size: 1.25rem;
+    border-radius: 32px;
     padding: 10px 40px;
+}
+
+.login-button:hover{
+    background-color: white;
+    color: #e63946;
+    border: 2px solid #e63946;
+}
+
+.signup-link{
+    color: #0db7af;
+}
+
+.signup-link:hover{
+    cursor: pointer;
+    color:  green;
+}
+
+@media (min-width: 1024px){
+    .login{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-wrapper{
+        width: 25%;
+    }
+
+    .login-heading, .login-alternate{
+        text-align: center;
+    }
 }

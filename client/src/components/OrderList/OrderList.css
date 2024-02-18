@@ -1,0 +1,27 @@
+.order-details-wrapper{
+    background-color: #fef7f7;
+    border-radius: 16px;
+    margin: 1.25rem 0;
+    padding-bottom: 0.25rem;
+}
+
+.order-id{
+    font-size: 1rem;
+}
+
+
+.order-details{
+   display: flex;
+   flex-direction: column;
+   color: black;
+   background-color: #FCE4E6;
+   border-top-left-radius: 16px;
+   border-top-right-radius: 16px;
+   padding: 1rem 0.5rem;
+}
+
+.order-details-row2{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}

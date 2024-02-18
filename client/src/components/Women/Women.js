@@ -6,25 +6,30 @@ import WImg2 from "./rafaella-mendes-diniz-et_78QkMMQs-unsplash-removebg-preview
 import womenCategories from "../Category/WomenCategory/categories";
 import Category from "../Category/Category";
 import Footer from "../Footer/Footer";
+import { Link } from "react-router-dom";
+import CategoryNavbar from "../CategoryNavbar/CategoryNavbar";
 
 function createCategoryCard(category) {
   return (
-    <Category
-      key={category.id}
-      img={category.img}
-      name={category.name}
-      discount={category.discount}
-      color={category.color}
-    />
+    <Link to={`/Women/${category.name}`}>
+      <Category
+        key={category.id}
+        img={category.img}
+        name={category.name}
+        discount={category.discount}
+        color={category.color}
+      />
+    </Link>
   );
 }
 
 function Women() {
   return (
     <div className="Women">
+      <CategoryNavbar highlight="Women" />
       <Banner EoSSLink="/End Of Season Sale/Women">
-        <img className="women-img1" src={WImg1} alt="" />
-        <img className="women-img2" src={WImg2} alt="" />
+        <img className="women-img1" src={WImg2} alt="" />
+        <img className="women-img2" src={WImg1} alt="" />
       </Banner>
 
       <div className="second-section">

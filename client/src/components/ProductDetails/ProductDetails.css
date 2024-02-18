@@ -1,9 +1,10 @@
+
 .product-details{
     display: grid;
     grid-template-columns: 50% 50%;
     padding: 5% 5%;
     /* height: 60vh; */
-    font-family: "Poppins";
+    font-family: "Poppins", sans-serif;
 }
 
 .heading{
@@ -12,6 +13,11 @@
 
 .product-brand-name, .product-desc{
     margin: 0px;
+}
+
+.product-brand-name{
+    font-weight: 400;
+
 }
 
 .product-desc{

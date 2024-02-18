@@ -11,6 +11,7 @@ import ProductBrowser from "./components/ProductsBrowser/ProductsBrowser";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import Cart from "./components/Cart/Cart";
 import Orders from "./components/Orders/Orders";
+import Search from './components/Search/Search';
 
 function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
   return (
@@ -18,6 +19,7 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
       <Routes>
         {/*Routes for Home, Login, Register, Cart, */}
         <Route path="/" element={<Home />} />
+        <Route path="/Search" element={<Search />} />
         <Route
           path="/Login"
           element={<Login userName={userName} setUserName={setUserName} />}
@@ -56,14 +58,134 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
         />
         <Route path="/BottomWear/:id" element={<ProductDetails />} />
 
-        <Route
-          path="/Sports & ActiveWear"
-          element={<ProductBrowser title="Sports & ActiveWear" />}
-        />
-        <Route path="/Sports & ActiveWear/:id" element={<ProductDetails />} />
-
         <Route path="/FootWear" element={<ProductBrowser title="FootWear" />} />
         <Route path="/FootWear/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Men/T-Shirts"
+          element={<ProductBrowser title="T-Shirts" group="men" />}
+        />
+        <Route path="/Men/T-Shirts/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Men/Casual Shirts"
+          element={<ProductBrowser title="Casual Shirts" group="men" />}
+        />
+        <Route path="/Men/Casual Shirts/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Men/Formal Shirts"
+          element={<ProductBrowser title="Formal Shirts" group="men" />}
+        />
+        <Route path="/Men/Formal Shirts/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Men/Jeans"
+          element={<ProductBrowser title="Jeans" group="men" />}
+        />
+        <Route path="/Men/Jeans/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Men/Casual Trousers"
+          element={<ProductBrowser title="Casual Trousers" group="men" />}
+        />
+        <Route path="/Men/Casual Trousers/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Women/Sarees"
+          element={<ProductBrowser title="Sarees" group="women" />}
+        />
+        <Route path="/Women/Sarees/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Women/Dresses"
+          element={<ProductBrowser title="Dresses" group="women" />}
+        />
+        <Route path="/Women/Dresses/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Women/Tops"
+          element={<ProductBrowser title="Tops" group="women" />}
+        />
+        <Route path="/Women/Tops/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Women/T-Shirts"
+          element={<ProductBrowser title="T-Shirts" group="women" />}
+        />
+        <Route path="/Women/T-Shirts/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Women/Heels"
+          element={<ProductBrowser title="Heels" group="women" />}
+        />
+        <Route path="/Women/Heels/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Kids/T-Shirts"
+          element={<ProductBrowser title="T-Shirts" group="kids" />}
+        />
+        <Route path="/Kids/T-Shirts/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Kids/Shorts"
+          element={<ProductBrowser title="Shorts" group="kids" />}
+        />
+        <Route path="/Kids/Shorts/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Kids/Tops"
+          element={<ProductBrowser title="Tops" group="kids" />}
+        />
+        <Route path="/Kids/Tops/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Kids/Flip Flops"
+          element={<ProductBrowser title="Flip Flops" group="kids" />}
+        />
+        <Route path="/Kids/Flip Flops/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Kids/Bodysuits"
+          element={<ProductBrowser title="Bodysuits" group="kids" />}
+        />
+        <Route path="/Kids/Bodysuits/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Lifestyle/Beach Towels"
+          element={<ProductBrowser title="Beach Towels" group="lifestyle" />}
+        />
+        <Route
+          path="/Lifestyle/Beach Towels/:id"
+          element={<ProductDetails />}
+        />
+
+        <Route
+          path="/Lifestyle/Table Lamps"
+          element={<ProductBrowser title="Table Lamps" group="lifestyle" />}
+        />
+        <Route path="/Lifestyle/Table Lamps/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Lifestyle/Bedsheets"
+          element={<ProductBrowser title="Bedsheets" group="lifestyle" />}
+        />
+        <Route path="/Lifestyle/Bedsheets/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Lifestyle/Bath Towels"
+          element={<ProductBrowser title="Bath Towels" group="lifestyle" />}
+        />
+        <Route path="/Lifestyle/Bath Towels/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Lifestyle/Clocks"
+          element={<ProductBrowser title="Clocks" group="lifestyle" />}
+        />
+        <Route
+          path="/Lifestyle/Clocks/:id"
+          element={<ProductDetails />}
+        />
 
         {/* Deals Routes */}
 
@@ -74,8 +196,8 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
         <Route path="/Search/:id" element={<ProductDetails />} />
 
         <Route
-          path="/End of Season Sale/"
-          element={<ProductBrowser title="" EoSS={true} />}
+          path="/End of Season Sale"
+          element={<ProductBrowser title="" EoSSheading="End of Season Sale" EoSS={true} />}
         />
         <Route
           path="/End of Season Sale/Men"
@@ -682,7 +804,7 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Lifestyle/Lamps & Lighting/Floor Lamps"
           element={
             <ProductBrowser
-              title="FLoor Lamps"
+              title="Floor Lamps"
               subCategory="Lamps & Lighting"
               group="lifestyle"
             />
@@ -721,45 +843,45 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           element={<ProductDetails />}
         />
         <Route
-          path="/Lifestyle/Home Decor/Plants & Planters"
+          path="/Lifestyle/Home Décor/Plants & Planters"
           element={
             <ProductBrowser
               title="Plants & Planters"
-              subCategory="Home Decor"
+              subCategory="Home Décor"
               group="lifestyle"
             />
           }
         />
         <Route
-          path="/Lifestyle/Home Decor/Plants & Planters/:id"
+          path="/Lifestyle/Home Décor/Plants & Planters/:id"
           element={<ProductDetails />}
         />
         <Route
-          path="/Lifestyle/Home Decor/Aromas & Candles"
+          path="/Lifestyle/Home Décor/Aromas & Candles"
           element={
             <ProductBrowser
               title="Aromas & Candles"
-              subCategory="Home Decor"
+              subCategory="Home Décor"
               group="lifestyle"
             />
           }
         />
         <Route
-          path="/Lifestyle/Home Decor/Aromas & Candles/:id"
+          path="/Lifestyle/Home Décor/Aromas & Candles/:id"
           element={<ProductDetails />}
         />
         <Route
-          path="/Lifestyle/Home Decor/Clocks"
+          path="/Lifestyle/Home Décor/Clocks"
           element={
             <ProductBrowser
               title="Clocks"
-              subCategory="Home Decor"
+              subCategory="Home Décor"
               group="lifestyle"
             />
           }
         />
         <Route
-          path="/Lifestyle/Home Decor/Clocks/:id"
+          path="/Lifestyle/Home Décor/Clocks/:id"
           element={<ProductDetails />}
         />
 

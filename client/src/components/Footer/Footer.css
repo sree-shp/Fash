@@ -11,6 +11,10 @@
     padding-bottom: 2%;
 }
 
+.socials-heading{
+    font-weight: 600;
+}
+
 .socials-links{
     display: flex;
     justify-content:  center;

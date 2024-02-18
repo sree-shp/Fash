@@ -1,52 +1,45 @@
 .first-section{
     background-color: #DDD6F3;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1200 800'%3E%3Cdefs%3E%3CradialGradient id='a' cx='0' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23ee76df'/%3E%3Cstop offset='1' stop-color='%23ee76df' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='b' cx='1200' cy='800' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%239190e5'/%3E%3Cstop offset='1' stop-color='%239190e5' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='c' cx='600' cy='0' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23d524ec'/%3E%3Cstop offset='1' stop-color='%23d524ec' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='d' cx='600' cy='800' r='600' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23DDD6F3'/%3E%3Cstop offset='1' stop-color='%23DDD6F3' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='e' cx='0' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%23FF0000'/%3E%3Cstop offset='1' stop-color='%23FF0000' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='f' cx='1200' cy='0' r='800' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-color='%234568DC'/%3E%3Cstop offset='1' stop-color='%234568DC' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect fill='url(%23a)' width='1200' height='800'/%3E%3Crect fill='url(%23b)' width='1200' height='800'/%3E%3Crect fill='url(%23c)' width='1200' height='800'/%3E%3Crect fill='url(%23d)' width='1200' height='800'/%3E%3Crect fill='url(%23e)' width='1200' height='800'/%3E%3Crect fill='url(%23f)' width='1200' height='800'/%3E%3C/svg%3E");
-    background-attachment: fixed;
     background-size: cover;
     color: white;
-    height: 35vw;
     margin: 2.5% 5% 0% 5%;
     position:relative;
     font-family: 'Montserrat', sans-serif;
+    text-align: center;
 }
 
 .first-section-description{
-    text-align: center;
     padding: 1% 0%;
 }
 
-.sale-heading{
-    font-size: 4.5vw;
+.first-section-description h1{
+    font-size: 4.5rem;
     padding: 0% 7.5% ;
 }
 
-.discount{
-    padding: 0%   ;
-    font-size: 2vw;
+.first-section-description h2{
+    font-size: 2rem;
 }
 
-.shop-now{
+.first-section-description button{
     padding: 1% 5%;
-    font-size: 2.5vw;
+    font-size: 2.5rem;
     color: #FF0000;
     background-color: white;
     border-radius: 16px;
     border: 0px;
     margin: 3% 0%;
+    z-index: 10000;
 }
 
-.shop-now:hover{
-    padding: 1% 5%;
-    font-size: 2.5vw;
+.first-section-description button:hover{
     color: white;
     background-color: #FF0000;
-    border-radius: 16px;
-    border: 0px;
-    margin: 3% 0%;
 }
 
 .male{
-    width: 35vw;
+    width: 35%;
     position: absolute;
     right: 0;
     bottom: 0;
@@ -54,91 +47,34 @@
 }
 
 .female{
-    width: 35vw;
+    width: 35%;
     position: absolute;
-    left: -75px;
-    bottom: -130px;
+    left: -65px;
+    bottom: 0px;
     z-index: 50;
 }
 
-@media (max-width: 1440px) {
-    .female{
-        bottom: -120px;
-        left: -30px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .female{
-        bottom: -100px;
-        left: -40px;
-    }
-}
-
-
-@media (max-width: 1024px) {
-    .female{
-        bottom: -80px;
-        left: -20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .male{
-        width: 30vw;
-        right: 0;
+@media (max-width: 425px){
+    .first-section-description h1{
+        font-size: 2.5rem;
+        padding: 0%;
     }
 
-    .female{
-        width: 30vw;
-        bottom: -30px;
-        left: 0px;
+    .first-section-description h2{
+        font-size: 1.5rem;
     }
-}
 
-@media (max-width: 425px) {
+    .first-section-description button{
+        font-size: 1.25rem;
+    }
+
     .first-section{
-        margin: 5% 5% 0%;
-        height: 90vh;
-    }
-
-    .sale-heading{
-        padding: 5% 2.5% 0%;
-        font-size: 9vw;
-        font-weight: 600;
-        margin: 0px;
-    }
-
-    .sale{
-        font-size: 8vw;
-        font-weight: 400;
-        margin: 0px;
-    }
-
-    .discount{
-        font-size: 5vw;
-        font-weight: 400;
-        padding: 0px;
-        margin: 5% 0%;
-    }
-
-    .first-section-description{
-        text-align: center;
-    }
-
-    .shop-now{
-        margin-left: 0;
-        font-size: 5vw;
-    }
-
-    .male{
-        width: 70vw;
-        right: 0;
+        height: 400px;
+        padding: 2.5% 0%;
     }
 
     .female{
-        width: 70vw;
-        bottom: 0px;
-        left: -10px;
+        left: 0px;
+        width:
     }
 }

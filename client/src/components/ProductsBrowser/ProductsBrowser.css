@@ -1,9 +1,3 @@
 .product-browser{
     font-family: 'Poppins', sans-serif;
-    display: grid;
-    grid-template-columns: 17.5% auto;
-}
-
-.product-browser{
-    display: grid;
 }

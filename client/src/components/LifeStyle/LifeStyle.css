@@ -1,11 +1,8 @@
 .lifestyle-first-section-description{
     text-align: center;
-    /* margin: 2.5% 5% 0% 5%; */
     position:absolute;
     top: 0%;
     width: 100%;
-    /* left: 50%;
-    right: 50%; */
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
@@ -33,7 +30,6 @@
 .lifestyle-first-section{
     margin: 2.5% 5% 0% 5%;
     position: relative;
-    /* z-index: 10000; */
 }
 
 .bg-container{

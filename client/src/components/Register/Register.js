@@ -26,7 +26,7 @@ function Register(props) {
     try{
       setLoading(true);
       setMessage(" Validating Credentials");
-      const res = await axios.post("https://fash-server.onrender.com/api/users/register",{
+      const res = await axios.post(`${process.env.REACT_APP_API_BASEURL}api/users/register`,{
         name,
         email,
         telephone,
@@ -59,65 +59,75 @@ function Register(props) {
 
   return (
     <div className="register">
+      <div className="register-wrapper">
       {loading && <Loading msg={message} />}
       {error && <Error msg={message} />}
       <h1 className="register-heading">REGISTER</h1>
       <form onSubmit={handleSubmit}>
-      <label className="name-label">Name</label>
+      <div>
+      <label className="register-name-label">Name</label>
 
-        <input
-          onChange={e => onChange(e)}
-          type="text"
-          className="name"
-          placeholder="name"
-          name= 'name'
-          value={name}
-        />
-        <br />
-        <label className="telephone-label">Telephone</label>
+<input
+  onChange={e => onChange(e)}
+  type="text"
+  className="register-name"
+  placeholder="Name"
+  name= 'name'
+  value={name}
+/>
+      </div>
+      
+      
+      <div>
+      <label className="register-telephone-label">Telephone</label>
 
-        <input
-          onChange={e => onChange(e)}
-          type="text"
-          className="telephone"
-          placeholder="Telephone"
-          name='telephone'
-          value={telephone}
-        />
-        <br />
+<input
+  onChange={e => onChange(e)}
+  type="text"
+  className="register-telephone"
+  placeholder="Telephone"
+  name='telephone'
+  value={telephone}
+/>
+      </div>
+        <div>
+        <label className="register-email-label">Email</label>
+
+<input
+  onChange={e => onChange(e)}
+  type="text"
+  className="register-email"
+  placeholder="E-mail address"
+  name='email'
+  value={email}
+/>
+        </div>
         
-        <label className="email-label">Email</label>
+        <div>
+        <label className="register-password-label">Password</label>
 
-        <input
-          onChange={e => onChange(e)}
-          type="text"
-          className="email"
-          placeholder="E-mail address"
-          name='email'
-          value={email}
-        />
-        <br />
-        <label className="password-label">Password</label>
+<input
+  onChange={e => onChange(e)}
+  type="password"
+  className="register-password"
+  placeholder="Password"
+  name="password"
+  value={password}
+/>
+        </div>
+       <div>
+       <label className="register-password-label">Confirm Password</label>
 
-        <input
-          onChange={e => onChange(e)}
-          type="password"
-          className="password"
-          placeholder="Password"
-          name="password"
-          value={password}
-        />
-        <br />
-        <label className="password-label">Confirm Password</label>
-
-        <input
-          onChange={e => onChange(e)}
-          type="password"
-          className="password"
-          placeholder=" Re-type Password"
-          name="confirmPassword"
-          value={confirmPassword}
-        />
+<input
+  onChange={e => onChange(e)}
+  type="password"
+  className="register-password"
+  placeholder=" Re-type Password"
+  name="confirmPassword"
+  value={confirmPassword}
+/>
+       </div>
+       
         <br />
         <button type="submit" className="register-button">
           Continue
@@ -125,10 +135,12 @@ function Register(props) {
       </form>
 
       <p className="register-alternate">
-        If you already have an account,
-        <Link to="/register">Login</Link>
+        If you already have an account, 
+         <Link className="login-link" to="/Login"> Login</Link>
       </p>
       <ToastContainer />
+      </div>
+      
     </div>
   );
 }

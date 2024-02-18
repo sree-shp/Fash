@@ -6,22 +6,26 @@ import Category from "../Category/Category";
 import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
 import bg from "./gray-sofa-brown-living-room-with-copy-space.jpg";
+import CategoryNavbar from "../CategoryNavbar/CategoryNavbar";
 
 function createCategoryCard(category) {
   return (
-    <Category
-      key={category.id}
-      img={category.img}
-      name={category.name}
-      discount={category.discount}
-      color={category.color}
-    />
+    <Link to={`/Lifestyle/${category.name}`}>
+      <Category
+        key={category.id}
+        img={category.img}
+        name={category.name}
+        discount={category.discount}
+        color={category.color}
+      />
+    </Link>
   );
 }
 
 function LifeStyle() {
   return (
     <div className="lifeStyle">
+      <CategoryNavbar highlight="LifeStyle"  />
       <div className="lifestyle-first-section">
         <div className="bg-container">
           <img className="bg-img" src={bg} />
@@ -31,7 +35,7 @@ function LifeStyle() {
             END OF SEASON SALE
           </h1>
           <h2 className="lifestyle-discount">40-70%</h2>
-          <Link>
+          <Link to="/End of Season Sale/LifeStyle">
             <button className="shop-now">Shop Now</button>
           </Link>
         </div>

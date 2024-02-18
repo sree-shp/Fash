@@ -1,21 +1,21 @@
-import React from 'react'
-import { useState } from 'react';
-import axios from 'axios';
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { useState } from "react";
+import axios from "axios";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import ReactLoading from "react-loading";
-import clear from "./icons8-clear.svg";
+import searchIcon from "./loupe.png";
 
-function SearchBox() {
-    const [search, setSearch] = useState("");
-    const [results, setResults] = useState();
+function SearchBox(props) {
+  const [search, setSearch] = useState("");
+  const [results, setResults] = useState();
 
-    //Misc states
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState("");
-    const onChange = (e) => {
-      setSearch(e.target.value);
-    };
+  //Misc states
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const onChange = (e) => {
+    setSearch(e.target.value);
+  };
   //To get the search Reults
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function SearchBox() {
         setLoading(true);
         //Store the response from the axios get method with the searchQuery sent as params
         const res = await axios.get(
-          "https://fash-server.onrender.com/api/search/searchByProducts",
+          `${process.env.REACT_APP_API_BASEURL}api/search/searchByProducts"`,
           {
             params: {
               searchQuery: search,
@@ -54,7 +54,8 @@ function SearchBox() {
         to={"/Search/" + searchItem._id}
         onClick={(e) => {
           setSearch("");
-        }}>
+        }}
+      >
         <div className="search-item-box">
           <img className="search-item-img" src={searchItem.images[0]} />
           <div className="search-item-details">
@@ -67,8 +68,17 @@ function SearchBox() {
   }
 
   return (
-    <div className="SearchBox">
-      <div className="search-container">
+    <>
+      <div className={props.source}>
+      <div className="search-icon-container">
+          <img
+            className="searchbar-icon"
+            src={searchIcon}
+            onClick={(e) => {
+              setSearch("");
+            }}
+          />
+        </div>
         {/* Search input box */}
         <input
           name="search"
@@ -78,17 +88,8 @@ function SearchBox() {
           placeholder="Search for products, brands and more"
           type="text"
         />
-        {/* Clear icon */}
-        <img
-          className="clear-search"
-          src={clear}
-          onClick={(e) => {
-            setSearch("");
-          }}
-        />
-      </div>
-
-      {/* Search Results Box */}
+        
+        {/* Search Results Box */}
       {search && (
         <div className="search-results-box">
           {/* Loading element displays until the response is received */}
@@ -104,13 +105,28 @@ function SearchBox() {
             </div>
           )}
           {/* Displays,if loading is completed, results length is equal to 0  */}
-          {!loading && !results.length && <span>No Matches Found</span>}
+          {!loading && !results.length && (
+            <div className="results-wrapper">
+              <span className="results-heading">Results</span>
+              <span>No Matches Found</span>
+            </div>
+          )}
           {/* After results is fetched, maps the results as a list */}
-          {results && results.map(createResultsList)}
+          {!loading && results.length ? (
+            <div className="results-wrapper">
+              <span className="results-heading">Results</span>
+              {results.map(createResultsList)}
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
       )}
-    </div>
+      </div>
+
+      
+    </>
   );
 }
 
-export default SearchBox
+export default SearchBox;

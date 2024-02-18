@@ -1,18 +1,19 @@
 .women-img1{
-    width: 35vw;
     position: absolute;
-    right: -30px;
-    bottom: -150px;
-    z-index: 75;
+    bottom: 0%;
+    left: 0%;
+    max-width: 230px;
 }
 
+
 .women-img2{
-    width: 30vw;
     position: absolute;
-    left: 0px;
-    bottom: -100px;
-    z-index: 50;
+    bottom: 0%;
+    right: 0%;
+    width: 70%;
+    max-width:300px;
 }
+
 
 .second-section{
     position: relative;
@@ -22,7 +23,27 @@
     font-family: 'Poppins', sans-serif;
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+    .women-img1{
+        max-width: 260px;
+    }
+
+    .women-img2{
+        max-width: 330px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .women-img1{
+        max-width: 300px;
+    }
+
+    .women-img2{
+        max-width: 375px;
+    }
+}
+
+/* @media (max-width: 1200px) {
     .women-img1{
         bottom: -150px;
         right: -30px;
@@ -55,4 +76,4 @@
         bottom: -50px;
         left: -30px;
     }
-}
+} */

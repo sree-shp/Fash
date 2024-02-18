@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-
 import "./App.css";
-
 import Navbar from "./components/Navbar/Navbar";
-
 import {useCookies } from "react-cookie";
 import axios from "axios";
 import RoutesList from "./Routes";
+import CategoryNavbar from "./components/CategoryNavbar/CategoryNavbar";
 
 function App() {
   const[cookies, setCookie, removeCookies] = useCookies();
@@ -19,7 +17,7 @@ function App() {
     async function getUserName(){
       try{
         const res= await axios.get(
-          "https://fash-server.onrender.com/api/users/getUserName",
+          `${process.env.REACT_APP_API_BASEURL}api/users/getUserName`,
           {
             withCredentials: true
           });
@@ -41,6 +39,7 @@ function App() {
         removeCookies={removeCookies}
         selectedId={selectedId}
       />
+      
       <RoutesList userName={userName} setUserName={setUserName} selectedId={selectedId} setSelectedId={selectedId}/>
       
     </div>

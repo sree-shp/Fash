@@ -8,18 +8,18 @@ function Filters({ filters, setFilters }) {
   
   
   return (
-    <div className="Filters">
-      <h3 className="filters-heading">FILTERS</h3>
+    <div className="filters">
+      <h3 className="filters-heading">Filters</h3>
 
       <form className="filters-form">
 
         <BrandsFilter filters={filters} setFilters={setFilters}/> 
 
-        <hr></hr>
+        
 
         <PriceFilter filters={filters} setFilters={setFilters} />
 
-        <hr></hr>
+        
 
         <DiscountFilter filters={filters} setFilters={setFilters} />
         

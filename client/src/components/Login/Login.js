@@ -34,7 +34,7 @@ function Login(props) {
     try{
       setLoading(true);
       setMessage("Checking Credentials");
-      const res = await axios.post("https://fash-server.onrender.com/api/users/login",{
+      const res = await axios.post(`${process.env.REACT_APP_API_BASEURL}api/users/login`,{
         email,
         password
       },{
@@ -66,32 +66,40 @@ function Login(props) {
 
   return (
     <div className="login">
+      <div className="login-wrapper">
+        
       {loading && <Loading msg={message}/>}
       {/* <Error /> */}
       {error &&  <Error msg={message} />} 
       <h1 className="login-heading">LOGIN</h1>
       <form onSubmit={handleSubmit}>
+        <div>
+          
         <label className="email-label">Email</label>
        
-        <input
-          onChange={e => onChange(e)}
-          type="text"
-          className="email"
-          placeholder="E-mail address"
-          name="email"
-          value={email}
-        />
-        <br />
+       <input
+         onChange={e => onChange(e)}
+         type="text"
+         className="email"
+         placeholder="E-mail address"
+         name="email"
+         value={email}
+       />
+        </div>
+        
+        <div>
         <label className="password-label">Password</label>
 
-        <input
-          onChange={e => onChange(e)}
-          type="password"
-          className="password"
-          placeholder="Password"
-          name="password"
-          value={password}
-        />
+<input
+  onChange={e => onChange(e)}
+  type="password"
+  className="password"
+  placeholder="Password"
+  name="password"
+  value={password}
+/>
+        </div>
+        
         <br />
         <button type="submit" className="login-button">
           Login
@@ -99,8 +107,10 @@ function Login(props) {
       </form>
 
       <p className="login-alternate">
-        If you don't have an account, <Link to="/register">Sign up</Link>
+        If you don't have an account, <Link className="signup-link" to="/register">Register</Link>
       </p>
+      </div>
+
   
     </div>
   );

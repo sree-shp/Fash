@@ -1,3 +1,4 @@
+
 .Filters{
     border: 1px solid #ccc;
     font-family: 'Poppins', sans-serif;
@@ -13,4 +14,30 @@
 .input-wrapper{
     display: flex;
     gap: 10px;
+}
+
+.filters-heading{
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600
+}
+
+.filters h5{
+    margin: 0;
+}
+
+.filter-heading{
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+
+.filters-form{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.filters label{
+    font-size: 1rem;
+    font-weight: 400;
 }

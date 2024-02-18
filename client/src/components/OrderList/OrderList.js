@@ -1,25 +1,37 @@
 import React from "react";
 import OrderItem from "../OrderItem/OrderItem";
+import "./OrderList.css";
+
 
 function OrderList(props){
+  function createOrderItems(orderItem){
+    return(
+      <OrderItem
+            img={orderItem.img}
+            brand={orderItem.brand}
+            name={orderItem.name}
+            size={orderItem.size}
+            price={orderItem.price}
+            quantity={orderItem.quantity}
+            length={orderItem.length}
+        />
+    )
+  }
     
     
     return (
       <div className="order-details-wrapper">
         <div className="order-details">
-          <span className="order-id">Order Id: {props.orderId}</span>
-          <span className="order-id">Total: {props.total}</span>
+          <span className="order-id"><span>Order Id</span> {props.orderId}</span>
+          <div className="order-details-row2">
+          <div className="item-length"><span>Items</span> {props.orderItems.length}</div>
+          <div className="order-total"><span> Total </span> {props.total}</div>
+
+          </div>
         </div>
         {props.orderItems && (
-          <OrderItem
-            img={props.orderItems[0].img}
-            brand={props.orderItems[0].brand}
-            name={props.orderItems[0].name}
-            size={props.orderItems[0].size}
-            price={props.orderItems[0].price}
-            quantity={props.orderItems[0].quantity}
-            length={props.orderItems.length}
-          />
+          props.orderItems.map(createOrderItems)
+          
         )}
       </div>
     );

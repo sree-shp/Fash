@@ -6,6 +6,7 @@ import menCategories from "../Category/MenCategory/menCategories";
 import Category from "../Category/Category";
 import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
+import CategoryNavbar from "../CategoryNavbar/CategoryNavbar";
 
 function createCategoryCard(category) {
   const categoryLink = "/Men/" + category.name;
@@ -28,9 +29,10 @@ function createCategoryCard(category) {
 function Men() {
   return (
     <div className="Men">
+      <CategoryNavbar highlight="Men"/>
       <Banner EoSSLink="/End Of Season Sale/Men">
-        <img className="men-img2" src={MImg1} alt="" />
-        <img className="men-img1" src={MImg2} alt="" />
+        <img className="men-img1" src={MImg1} alt="" />
+        <img className="men-img2" src={MImg2} alt="" />
       </Banner>
 
       <div className="second-section">

@@ -46,7 +46,7 @@ function ProductsBrowser(props) {
             
             if(props.EoSS){
                res = await axios.get(
-                 "https://fash-server.onrender.com/api/products/getEndOfSeasonSaleProducts",
+                 `${process.env.REACT_APP_API_BASEURL}api/products/getEndOfSeasonSaleProducts`,
                  {
                    params: {
                      group: props.title,
@@ -59,7 +59,7 @@ function ProductsBrowser(props) {
           
             }else{
                  res = await axios.get(
-                   "https://fash-server.onrender.com/api/products/getProducts",
+                   `${process.env.REACT_APP_API_BASEURL}api/products/getProducts`,
                    {
                      params: {
                        name: props.title,
@@ -98,12 +98,12 @@ function ProductsBrowser(props) {
     return (
         <div className="product-browser">
             {/* Filters Component with filters state and its set function sent as props  */}
-            <Filters filters={filters} setFilters={setFilters}/>
+            {/* <Filters filters={filters} setFilters={setFilters}/> */}
             {/* if loading, show skeleton */}
             {loading && <ProductCardSkeleton />}
             {/* Not loading, No error, show ProductContainer with title, category, group sent as a props */}
             {!loading && !error  && <ProductContainer
-                ProductContainerName={props.title}
+                ProductContainerName={props.title || props.EoSSheading}
                 productSubCategory={props.subCategory}
                 productGroup={props.group}
                 list={data}

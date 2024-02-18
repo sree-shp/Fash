@@ -1,44 +1,48 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import profile from "./round-account-button-with-user-inside.png";
 import cart from "./shopping-cart (3).png";
-import heart from "./heart (1).png";
+import order from "./shopping-list.png";
 
 function LastMenu(props) {
-    const { userName, setUserName, removeCookies } = props;
+  const { userName, setUserName, removeCookies } = props;
   return (
-    <div className="LastMenu">
-      <div className="last-menu">
-        <Link className="cart-container" to="/Cart">
-          <div className="cart-wrapper">
+    <div className="last-menu">
+      <Link to="/Cart">
+        <div className="cart-container">
+          <div className="icon-container">
             <img className="cart-icon" src={cart} alt="cart" />
-            <p>Cart</p>
           </div>
-        </Link>
+          <p>Cart</p>
+        </div>
+      </Link>
+      <Link to="/Orders">
         <div className="wishlist-container">
-          <img className="wishlist-icon" src={heart} alt="wishlist" />
-          <p>Wishlist</p>
+          <div className="icon-container">
+            <img className="wishlist-icon" src={order} alt="wishlist" />
+          </div>
+          <p>Orders</p>
         </div>
-        <div className="profile-container">
+      </Link>
+
+      <div className="profile-container">
+        <div className="icon-container">
           <img className="profile-icon" src={profile} alt="profile" />
-          <p>Profile</p>
         </div>
+        <p>Profile</p>
         <div className="profile-wrapper">
           <div className="welcome-text">
             {userName ? (
               <>
-                <h3 className="welcome">Welcome</h3>
-                <h3 className="username">{userName} </h3>
+                <span className="welcome">Welcome, </span>
+                <span className="username">{userName} </span>
               </>
             ) : (
               <Link to="/login">
-                <span className="login-message">
-                  {" "}
-                  To Access your account and manage orders
-                </span>
+                <span> To Access your account and manage orders</span>
                 <br></br>
                 <button className="login-register-button" type="submit">
-                  LOGIN/REGISTER
+                  Login / Register
                 </button>
               </Link>
             )}
@@ -46,21 +50,19 @@ function LastMenu(props) {
 
           {userName && (
             <div className="profile-links-wrapper">
-              <hr></hr>
               <Link to="/Orders">
                 <p className="profile-links"> Orders</p>
               </Link>
-              <p className="profile-links">Wishlist</p>
               <Link to="/">
-                <button
-                  className="login-register-button"
-                  type="submit"
+                <span
+                  className="logout-btn"
                   onClick={() => {
                     setUserName("");
                     removeCookies("token", { path: "/" });
-                  }}>
+                  }}
+                >
                   Logout
-                </button>
+                </span>
               </Link>
             </div>
           )}
@@ -70,4 +72,4 @@ function LastMenu(props) {
   );
 }
 
-export default LastMenu
+export default LastMenu;

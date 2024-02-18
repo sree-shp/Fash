@@ -6,22 +6,27 @@ import "./Kids.css";
 import kidsCategories from "../Category/KidsCategory/categories";
 import Category from "../Category/Category";
 import Footer from "../Footer/Footer";
+import { Link } from "react-router-dom";
+import CategoryNavbar from "../CategoryNavbar/CategoryNavbar";
 
 function createCategoryCard(category) {
   return (
-    <Category
-      key={category.id}
-      img={category.img}
-      name={category.name}
-      discount={category.discount}
-      color={category.color}
-    />
+    <Link to={`/Kids/${category.name}`}>
+      <Category
+        key={category.id}
+        img={category.img}
+        name={category.name}
+        discount={category.discount}
+        color={category.color}
+      />
+    </Link>
   );
 }
 
 function Kids() {
   return (
     <div className="Kids">
+      <CategoryNavbar highlight="Kids" />
       <Banner EoSSLink="/End Of Season Sale/Kids">
         <img className="kids-img1" src={KImg1} alt="" />
         <img className="kids-img2" src={KImg2} alt="" />
