@@ -41,7 +41,6 @@ async function registerUser(req, res) {
             {expiresIn: 360000},
         );
         res.cookie("token", token, {
-            withCredentials: true,
             secure: true,
             httpOnly: false,
         });
@@ -99,9 +98,8 @@ async function loginUser(req, res){
         )
        
         res.cookie("token", token,{
-            withCredentials: true,
             httpOnly: true,
-            secure: true
+            secure: true,
         })
         res.status(200).json({ msg: "User Logged in successfully", userName: user.name });
     }catch(err){
