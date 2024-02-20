@@ -191,7 +191,7 @@ function Cart(props) {
             <img src={EmptyCart} />
             <span>
               {message === "Login to view your Cart" ? (
-                <Link to="/Login">Login to view your cart"</Link>
+                <Link className="login-to-continue-button"to="/Login">Login to view your cart"</Link>
               ) : (
                 "No Products in Cart"
               )}

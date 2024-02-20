@@ -110,6 +110,12 @@ async function loginUser(req, res){
     }
 }
 
+async function logoutUser(req,res){
+    
+    res.clearCookie("token");
+    res.status(200).json({msg: "Logout Successful"});
+}
+
 async function GetUserName(req, res){
     // Store the token from the cookies
     const token = req.cookies.token;
@@ -135,4 +141,4 @@ async function GetUserName(req, res){
     }
 };
 
-module.exports = {registerUser, authUser, loginUser, GetUserName};
+module.exports = {registerUser, authUser, loginUser, GetUserName, logoutUser};

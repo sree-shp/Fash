@@ -118,11 +118,6 @@
     font-weight: 400;
 }
 
-.no-product-cart span:hover{
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
 .cart-summary-details{
     display: none;
 }

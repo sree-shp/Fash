@@ -32,7 +32,9 @@
     gap: 20px;
 }
 
-
+.error-icon{
+    width: 50px;
+}
 
 @media (min-width: 768px){
     .modal-container{

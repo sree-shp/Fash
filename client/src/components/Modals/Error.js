@@ -6,7 +6,7 @@ function Error(props){
         <div className="overlay">
             <div className="modal-wrapper">
             <div className="modal-container">
-                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png"/>
+                <img className="error-icon" src="https://cdn-icons-png.flaticon.com/512/1828/1828843.png"/>
                 
                 <span>{props.msg}</span>
             </div>

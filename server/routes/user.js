@@ -5,7 +5,7 @@ const { check,validationResult, body } = require("express-validator");
 const User = require('../models/User');
 const auth = require("../middleware/auth");
 const jwt = require("jsonwebtoken")
-const {registerUser, GetUserName} = require("../controllers/user");
+const {registerUser, GetUserName, logoutUser} = require("../controllers/user");
 
 
 // Route to register a new user
@@ -33,5 +33,9 @@ router.post(
     ],
     Controller.loginUser
 )
+
+router.post(
+    '/logout', logoutUser
+);
 
 module.exports = router;

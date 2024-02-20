@@ -1,4 +1,5 @@
 const Order = require("../models/Order");
+const Cart = require("../models/Cart");
 
 
 // Controller function to place order from the cart
@@ -10,7 +11,6 @@ async function PlaceOrder(req, res)  {
     //  Store the Total from therequest body
     const total = req.body.total;
 
-    const tempArray = [];
     try {
         // Create a new order with userId, orderItems array and its total and save it
         const order = new Order({

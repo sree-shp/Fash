@@ -5,6 +5,7 @@ import Category from "./Category";
 import SearchBox from "./SearchBox";
 import LastMenu from "./LastMenu";
 import HamburgerMenu from "./HamburgerMenu";
+import axios from "axios";
 
 function Navbar({ userName, setUserName, removeCookies }) {
   const [hamburger, setHamburger] = useState(false);
@@ -16,6 +17,21 @@ function Navbar({ userName, setUserName, removeCookies }) {
 
   function HamburgerClickHandler() {
     setHamburger(!hamburger);
+  }
+
+  async function logOutHandler() {
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_API_BASEURL}api/users/logout`,
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+      setUserName("");
+    } catch (err) {
+      console.error(err.message);
+    }
   }
 
   return (
@@ -45,29 +61,37 @@ function Navbar({ userName, setUserName, removeCookies }) {
           {account && (
             <>
               <div className="backdrop" onClick={accountClickHandler}></div>
-              <div className={`account-container ${!account ? "movetoright" : ""}`}>
+              <div
+                className={`account-container ${!account ? "movetoright" : ""}`}
+              >
                 <h3>Welcome</h3>
                 <div className="account-items-wrapper">
                   <div className="your-account-wrapper">
-                    <p>To Access your account</p>
-                    <Link to="/Login">
-                    <button onClick={accountClickHandler} className='login-register-button' type="submit">
-                      LOGIN/REGISTER
-                    </button>
-
-                    </Link>
+                    {userName ? (
+                      <div className="logout-container">
+                        <span className="username">{userName} </span>
+                        <span className="logout-button" onClick={() => {logOutHandler(); accountClickHandler();}}>LogOut</span>
+                      </div>
+                    ) : (
+                      <Link to="/login">
+                        <span> To Access your account and manage orders</span>
+                        <br></br>
+                        <button onClick={accountClickHandler} className="login-register-button" type="submit">
+                          Login / Register
+                        </button>
+                      </Link>
+                    )}
                   </div>
                   <Link to="/Cart" onClick={accountClickHandler}>
                     <div className="cart-wrapper">
-                      <p>Cart</p>
+                      <span>Cart</span>
                     </div>
                   </Link>
                   <Link to="/Orders" onClick={accountClickHandler}>
-                  <div className="wishlist-wrapper">
-                    <p>Orders</p>
-                  </div>
+                    <div className="wishlist-wrapper">
+                      <span>Orders</span>
+                    </div>
                   </Link>
-                  
                 </div>
               </div>
             </>
@@ -87,11 +111,12 @@ function Navbar({ userName, setUserName, removeCookies }) {
       </div>
 
       <Category />
-      <SearchBox source="navbar-search-container"/>
+      <SearchBox source="navbar-search-container" />
       <LastMenu
         userName={userName}
         setUserName={setUserName}
         removeCookies={removeCookies}
+        logOutHandler={logOutHandler}
       />
     </div>
   );

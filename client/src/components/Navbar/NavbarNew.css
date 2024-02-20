@@ -150,7 +150,7 @@
   position: fixed;
   top: 0%;
   right: 0%;
-  z-index: 1000;
+  z-index: 10000;
   width: 80vw;
   max-width: 400px;
   height: 100vh;
@@ -159,6 +159,21 @@
   padding: 5rem 1rem;
   overflow: auto;
   animation: movefromleft 0.5s forwards alternate;
+}
+
+.logout-container{
+  display: flex;
+  justify-content: space-between
+}
+
+.logout-button{
+  font-size: 0.8rem;
+  color: #e63946;
+  cursor: pointer;
+}
+
+.logout-button:hover{
+  font-size: 0.9rem;
 }
 
 @keyframes movefromleft{
@@ -175,7 +190,7 @@
 .account-items-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 30px;
 }
 
 .login-register-button {
