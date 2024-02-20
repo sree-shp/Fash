@@ -22,7 +22,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    height: 450px;
+    height: 300px;
     overflow: auto;
 }
 
@@ -63,7 +63,12 @@
     align-items: center;
     gap: 20px;
     font-size: 1.15rem;
+    font-weight: 500;
 }
+
+.total-amount{
+    font-weight: 500;
+} 
 
 
 .order-button-container{
@@ -118,6 +123,10 @@
     font-weight: 600;
 }
 
+.cart-summary-details{
+    display: none;
+}
+
 
 @media (min-width: 1024px){
     .cart{
@@ -146,6 +155,7 @@
 
     .cart-details-wrapper{
         width: 70%;
+        height: 450px;
         margin: 0.5rem;
     }
 

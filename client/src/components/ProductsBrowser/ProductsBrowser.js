@@ -109,6 +109,8 @@ function ProductsBrowser(props) {
                 list={data}
                 sort={sort}
                 setSort={setSort}
+                filters={filters}
+                setFilters={setFilters}
             />}
             {/* if error, show Error component with error state sent as props */}
             {error && <Error msg={error}/>}

@@ -65,7 +65,7 @@ function CartItem(props) {
             <div>
               <span className="cart-product-brand">{props.brand}</span>
               <br />
-              <span className="cart-product-desc">{props.name}</span>
+              <div className="cart-product-desc">{props.name}</div>
               <br />
             </div>
             <button className="remove-item" onClick={onClick}>

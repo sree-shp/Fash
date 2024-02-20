@@ -91,7 +91,7 @@ function ProductContainer(props) {
                     <option value={-1}> Price: Highest to Lowest</option>
                   </select>
                 </div>
-                <Filters />
+                <Filters filters={props.filters} setFilters={props.setFilters}/>
               </div>
             </div>
           </>

@@ -29,9 +29,10 @@
     font-size: 0.9rem;
 }
 
-.order-details-row-1{
+.order-details-row{
     display: grid;
     grid-template-columns: 40% 40% 20%;
+    gap: 10px;
 }
 
 .order-item-brand{
@@ -82,12 +83,11 @@
 }
 
 .check-icon-container{
-    width: 5%;
     display: flex;
 }
 
 .check-icon{
-    width: 100%;
+    width: 15px;
 }
 
 
@@ -107,4 +107,60 @@
 .no-orders span{
     font-size: 1.25rem;
     font-weight: 500;
+}
+
+.order-status-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    grid-row-start: 4;
+    grid-column-start: 1;
+    width: 100%;
+}
+
+@media(max-width: 375px){
+    .order-item-price{
+        grid-row-start: 3;
+        grid-column-start:1
+    }
+
+    .order-status-container{
+        justify-content: flex-start;
+        grid-row-start: 5;
+    }
+
+    .order-item-size{
+        grid-row-start: 4;
+        grid-column-start: 1;
+    }
+
+    .order-item-quantity{
+        grid-row-start: 4;
+        grid-column-start: 2
+    }
+}
+
+@media(min-width: 1024px){
+    .order-item-brand{
+        font-size: 1.25rem;
+        font-weight: 500;
+    }
+
+    .order-item-price{
+        font-size: 1.15rem;
+    }
+
+    .order-item-name{
+        font-size: 1rem;
+    }
+
+    .order-status-container{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        grid-row-start: 4;
+        grid-column-start: 1;
+        width: 100%;
+    }
 }

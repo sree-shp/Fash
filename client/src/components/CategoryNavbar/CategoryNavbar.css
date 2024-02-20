@@ -20,7 +20,7 @@
     transition: background-color 300ms ease, color 300ms ease;
 }
 
-.category-navbar-button:hover{
+.category-navbar-button:hover, .category-navbar-button:active{
     background-color: #e63946;
     color: white;
 }

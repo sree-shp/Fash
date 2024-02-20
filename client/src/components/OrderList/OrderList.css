@@ -1,8 +1,10 @@
 .order-details-wrapper{
-    background-color: #fef7f7;
+    background-color: #f5f5f5;
     border-radius: 16px;
     margin: 1.25rem 0;
     padding-bottom: 0.25rem;
+
+    
 }
 
 .order-id{
@@ -13,8 +15,8 @@
 .order-details{
    display: flex;
    flex-direction: column;
-   color: black;
-   background-color: #FCE4E6;
+   color: white;
+   background-color: #494949;
    border-top-left-radius: 16px;
    border-top-right-radius: 16px;
    padding: 1rem 0.5rem;
@@ -24,4 +26,12 @@
     width: 50%;
     display: flex;
     justify-content: space-between;
+}
+
+@media (min-width: 1024px){
+    .order-details-wrapper{
+        width: 55%;
+        margin: 0;
+        overflow: auto;
+    }
 }

@@ -8,7 +8,7 @@ import searchIcon from "./loupe.png";
 
 function SearchBox(props) {
   const [search, setSearch] = useState("");
-  const [results, setResults] = useState();
+  const [results, setResults] = useState([]);
 
   //Misc states
   const [loading, setLoading] = useState(false);
@@ -25,7 +25,7 @@ function SearchBox(props) {
         setLoading(true);
         //Store the response from the axios get method with the searchQuery sent as params
         const res = await axios.get(
-          `${process.env.REACT_APP_API_BASEURL}api/search/searchByProducts"`,
+          `${process.env.REACT_APP_API_BASEURL}api/search/searchByProducts`,
           {
             params: {
               searchQuery: search,
@@ -105,14 +105,14 @@ function SearchBox(props) {
             </div>
           )}
           {/* Displays,if loading is completed, results length is equal to 0  */}
-          {!loading && !results.length && (
+          {!loading && !(results.length) &&(
             <div className="results-wrapper">
               <span className="results-heading">Results</span>
               <span>No Matches Found</span>
-            </div>
-          )}
+            </div>)
+          }
           {/* After results is fetched, maps the results as a list */}
-          {!loading && results.length ? (
+          {!loading &(results.length) ? (
             <div className="results-wrapper">
               <span className="results-heading">Results</span>
               {results.map(createResultsList)}

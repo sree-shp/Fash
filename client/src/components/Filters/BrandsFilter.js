@@ -22,14 +22,16 @@ function BrandsFilter({filters, setFilters}){
           setFilters([...filters, {brand: event.target.value}]);
         }
         else{
-          setFilters(filters.filter((item) => {
+          setFilters((filters) => {
+            filters.filter((item) => {
               if(item.brand === event.target.value){
                 return
               }
               else{
                 return item;
               }
-          }));
+          })
+          })
         }
       }
 
