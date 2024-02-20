@@ -91,7 +91,7 @@ function Cart(props) {
       setMessage("Placing Order");
 
       // Post request to place order
-      const res = await axios.post(
+      await axios.post(
         `${process.env.REACT_APP_API_BASEURL}api/orders/placeOrder`,
         {
           products: cartData.product,
@@ -120,7 +120,7 @@ function Cart(props) {
     <div className="cart">
       {loading && <Loading msg={message} />}
       {error && <Error msg={message} />}
-      {products && products.length != 0 ? (
+      {products && products.length !== 0 ? (
         <>
           <h2 className="cart-heading">Your Shopping Cart</h2>
           <div className="cart-wrapper">
@@ -173,22 +173,11 @@ function Cart(props) {
               </div>
             </div>
           </div>
-          {/* <div className="checkout-details">
-              <div className="total">
-              <h4> Sub-total </h4>
-              {cartData ? <h3>{cartData.total}</h3> : 0}
-              </div>
-              <div className="checkout-button-container">
-                <button className="checkout-button" onClick={submitHandler}>
-                  Place Order
-                </button>
-              </div>
-            </div> */}
         </>
       ) : (
         <>
           <div className="no-product-cart">
-            <img src={EmptyCart} />
+            <img alt="empty cart" src={EmptyCart} />
             <span>
               {message === "Login to view your Cart" ? (
                 <Link className="login-to-continue-button"to="/Login">Login to view your cart"</Link>

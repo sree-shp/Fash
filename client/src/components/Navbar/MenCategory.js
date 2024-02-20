@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import mensubcategory from "./mensubcategory";
 
 function MenCategory() {
-  function createSubCategory(subcategory) {
+  function createSubCategory(subcategory, index) {
     return (
-      <>
+      <li key={index}>
         <div className="sub-category">
           <h3 className="men-sub-category-heading">{subcategory.heading}</h3>
           <div className="sub-category-links-wrapper">
@@ -29,7 +29,7 @@ function MenCategory() {
             </Link>
           </div>
         </div>
-      </>
+      </li>
     );
   }
 

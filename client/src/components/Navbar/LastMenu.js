@@ -3,12 +3,10 @@ import { Link } from "react-router-dom";
 import profile from "./round-account-button-with-user-inside.png";
 import cart from "./shopping-cart (3).png";
 import order from "./shopping-list.png";
-import axios from "axios";
 
 function LastMenu(props) {
-  const { userName, setUserName, removeCookies, logOutHandler } = props;
+  const { userName, logOutHandler } = props;
 
-  
   return (
     <div className="last-menu">
       <Link to="/Cart">
@@ -57,10 +55,7 @@ function LastMenu(props) {
                 <p className="profile-links"> Orders</p>
               </Link>
               <Link to="/">
-                <span
-                  className="logout-btn"
-                  onClick={logOutHandler}
-                >
+                <span className="logout-btn" onClick={logOutHandler}>
                   Logout
                 </span>
               </Link>

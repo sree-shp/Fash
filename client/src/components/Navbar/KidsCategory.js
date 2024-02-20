@@ -4,9 +4,9 @@ import kidssubcategory from './kidssubcategory';
 
 function KidsCategory() {
 
-  function createSubCategory(subcategory) {
+  function createSubCategory(subcategory, index) {
     return (
-      <>
+      <li key={index}>
         <div className="sub-category">
           <h3 className="kids-sub-category-heading">{subcategory.heading}</h3>
           <div className="sub-category-links-wrapper">
@@ -30,7 +30,7 @@ function KidsCategory() {
             </Link>
           </div>
         </div>
-      </>
+      </li>
     );
   }
 

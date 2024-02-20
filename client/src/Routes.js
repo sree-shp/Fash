@@ -61,65 +61,71 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
         <Route path="/FootWear" element={<ProductBrowser title="FootWear" />} />
         <Route path="/FootWear/:id" element={<ProductDetails />} />
 
-        <Route
-          path="/Men/T-Shirts"
-          element={<ProductBrowser title="T-Shirts" group="men" />}
-        />
-        <Route path="/Men/T-Shirts/:id" element={<ProductDetails />} />
+          {/* Men Page Shop by category Routes */}
 
         <Route
-          path="/Men/Casual Shirts"
-          element={<ProductBrowser title="Casual Shirts" group="men" />}
+          path="/Men/TopWear/T-Shirts"
+          element={<ProductBrowser title="T-Shirts" subCategory="TopWear" group="men" />}
         />
-        <Route path="/Men/Casual Shirts/:id" element={<ProductDetails />} />
+        <Route path="/Men/TopWear/T-Shirts/:id" element={<ProductDetails />} />
 
         <Route
-          path="/Men/Formal Shirts"
-          element={<ProductBrowser title="Formal Shirts" group="men" />}
+          path="/Men/TopWear/Casual Shirts"
+          element={<ProductBrowser title="Casual Shirts" subCategory="TopWear" group="men" />}
         />
-        <Route path="/Men/Formal Shirts/:id" element={<ProductDetails />} />
+        <Route path="/Men/TopWear/Casual Shirts/:id" element={<ProductDetails />} />
 
         <Route
-          path="/Men/Jeans"
-          element={<ProductBrowser title="Jeans" group="men" />}
+          path="/Men/TopWear/Formal Shirts"
+          element={<ProductBrowser title="Formal Shirts"  subCategory="TopWear" group="men" />}
         />
-        <Route path="/Men/Jeans/:id" element={<ProductDetails />} />
+        <Route path="/Men/TopWear/Formal Shirts/:id" element={<ProductDetails />} />
 
         <Route
-          path="/Men/Casual Trousers"
-          element={<ProductBrowser title="Casual Trousers" group="men" />}
+          path="/Men/BottomWear/Jeans"
+          element={<ProductBrowser title="Jeans" subCategory="BottomWear" group="men" />}
         />
-        <Route path="/Men/Casual Trousers/:id" element={<ProductDetails />} />
+        <Route path="/Men/BottomWear/Jeans/:id" element={<ProductDetails />} />
 
         <Route
-          path="/Women/Sarees"
-          element={<ProductBrowser title="Sarees" group="women" />}
+          path="/Men/BottomWear/Casual Trousers"
+          element={<ProductBrowser title="Casual Trousers" subCategory="BottomWear" group="men" />}
         />
-        <Route path="/Women/Sarees/:id" element={<ProductDetails />} />
+        <Route path="/Men/BottomWear/Casual Trousers/:id" element={<ProductDetails />} />
+
+          {/* Women Page Shop by category Routes */}
 
         <Route
-          path="/Women/Dresses"
-          element={<ProductBrowser title="Dresses" group="women" />}
+          path="/Women/Indian & Fusion Wear/Sarees"
+          element={<ProductBrowser title="Sarees" subCategory="Indian & Fusion Wear" group="women" />}
         />
-        <Route path="/Women/Dresses/:id" element={<ProductDetails />} />
+        <Route path="/Women/Indian & Fusion Wear/Sarees/:id" element={<ProductDetails />} />
 
         <Route
-          path="/Women/Tops"
-          element={<ProductBrowser title="Tops" group="women" />}
+          path="/Women/Western Wear/Dresses"
+          element={<ProductBrowser title="Dresses" subCategory="Western Wear" group="women" />}
         />
-        <Route path="/Women/Tops/:id" element={<ProductDetails />} />
+        <Route path="/Women/Western Wear/Dresses/:id" element={<ProductDetails />} />
 
         <Route
-          path="/Women/T-Shirts"
-          element={<ProductBrowser title="T-Shirts" group="women" />}
+          path="/Women/Western Wear/Tops"
+          element={<ProductBrowser title="Tops" subCategory="Western Wear" group="women" />}
         />
-        <Route path="/Women/T-Shirts/:id" element={<ProductDetails />} />
+        <Route path="/Women/Western Wear/Tops/:id" element={<ProductDetails />} />
 
         <Route
-          path="/Women/Heels"
-          element={<ProductBrowser title="Heels" group="women" />}
+          path="/Women/Western Wear/T-Shirts"
+          element={<ProductBrowser title="T-Shirts" subCategory="Western Wear" group="women" />}
         />
-        <Route path="/Women/Heels/:id" element={<ProductDetails />} />
+        <Route path="/Women/Western Wear/T-Shirts/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Women/FootWear/Heels"
+          element={<ProductBrowser title="Heels" subCategory="FootWear" group="women" />}
+        />
+        <Route path="/Women/FootWear/Heels/:id" element={<ProductDetails />} />
+
+{/* Kids Page Shop by category Routes */}
 
         <Route
           path="/Kids/T-Shirts"
@@ -843,45 +849,45 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           element={<ProductDetails />}
         />
         <Route
-          path="/Lifestyle/Home Décor/Plants & Planters"
+          path="/Lifestyle/Home Decor/Plants & Planters"
           element={
             <ProductBrowser
               title="Plants & Planters"
-              subCategory="Home Décor"
+              subCategory="Home Decor"
               group="lifestyle"
             />
           }
         />
         <Route
-          path="/Lifestyle/Home Décor/Plants & Planters/:id"
+          path="/Lifestyle/Home Decor/Plants & Planters/:id"
           element={<ProductDetails />}
         />
         <Route
-          path="/Lifestyle/Home Décor/Aromas & Candles"
+          path="/Lifestyle/Home Decor/Aromas & Candles"
           element={
             <ProductBrowser
               title="Aromas & Candles"
-              subCategory="Home Décor"
+              subCategory="Home Decor"
               group="lifestyle"
             />
           }
         />
         <Route
-          path="/Lifestyle/Home Décor/Aromas & Candles/:id"
+          path="/Lifestyle/Home Decor/Aromas & Candles/:id"
           element={<ProductDetails />}
         />
         <Route
-          path="/Lifestyle/Home Décor/Clocks"
+          path="/Lifestyle/Home Decor/Clocks"
           element={
             <ProductBrowser
               title="Clocks"
-              subCategory="Home Décor"
+              subCategory="Home Decor"
               group="lifestyle"
             />
           }
         />
         <Route
-          path="/Lifestyle/Home Décor/Clocks/:id"
+          path="/Lifestyle/Home Decor/Clocks/:id"
           element={<ProductDetails />}
         />
 

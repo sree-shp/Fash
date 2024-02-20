@@ -5,11 +5,9 @@ import OrderList from "../OrderList/OrderList";
 import Loading from "../Modals/Loading";
 import Error from "../Modals/Error";
 import NoOrders from "./7117861_3298067.jpg";
-import OrderItem from "../OrderItem/OrderItem";
 
 function Orders() {
   const [orders, setOrders] = useState();
-  const [orderItems, setOrderItems] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [message, setMessage] = useState("");
@@ -90,7 +88,7 @@ function Orders() {
 
   return (
     <div className="orders">
-      {orders && orders.length != 0 ? (
+      {orders && orders.length !== 0 ? (
         <>
           {loading && <Loading msg={message} />}
           {error && <Error msg={message} />}
@@ -151,7 +149,7 @@ function Orders() {
         </>
       ) : (
         <div className="no-orders">
-          <img src={NoOrders} />
+          <img alt="No Orders Found" src={NoOrders} />
           <span>No Orders Found</span>
         </div>
       )}

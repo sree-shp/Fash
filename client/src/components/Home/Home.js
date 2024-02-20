@@ -9,8 +9,9 @@ import female from "./PngItem_384787.png";
 import Banner from "../Banner/Banner";
 import CategoryNavbar from "../CategoryNavbar/CategoryNavbar";
 
-function createCategoryCard(category) {
+function createCategoryCard(category, index) {
   return (
+    <li key={index}>
     <Link to={"/" + category.name}>
       <Category
         key={category.id}
@@ -20,6 +21,7 @@ function createCategoryCard(category) {
         color={category.color}
       />
     </Link>
+    </li>
   );
 }
 

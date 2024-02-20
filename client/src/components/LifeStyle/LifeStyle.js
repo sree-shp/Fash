@@ -10,7 +10,7 @@ import CategoryNavbar from "../CategoryNavbar/CategoryNavbar";
 
 function createCategoryCard(category) {
   return (
-    <Link to={`/Lifestyle/${category.name}`}>
+    <Link to={`/Lifestyle/${category.subCategory}/${category.name}`}>
       <Category
         key={category.id}
         img={category.img}

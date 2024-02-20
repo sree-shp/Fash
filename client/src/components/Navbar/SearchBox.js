@@ -72,6 +72,7 @@ function SearchBox(props) {
       <div className={props.source}>
       <div className="search-icon-container">
           <img
+            alt="search bar"
             className="searchbar-icon"
             src={searchIcon}
             onClick={(e) => {

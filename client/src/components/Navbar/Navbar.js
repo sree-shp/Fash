@@ -4,24 +4,18 @@ import "./NavbarNew.css";
 import Category from "./Category";
 import SearchBox from "./SearchBox";
 import LastMenu from "./LastMenu";
-import HamburgerMenu from "./HamburgerMenu";
 import axios from "axios";
 
 function Navbar({ userName, setUserName, removeCookies }) {
-  const [hamburger, setHamburger] = useState(false);
   const [account, setAccount] = useState(false);
 
   function accountClickHandler() {
     setAccount(!account);
   }
 
-  function HamburgerClickHandler() {
-    setHamburger(!hamburger);
-  }
-
   async function logOutHandler() {
     try {
-      const res = await axios.post(
+      await axios.post(
         `${process.env.REACT_APP_API_BASEURL}api/users/logout`,
         {},
         {
@@ -44,6 +38,7 @@ function Navbar({ userName, setUserName, removeCookies }) {
           <div className="search-wrapper">
             <div className="navbar-search-icon-container">
               <img
+                alt="search-icon"
                 className="search-icon"
                 src="https://cdn-icons-png.flaticon.com/512/3031/3031293.png"
               />
@@ -70,13 +65,25 @@ function Navbar({ userName, setUserName, removeCookies }) {
                     {userName ? (
                       <div className="logout-container">
                         <span className="username">{userName} </span>
-                        <span className="logout-button" onClick={() => {logOutHandler(); accountClickHandler();}}>LogOut</span>
+                        <span
+                          className="logout-button"
+                          onClick={() => {
+                            logOutHandler();
+                            accountClickHandler();
+                          }}
+                        >
+                          LogOut
+                        </span>
                       </div>
                     ) : (
                       <Link to="/login">
                         <span> To Access your account and manage orders</span>
                         <br></br>
-                        <button onClick={accountClickHandler} className="login-register-button" type="submit">
+                        <button
+                          onClick={accountClickHandler}
+                          className="login-register-button"
+                          type="submit"
+                        >
                           Login / Register
                         </button>
                       </Link>

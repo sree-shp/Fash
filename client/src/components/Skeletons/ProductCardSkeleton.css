@@ -16,13 +16,29 @@
     margin: 5px 0px;
 }
 
-.grid-container{
+.grid-container-mobile{
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    /* margin: 0% 5%;  */
+    grid-template-columns: 50% 50%;
     grid-row-gap: 50px;
 }
 
 .wrapper{
     margin: 2% 5%;
 }
+
+.grid-container-desktop{
+    display: none;
+}
+
+@media(min-width: 1024px){
+    .grid-container-mobile{
+        display: none;
+    }
+
+    .grid-container-desktop{
+        display: grid;
+        grid-template-columns: 25% 25% 25% 25%;
+
+    }
+}
+

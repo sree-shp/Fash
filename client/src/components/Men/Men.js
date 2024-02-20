@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import CategoryNavbar from "../CategoryNavbar/CategoryNavbar";
 
 function createCategoryCard(category) {
-  const categoryLink = "/Men/" + category.name;
+  const categoryLink = `/Men/${category.subCategory}/${category.name}`;
 
   return (
     <div>
