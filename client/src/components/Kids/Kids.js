@@ -1,7 +1,7 @@
 import React from "react";
 import Banner from "../Banner/Banner";
-import KImg1 from "./kayan-baby-kPXq-jxhMkk-unsplash-removebg-preview.png";
-import KImg2 from "./kin-li-a--1--Cmut8-unsplash-removebg-preview.png";
+import KImg1 from "../../";
+import KImg2 from "../../";
 import "./Kids.css";
 import kidsCategories from "../Category/KidsCategory/categories";
 import Category from "../Category/Category";
@@ -28,8 +28,16 @@ function Kids() {
     <div className="Kids">
       <CategoryNavbar highlight="Kids" />
       <Banner EoSSLink="/End Of Season Sale/Kids">
-        <img className="kids-img1" src={KImg1} alt="" />
-        <img className="kids-img2" src={KImg2} alt="" />
+        <img
+          className="kids-img1"
+          src="images/kayan-baby-kPXq-jxhMkk-unsplash-removebg-preview.png"
+          alt=""
+        />
+        <img
+          className="kids-img2"
+          src="images/kin-li-a--1--Cmut8-unsplash-removebg-preview.png"
+          alt=""
+        />
       </Banner>
 
       <div className="second-section">

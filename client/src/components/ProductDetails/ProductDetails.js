@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loading from "../Modals/Loading";
 import Photos from "../Photos/Photos";
-import "./ProductDetailsNew.css";
+import "./ProductDetails.css";
 import Error from "../Modals/Error";
 
 function ProductDetails() {
@@ -102,16 +102,17 @@ function ProductDetails() {
             <div className="price">
               {data && (
                 <>
-                <div className="price-row-1">
-                  <span className="final-price">
-                    Rs.{Math.round(data.price - data.price * (discount / 100))}
-                  </span>
-                  <span className="discount-percentage">
-                    {discount + "% Off"}
-                  </span>
+                  <div className="price-row-1">
+                    <span className="final-price">
+                      Rs.
+                      {Math.round(data.price - data.price * (discount / 100))}
+                    </span>
+                    <span className="discount-percentage">
+                      {discount + "% Off"}
+                    </span>
                   </div>
                   <div>
-                  <span className="original-price">MRP Rs.{data.price}</span>
+                    <span className="original-price">MRP Rs.{data.price}</span>
                   </div>
                 </>
               )}
@@ -193,14 +194,13 @@ function ProductDetails() {
                   <br />
                 </div>
                 <div className="btn-container">
-                <button className="add-to-cart-btn" type="submit">
-                  Add to Cart
-                </button>
-                <button className="add-to-cart-btn" type="submit">
-                  Buy Now
-                </button>
+                  <button className="add-to-cart-btn" type="submit">
+                    Add to Cart
+                  </button>
+                  <button className="add-to-cart-btn" type="submit">
+                    Buy Now
+                  </button>
                 </div>
-                
               </form>
             </div>
           </div>

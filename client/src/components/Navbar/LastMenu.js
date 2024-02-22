@@ -1,8 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import profile from "./round-account-button-with-user-inside.png";
-import cart from "./shopping-cart (3).png";
-import order from "./shopping-list.png";
 
 function LastMenu(props) {
   const { userName, logOutHandler } = props;
@@ -12,7 +9,11 @@ function LastMenu(props) {
       <Link to="/Cart">
         <div className="cart-container">
           <div className="icon-container">
-            <img className="cart-icon" src={cart} alt="cart" />
+            <img
+              className="cart-icon"
+              src="images/shopping-cart (3).png"
+              alt="cart"
+            />
           </div>
           <p>Cart</p>
         </div>
@@ -20,7 +21,11 @@ function LastMenu(props) {
       <Link to="/Orders">
         <div className="wishlist-container">
           <div className="icon-container">
-            <img className="wishlist-icon" src={order} alt="wishlist" />
+            <img
+              className="wishlist-icon"
+              src="images/shopping-list.png"
+              alt="wishlist"
+            />
           </div>
           <p>Orders</p>
         </div>
@@ -28,7 +33,11 @@ function LastMenu(props) {
 
       <div className="profile-container">
         <div className="icon-container">
-          <img className="profile-icon" src={profile} alt="profile" />
+          <img
+            className="profile-icon"
+            src="images/round-account-button-with-user-inside.png"
+            alt="profile"
+          />
         </div>
         <p>Profile</p>
         <div className="profile-wrapper">

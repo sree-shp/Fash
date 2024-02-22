@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./NavbarNew.css";
+import "./Navbar.css";
 import Category from "./Category";
 import SearchBox from "./SearchBox";
 import LastMenu from "./LastMenu";

@@ -4,7 +4,6 @@ import axios from "axios";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import ReactLoading from "react-loading";
-import searchIcon from "./loupe.png";
 
 function SearchBox(props) {
   const [search, setSearch] = useState("");
@@ -70,11 +69,11 @@ function SearchBox(props) {
   return (
     <>
       <div className={props.source}>
-      <div className="search-icon-container">
+        <div className="search-icon-container">
           <img
             alt="search bar"
             className="searchbar-icon"
-            src={searchIcon}
+            src="images/loupe.png"
             onClick={(e) => {
               setSearch("");
             }}
@@ -89,43 +88,41 @@ function SearchBox(props) {
           placeholder="Search for products, brands and more"
           type="text"
         />
-        
-        {/* Search Results Box */}
-      {search && (
-        <div className="search-results-box">
-          {/* Loading element displays until the response is received */}
-          {loading && (
-            <div className="react-loader-box">
-              <ReactLoading
-                className="react-loader"
-                type="spin"
-                color="#f4555d"
-                height={50}
-                width={50}
-              />
-            </div>
-          )}
-          {/* Displays,if loading is completed, results length is equal to 0  */}
-          {!loading && !(results.length) &&(
-            <div className="results-wrapper">
-              <span className="results-heading">Results</span>
-              <span>No Matches Found</span>
-            </div>)
-          }
-          {/* After results is fetched, maps the results as a list */}
-          {!loading &(results.length) ? (
-            <div className="results-wrapper">
-              <span className="results-heading">Results</span>
-              {results.map(createResultsList)}
-            </div>
-          ) : (
-            <></>
-          )}
-        </div>
-      )}
-      </div>
 
-      
+        {/* Search Results Box */}
+        {search && (
+          <div className="search-results-box">
+            {/* Loading element displays until the response is received */}
+            {loading && (
+              <div className="react-loader-box">
+                <ReactLoading
+                  className="react-loader"
+                  type="spin"
+                  color="#f4555d"
+                  height={50}
+                  width={50}
+                />
+              </div>
+            )}
+            {/* Displays,if loading is completed, results length is equal to 0  */}
+            {!loading && !results.length && (
+              <div className="results-wrapper">
+                <span className="results-heading">Results</span>
+                <span>No Matches Found</span>
+              </div>
+            )}
+            {/* After results is fetched, maps the results as a list */}
+            {!loading & results.length ? (
+              <div className="results-wrapper">
+                <span className="results-heading">Results</span>
+                {results.map(createResultsList)}
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
+        )}
+      </div>
     </>
   );
 }

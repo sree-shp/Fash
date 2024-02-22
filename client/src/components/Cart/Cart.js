@@ -4,7 +4,6 @@ import axios from "axios";
 import CartItem from "../CartItem/CartItem";
 import Loading from "../Modals/Loading";
 import Error from "../Modals/Error";
-import EmptyCart from "./8882810.jpg";
 
 import { Link } from "react-router-dom";
 
@@ -33,9 +32,12 @@ function Cart(props) {
 
         //Store the response from the server
         //It will return 401 status(unauthorized) when not logged in
-        const res = await axios.get(`${process.env.REACT_APP_API_BASEURL}api/cart/getCart`, {
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          `${process.env.REACT_APP_API_BASEURL}api/cart/getCart`,
+          {
+            withCredentials: true,
+          }
+        );
         // Set Cart data
         setCartData(res.data.cart);
         // Set Products from cart data
@@ -141,7 +143,7 @@ function Cart(props) {
                     </div>
                   </div>
                   <div className="delivery-fee-wrapper">
-                  <div className="delivery-fee-heading">
+                    <div className="delivery-fee-heading">
                       <span>Delivery</span>
                     </div>
                     <div className="delivery-fee-total">
@@ -149,11 +151,11 @@ function Cart(props) {
                     </div>
                   </div>
                   <div className="total-wrapper">
-                  <div className="total-heading">
+                    <div className="total-heading">
                       <span>Total</span>
                     </div>
                     <div className="total-price">
-                      <span>{(cartData.total)+30}</span>
+                      <span>{cartData.total + 30}</span>
                     </div>
                   </div>
                 </div>
@@ -177,10 +179,12 @@ function Cart(props) {
       ) : (
         <>
           <div className="no-product-cart">
-            <img alt="empty cart" src={EmptyCart} />
+            <img alt="empty cart" src="images/8882810.jpg" />
             <span>
               {message === "Login to view your Cart" ? (
-                <Link className="login-to-continue-button"to="/Login">Login to view your cart"</Link>
+                <Link className="login-to-continue-button" to="/Login">
+                  Login to view your cart"
+                </Link>
               ) : (
                 "No Products in Cart"
               )}

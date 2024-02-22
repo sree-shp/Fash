@@ -1,11 +1,9 @@
 import React from "react";
 import "./LifeStyle.css";
-import Banner from "../Banner/Banner";
 import lifeStyleCategories from "../Category/LifeStyleCategory/categories";
 import Category from "../Category/Category";
 import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
-import bg from "./gray-sofa-brown-living-room-with-copy-space.jpg";
 import CategoryNavbar from "../CategoryNavbar/CategoryNavbar";
 
 function createCategoryCard(category) {
@@ -25,15 +23,17 @@ function createCategoryCard(category) {
 function LifeStyle() {
   return (
     <div className="lifeStyle">
-      <CategoryNavbar highlight="LifeStyle"  />
+      <CategoryNavbar highlight="LifeStyle" />
       <div className="lifestyle-first-section">
         <div className="bg-container">
-          <img className="bg-img" src={bg} />
+          <img
+            className="bg-img"
+            src="images/gray-sofa-brown-living-room-with-copy-space.jpg"
+            alt="lifestyle background"
+          />
         </div>
         <div className="lifestyle-first-section-description">
-          <h1 className="lifestyle-sale-heading">
-            END OF SEASON SALE
-          </h1>
+          <h1 className="lifestyle-sale-heading">END OF SEASON SALE</h1>
           <h2 className="lifestyle-discount">40-70%</h2>
           <Link to="/End of Season Sale/LifeStyle">
             <button className="shop-now">Shop Now</button>

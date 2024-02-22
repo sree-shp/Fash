@@ -4,7 +4,6 @@ import axios from "axios";
 import OrderList from "../OrderList/OrderList";
 import Loading from "../Modals/Loading";
 import Error from "../Modals/Error";
-import NoOrders from "./7117861_3298067.jpg";
 
 function Orders() {
   const [orders, setOrders] = useState();
@@ -149,7 +148,7 @@ function Orders() {
         </>
       ) : (
         <div className="no-orders">
-          <img alt="No Orders Found" src={NoOrders} />
+          <img alt="No Orders Found" src="images/7117861_3298067.jpg" />
           <span>No Orders Found</span>
         </div>
       )}

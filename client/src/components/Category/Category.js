@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./CategoryNew.css";
+import "./Category.css";
 
 function Category(props) {
   const [active, setActive] = useState(false);

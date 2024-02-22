@@ -1,8 +1,6 @@
 import React from "react";
 import "./Women.css";
 import Banner from "../Banner/Banner";
-import WImg1 from "./napat-saeng-mVGW8j9rrC4-unsplash-removebg-preview.png";
-import WImg2 from "./rafaella-mendes-diniz-et_78QkMMQs-unsplash-removebg-preview.png";
 import womenCategories from "../Category/WomenCategory/categories";
 import Category from "../Category/Category";
 import Footer from "../Footer/Footer";
@@ -28,8 +26,16 @@ function Women() {
     <div className="Women">
       <CategoryNavbar highlight="Women" />
       <Banner EoSSLink="/End Of Season Sale/Women">
-        <img className="women-img1" src={WImg2} alt="" />
-        <img className="women-img2" src={WImg1} alt="" />
+        <img
+          className="women-img1"
+          src="images/rafaella-mendes-diniz-et_78QkMMQs-unsplash-removebg-preview.png"
+          alt=""
+        />
+        <img
+          className="women-img2"
+          src="images/napat-saeng-mVGW8j9rrC4-unsplash-removebg-preview.png"
+          alt=""
+        />
       </Banner>
 
       <div className="second-section">

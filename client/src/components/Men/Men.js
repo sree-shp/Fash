@@ -1,6 +1,4 @@
 import Banner from "../Banner/Banner";
-import MImg1 from "./dieter-blom-YAHCLVsRUBw-unsplash-removebg-preview.png";
-import MImg2 from "./m-brauer-jM-6ezSckAA-unsplash-removebg-preview.png";
 import "./Men.css";
 import menCategories from "../Category/MenCategory/menCategories";
 import Category from "../Category/Category";
@@ -29,10 +27,18 @@ function createCategoryCard(category) {
 function Men() {
   return (
     <div className="Men">
-      <CategoryNavbar highlight="Men"/>
+      <CategoryNavbar highlight="Men" />
       <Banner EoSSLink="/End Of Season Sale/Men">
-        <img className="men-img1" src={MImg1} alt="" />
-        <img className="men-img2" src={MImg2} alt="" />
+        <img
+          className="men-img1"
+          src="images/dieter-blom-YAHCLVsRUBw-unsplash-removebg-preview.png"
+          alt=""
+        />
+        <img
+          className="men-img2"
+          src="images/m-brauer-jM-6ezSckAA-unsplash-removebg-preview.png"
+          alt=""
+        />
       </Banner>
 
       <div className="second-section">

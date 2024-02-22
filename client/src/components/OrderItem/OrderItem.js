@@ -1,6 +1,5 @@
 import React from "react";
 import "./OrderItem.css";
-import check from "./checked.png";
 
 function OrderItem(props) {
   return (
@@ -21,7 +20,11 @@ function OrderItem(props) {
             </span>
             <div className="order-status-container">
               <div className="check-icon-container">
-                <img className="check-icon" src={check} />
+                <img
+                  className="check-icon"
+                  src="images/checked.png"
+                  alt="delivered"
+                />
               </div>
               <span className="order-status">Delivered</span>
             </div>

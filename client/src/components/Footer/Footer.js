@@ -1,9 +1,5 @@
 import React from "react";
 import "./Footer.css";
-import fb from "./facebook.png";
-import insta from "./instagram (1).png";
-import twitter from "./twitter-sign.png";
-import youtube from "./youtube.png";
 
 function Footer() {
   return (
@@ -11,10 +7,18 @@ function Footer() {
       <div className="socials">
         <h3 className="socials-heading">KEEP IN TOUCH</h3>
         <div className="socials-links">
-          <img className="socials-links-img" src={fb} alt="" />
-          <img className="socials-links-img" src={insta} alt="" />
-          <img className="socials-links-img" src={twitter} alt="" />
-          <img className="socials-links-img" src={youtube} alt="" />
+          <img className="socials-links-img" src="images/facebook.png" alt="" />
+          <img
+            className="socials-links-img"
+            src="images/instagram (1).png"
+            alt=""
+          />
+          <img
+            className="socials-links-img"
+            src="images/twitter-sign.png"
+            alt=""
+          />
+          <img className="socials-links-img" src="images/youtube.png" alt="" />
         </div>
       </div>
       <p className="rights">© 2023 www.fash.com. All rights reserved.</p>
