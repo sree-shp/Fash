@@ -10,11 +10,11 @@ import CategoryNavbar from "../CategoryNavbar/CategoryNavbar";
 function createCategoryCard(category, index) {
   return (
     <li key={index}>
-      <Link to={"/" + category.name}>
+      <Link to={`/${category.categoryGroup}/${category.category}`}>
         <Category
           key={category.id}
           img={category.img}
-          name={category.name}
+          category={category.category}
           discount={category.discount}
           color={category.color}
         />

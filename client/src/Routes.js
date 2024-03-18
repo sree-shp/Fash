@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
@@ -11,9 +11,9 @@ import ProductBrowser from "./components/ProductsBrowser/ProductsBrowser";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import Cart from "./components/Cart/Cart";
 import Orders from "./components/Orders/Orders";
-import Search from './components/Search/Search';
+import Search from "./components/Search/Search";
 
-function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
+function RoutesList({ userName, setUserName, selectedId, setSelectedId }) {
   return (
     <>
       <Routes>
@@ -36,201 +36,107 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
         />
         <Route path="/Orders" element={<Orders />} />
 
-        {/* Shop By Category Routes */}
+        <Route path="/Men" element={<Men />} />
 
-        <Route path="/TopWear" element={<ProductBrowser title="TopWear" />} />
-        <Route path="/TopWear/:id" element={<ProductDetails />} />
-        <Route
-          path="/Western Wear"
-          element={<ProductBrowser title="Western Wear" />}
-        />
-        <Route path="/Western Wear/:id" element={<ProductDetails />} />
+        <Route path="/Women" element={<Women />} />
 
-        <Route
-          path="/ActiveWear"
-          element={<ProductBrowser title="ActiveWear" />}
-        />
-        <Route path="/ActiveWear/:id" element={<ProductDetails />} />
+        <Route path="/Kids" element={<Kids />} />
 
-        <Route
-          path="/BottomWear"
-          element={<ProductBrowser title="BottomWear" />}
-        />
-        <Route path="/BottomWear/:id" element={<ProductDetails />} />
+        <Route path="/LifeStyle" element={<LifeStyle />} />
 
-        <Route path="/FootWear" element={<ProductBrowser title="FootWear" />} />
-        <Route path="/FootWear/:id" element={<ProductDetails />} />
-
-          {/* Men Page Shop by category Routes */}
+        {/* Men Page Shop by category Routes */}
 
         <Route
           path="/Men/TopWear/T-Shirts"
-          element={<ProductBrowser title="T-Shirts" subCategory="TopWear" group="men" />}
+          element={
+            <ProductBrowser
+              subCategory="T-Shirts"
+              category="TopWear"
+              categoryGroup="Men"
+            />
+          }
         />
         <Route path="/Men/TopWear/T-Shirts/:id" element={<ProductDetails />} />
 
         <Route
           path="/Men/TopWear/Casual Shirts"
-          element={<ProductBrowser title="Casual Shirts" subCategory="TopWear" group="men" />}
+          element={
+            <ProductBrowser
+              subCategory="Casual Shirts"
+              category="TopWear"
+              categoryGroup="Men"
+            />
+          }
         />
-        <Route path="/Men/TopWear/Casual Shirts/:id" element={<ProductDetails />} />
+        <Route
+          path="/Men/TopWear/Casual Shirts/:id"
+          element={<ProductDetails />}
+        />
 
         <Route
           path="/Men/TopWear/Formal Shirts"
-          element={<ProductBrowser title="Formal Shirts"  subCategory="TopWear" group="men" />}
+          element={
+            <ProductBrowser
+              subCategory="Formal Shirts"
+              category="TopWear"
+              categoryGroup="Men"
+            />
+          }
         />
-        <Route path="/Men/TopWear/Formal Shirts/:id" element={<ProductDetails />} />
+        <Route
+          path="/Men/TopWear/Formal Shirts/:id"
+          element={<ProductDetails />}
+        />
 
         <Route
           path="/Men/BottomWear/Jeans"
-          element={<ProductBrowser title="Jeans" subCategory="BottomWear" group="men" />}
+          element={
+            <ProductBrowser
+              subCategory="Jeans"
+              category="BottomWear"
+              categoryGroup="Men"
+            />
+          }
         />
         <Route path="/Men/BottomWear/Jeans/:id" element={<ProductDetails />} />
 
         <Route
           path="/Men/BottomWear/Casual Trousers"
-          element={<ProductBrowser title="Casual Trousers" subCategory="BottomWear" group="men" />}
-        />
-        <Route path="/Men/BottomWear/Casual Trousers/:id" element={<ProductDetails />} />
-
-          {/* Women Page Shop by category Routes */}
-
-        <Route
-          path="/Women/Indian & Fusion Wear/Sarees"
-          element={<ProductBrowser title="Sarees" subCategory="Indian & Fusion Wear" group="women" />}
-        />
-        <Route path="/Women/Indian & Fusion Wear/Sarees/:id" element={<ProductDetails />} />
-
-        <Route
-          path="/Women/Western Wear/Dresses"
-          element={<ProductBrowser title="Dresses" subCategory="Western Wear" group="women" />}
-        />
-        <Route path="/Women/Western Wear/Dresses/:id" element={<ProductDetails />} />
-
-        <Route
-          path="/Women/Western Wear/Tops"
-          element={<ProductBrowser title="Tops" subCategory="Western Wear" group="women" />}
-        />
-        <Route path="/Women/Western Wear/Tops/:id" element={<ProductDetails />} />
-
-        <Route
-          path="/Women/Western Wear/T-Shirts"
-          element={<ProductBrowser title="T-Shirts" subCategory="Western Wear" group="women" />}
-        />
-        <Route path="/Women/Western Wear/T-Shirts/:id" element={<ProductDetails />} />
-
-        <Route
-          path="/Women/FootWear/Heels"
-          element={<ProductBrowser title="Heels" subCategory="FootWear" group="women" />}
-        />
-        <Route path="/Women/FootWear/Heels/:id" element={<ProductDetails />} />
-
-{/* Kids Page Shop by category Routes */}
-
-        <Route
-          path="/Kids/T-Shirts"
-          element={<ProductBrowser title="T-Shirts" group="kids" />}
-        />
-        <Route path="/Kids/T-Shirts/:id" element={<ProductDetails />} />
-
-        <Route
-          path="/Kids/Shorts"
-          element={<ProductBrowser title="Shorts" group="kids" />}
-        />
-        <Route path="/Kids/Shorts/:id" element={<ProductDetails />} />
-
-        <Route
-          path="/Kids/Tops"
-          element={<ProductBrowser title="Tops" group="kids" />}
-        />
-        <Route path="/Kids/Tops/:id" element={<ProductDetails />} />
-
-        <Route
-          path="/Kids/Flip Flops"
-          element={<ProductBrowser title="Flip Flops" group="kids" />}
-        />
-        <Route path="/Kids/Flip Flops/:id" element={<ProductDetails />} />
-
-        <Route
-          path="/Kids/Bodysuits"
-          element={<ProductBrowser title="Bodysuits" group="kids" />}
-        />
-        <Route path="/Kids/Bodysuits/:id" element={<ProductDetails />} />
-
-        <Route
-          path="/Lifestyle/Beach Towels"
-          element={<ProductBrowser title="Beach Towels" group="lifestyle" />}
+          element={
+            <ProductBrowser
+              subCategory="Casual Trousers"
+              category="BottomWear"
+              categoryGroup="Men"
+            />
+          }
         />
         <Route
-          path="/Lifestyle/Beach Towels/:id"
+          path="/Men/BottomWear/Casual Trousers/:id"
           element={<ProductDetails />}
         />
 
         <Route
-          path="/Lifestyle/Table Lamps"
-          element={<ProductBrowser title="Table Lamps" group="lifestyle" />}
-        />
-        <Route path="/Lifestyle/Table Lamps/:id" element={<ProductDetails />} />
-
-        <Route
-          path="/Lifestyle/Bedsheets"
-          element={<ProductBrowser title="Bedsheets" group="lifestyle" />}
-        />
-        <Route path="/Lifestyle/Bedsheets/:id" element={<ProductDetails />} />
-
-        <Route
-          path="/Lifestyle/Bath Towels"
-          element={<ProductBrowser title="Bath Towels" group="lifestyle" />}
-        />
-        <Route path="/Lifestyle/Bath Towels/:id" element={<ProductDetails />} />
-
-        <Route
-          path="/Lifestyle/Clocks"
-          element={<ProductBrowser title="Clocks" group="lifestyle" />}
+          path="/Men/BottomWear/Formal Trousers"
+          element={
+            <ProductBrowser
+              subCategory="Formal Trousers"
+              category="BottomWear"
+              categoryGroup="Men"
+            />
+          }
         />
         <Route
-          path="/Lifestyle/Clocks/:id"
+          path="/Men/BottomWear/Formal Trousers/:id"
           element={<ProductDetails />}
         />
 
-        {/* Deals Routes */}
-
-        <Route path="/Dresses" element={<ProductBrowser title="Dresses" />} />
-        <Route path="/" />
-
-        {/* Product Details through Search */}
-        <Route path="/Search/:id" element={<ProductDetails />} />
-
-        <Route
-          path="/End of Season Sale"
-          element={<ProductBrowser title="" EoSSheading="End of Season Sale" EoSS={true} />}
-        />
-        <Route
-          path="/End of Season Sale/Men"
-          element={<ProductBrowser title="men" EoSS={true} />}
-        />
-        <Route
-          path="/End of Season Sale/Women"
-          element={<ProductBrowser title="women" EoSS={true} />}
-        />
-        <Route
-          path="/End of Season Sale/Kids"
-          element={<ProductBrowser title="kids" EoSS={true} />}
-        />
-        <Route
-          path="/End of Season Sale/Lifestyle"
-          element={<ProductBrowser title="lifestyle" EoSS={true} />}
-        />
-
-        {/* Men Routes */}
-        <Route path="/Men" element={<Men />} />
         <Route
           path="/Men/TopWear/T-Shirts"
           element={
             <ProductBrowser
-              title="T-Shirts"
-              subCategory="TopWear"
-              group="men"
+              subCategory="T-Shirts"
+              category="TopWear"
+              categoryGroup="Men"
             />
           }
         />
@@ -239,9 +145,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Men/TopWear/Casual Shirts"
           element={
             <ProductBrowser
-              title="Casual Shirts"
-              subCategory="TopWear"
-              group="men"
+              subCategory="Casual Shirts"
+              category="TopWear"
+              categoryGroup="Men"
             />
           }
         />
@@ -253,9 +159,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Men/TopWear/Formal Shirts"
           element={
             <ProductBrowser
-              title="Formal Shirts"
-              subCategory="TopWear"
-              group="men"
+              subCategory="Formal Shirts"
+              category="TopWear"
+              categoryGroup="Men"
             />
           }
         />
@@ -267,9 +173,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Men/BottomWear/Jeans"
           element={
             <ProductBrowser
-              title="Jeans"
-              subCategory="BottomWear"
-              group="men"
+              subCategory="Jeans"
+              category="BottomWear"
+              categoryGroup="Men"
             />
           }
         />
@@ -278,9 +184,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Men/BottomWear/Casual Trousers"
           element={
             <ProductBrowser
-              title="Casual Trousers"
-              subCategory="BottomWear"
-              group="men"
+              subCategory="Casual Trousers"
+              category="BottomWear"
+              categoryGroup="Men"
             />
           }
         />
@@ -292,9 +198,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Men/BottomWear/Formal Trousers"
           element={
             <ProductBrowser
-              title="Formal Trousers"
-              subCategory="BottomWear"
-              group="men"
+              subCategory="Formal Trousers"
+              category="BottomWear"
+              categoryGroup="Men"
             />
           }
         />
@@ -306,9 +212,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Men/FootWear/Casual Shoes"
           element={
             <ProductBrowser
-              title="Casual Shoes"
-              subCategory="FootWear"
-              group="men"
+              subCategory="Casual Shoes"
+              category="FootWear"
+              categoryGroup="Men"
             />
           }
         />
@@ -320,9 +226,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Men/FootWear/Sports Shoes"
           element={
             <ProductBrowser
-              title="Sports Shoes"
-              subCategory="FootWear"
-              group="men"
+              subCategory="Sports Shoes"
+              category="FootWear"
+              categoryGroup="Men"
             />
           }
         />
@@ -334,9 +240,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Men/FootWear/Formal Shoes"
           element={
             <ProductBrowser
-              title="Formal Shoes"
-              subCategory="FootWear"
-              group="men"
+              subCategory="Formal Shoes"
+              category="FootWear"
+              categoryGroup="Men"
             />
           }
         />
@@ -348,9 +254,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Men/ActiveWear/Active T-Shirts"
           element={
             <ProductBrowser
-              title="Active T-Shirts"
-              subCategory="ActiveWear"
-              group="men"
+              subCategory="Active T-Shirts"
+              category="ActiveWear"
+              categoryGroup="Men"
             />
           }
         />
@@ -362,9 +268,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Men/ActiveWear/Track Pants & Shorts"
           element={
             <ProductBrowser
-              title="Track Pants & Shorts"
-              subCategory="ActiveWear"
-              group="men"
+              subCategory="Track Pants & Shorts"
+              category="ActiveWear"
+              categoryGroup="Men"
             />
           }
         />
@@ -376,9 +282,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Men/ActiveWear/Tracksuits"
           element={
             <ProductBrowser
-              title="Tracksuits"
-              subCategory="ActiveWear"
-              group="men"
+              subCategory="Tracksuits"
+              category="ActiveWear"
+              categoryGroup="Men"
             />
           }
         />
@@ -387,14 +293,88 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           element={<ProductDetails />}
         />
 
+        {/* Women Page Shop by category Routes */}
+
+        <Route
+          path="/Women/Indian & Fusion Wear/Sarees"
+          element={
+            <ProductBrowser
+              subCategory="Sarees"
+              category="Indian & Fusion Wear"
+              categoryGroup="Women"
+            />
+          }
+        />
+        <Route
+          path="/Women/Indian & Fusion Wear/Sarees/:id"
+          element={<ProductDetails />}
+        />
+
+        <Route
+          path="/Women/Western Wear/Dresses"
+          element={
+            <ProductBrowser
+              subCategory="Dresses"
+              category="Western Wear"
+              categoryGroup="Women"
+            />
+          }
+        />
+        <Route
+          path="/Women/Western Wear/Dresses/:id"
+          element={<ProductDetails />}
+        />
+
+        <Route
+          path="/Women/Western Wear/Tops"
+          element={
+            <ProductBrowser
+              subCategory="Tops"
+              category="Western Wear"
+              categoryGroup="Women"
+            />
+          }
+        />
+        <Route
+          path="/Women/Western Wear/Tops/:id"
+          element={<ProductDetails />}
+        />
+
+        <Route
+          path="/Women/Western Wear/T-Shirts"
+          element={
+            <ProductBrowser
+              subCategory="T-Shirts"
+              category="Western Wear"
+              categoryGroup="Women"
+            />
+          }
+        />
+        <Route
+          path="/Women/Western Wear/T-Shirts/:id"
+          element={<ProductDetails />}
+        />
+
+        <Route
+          path="/Women/FootWear/Heels"
+          element={
+            <ProductBrowser
+              subCategory="Heels"
+              category="FootWear"
+              categoryGroup="Women"
+            />
+          }
+        />
+        <Route path="/Women/FootWear/Heels/:id" element={<ProductDetails />} />
+
         {/* Women Routes */}
         <Route
           path="/Women/Indian & Fusion Wear/Kurtas & Suits"
           element={
             <ProductBrowser
-              title="Kurtas & Suits"
-              subCategory="Indian & Fusion wear"
-              group="women"
+              subCategory="Kurtas & Suits"
+              category="Indian & Fusion wear"
+              categoryGroup="Women"
             />
           }
         />
@@ -406,9 +386,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Women/Indian & Fusion Wear/Kurtis, TUnics & Tops"
           element={
             <ProductBrowser
-              title="Kurtis, Tunics & Tops"
-              subCategory="Indian & Fusion wear"
-              group="women"
+              subCategory="Kurtis, Tunics & Tops"
+              category="Indian & Fusion wear"
+              categoryGroup="Women"
             />
           }
         />
@@ -420,9 +400,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Women/Indian & Fusion Wear/Sarees"
           element={
             <ProductBrowser
-              title="Sarees"
-              subCategory="Indian & Fusion wear"
-              group="women"
+              subCategory="Sarees"
+              category="Indian & Fusion wear"
+              categoryGroup="Women"
             />
           }
         />
@@ -434,9 +414,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Women/Western Wear/Dresses"
           element={
             <ProductBrowser
-              title="Dresses"
-              subCategory="Western Wear"
-              group="women"
+              subCategory="Dresses"
+              category="Western Wear"
+              categoryGroup="Women"
             />
           }
         />
@@ -448,9 +428,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Women/Western Wear/Tops"
           element={
             <ProductBrowser
-              title="Tops"
-              subCategory="Western Wear"
-              group="women"
+              subCategory="Tops"
+              category="Western Wear"
+              categoryGroup="Women"
             />
           }
         />
@@ -462,9 +442,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Women/Western Wear/T-Shirts"
           element={
             <ProductBrowser
-              title="T-Shirts"
-              subCategory="Western Wear"
-              group="women"
+              subCategory="T-Shirts"
+              category="Western Wear"
+              categoryGroup="Women"
             />
           }
         />
@@ -476,9 +456,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Women/FootWear/Flats"
           element={
             <ProductBrowser
-              title="Flats"
-              subCategory="FootWear"
-              group="women"
+              subCategory="Flats"
+              category="FootWear"
+              categoryGroup="Women"
             />
           }
         />
@@ -487,9 +467,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Women/FootWear/Casual Shoes"
           element={
             <ProductBrowser
-              title="Casual Shoes"
-              subCategory="FootWear"
-              group="women"
+              subCategory="Casual Shoes"
+              category="FootWear"
+              categoryGroup="Women"
             />
           }
         />
@@ -501,9 +481,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Women/FootWear/Heels"
           element={
             <ProductBrowser
-              title="Heels"
-              subCategory="FootWear"
-              group="women"
+              subCategory="Heels"
+              category="FootWear"
+              categoryGroup="Women"
             />
           }
         />
@@ -512,9 +492,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Women/Sports & ActiveWear/Clothing"
           element={
             <ProductBrowser
-              title="Clothing"
-              subCategory="Sports & ActiveWear"
-              group="women"
+              subCategory="Clothing"
+              category="Sports & ActiveWear"
+              categoryGroup="Women"
             />
           }
         />
@@ -526,9 +506,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Women/Sports & ActiveWear/Footwear"
           element={
             <ProductBrowser
-              title="Footwear"
-              subCategory="Sports & ActiveWear"
-              group="women"
+              subCategory="Footwear"
+              category="Sports & ActiveWear"
+              categoryGroup="Women"
             />
           }
         />
@@ -540,9 +520,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Women/Sports & ActiveWear/Sports Accessories"
           element={
             <ProductBrowser
-              title="Sports Accessories"
-              subCategory="Sports & ActiveWear"
-              group="women"
+              subCategory="Sports Accessories"
+              category="Sports & ActiveWear"
+              categoryGroup="Women"
             />
           }
         />
@@ -556,9 +536,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Kids/Boys Clothing/T-Shirts"
           element={
             <ProductBrowser
-              title="T-Shirts"
-              subCategory="Boys Clothing"
-              group="kids"
+              subCategory="T-Shirts"
+              category="Boys Clothing"
+              categoryGroup="Kids"
             />
           }
         />
@@ -570,9 +550,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Kids/Boys Clothing/Shirts"
           element={
             <ProductBrowser
-              title="Shirts"
-              subCategory="Boys Clothing"
-              group="kids"
+              subCategory="Shirts"
+              category="Boys Clothing"
+              categoryGroup="Kids"
             />
           }
         />
@@ -584,9 +564,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Kids/Boys Clothing/Shorts"
           element={
             <ProductBrowser
-              title="Shorts"
-              subCategory="Boys Clothing"
-              group="kids"
+              subCategory="Shorts"
+              category="Boys Clothing"
+              categoryGroup="Kids"
             />
           }
         />
@@ -598,9 +578,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Kids/Girls Clothing/Dresses"
           element={
             <ProductBrowser
-              title="Dresses"
-              subCategory="Girls Clothing"
-              group="kids"
+              subCategory="Dresses"
+              category="Girls Clothing"
+              categoryGroup="Kids"
             />
           }
         />
@@ -612,9 +592,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Kids/Girls Clothing/Tops"
           element={
             <ProductBrowser
-              title="Tops"
-              subCategory="Girls Clothing"
-              group="kids"
+              subCategory="Tops"
+              category="Girls Clothing"
+              categoryGroup="Kids"
             />
           }
         />
@@ -626,9 +606,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Kids/Girls Clothing/T-Shirts"
           element={
             <ProductBrowser
-              title="T-Shirts"
-              subCategory="Girls Clothing"
-              group="kids"
+              subCategory="T-Shirts"
+              category="Girls Clothing"
+              categoryGroup="Kids"
             />
           }
         />
@@ -640,9 +620,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Kids/FootWear/Flip Flops"
           element={
             <ProductBrowser
-              title="Flip Flops"
-              subCategory="FootWear"
-              group="kids"
+              subCategory="Flip Flops"
+              category="FootWear"
+              categoryGroup="Kids"
             />
           }
         />
@@ -654,9 +634,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Kids/FootWear/Casual Shoes"
           element={
             <ProductBrowser
-              title="Casual Shoes"
-              subCategory="FootWear"
-              group="kids"
+              subCategory="Casual Shoes"
+              category="FootWear"
+              categoryGroup="Kids"
             />
           }
         />
@@ -668,9 +648,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Kids/FootWear/Sports Shoes"
           element={
             <ProductBrowser
-              title="Sports Shoes"
-              subCategory="FootWear"
-              group="kids"
+              subCategory="Sports Shoes"
+              category="FootWear"
+              categoryGroup="Kids"
             />
           }
         />
@@ -682,9 +662,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Kids/Infants/Bodysuits"
           element={
             <ProductBrowser
-              title="Bodysuits"
-              subCategory="Infants"
-              group="kids"
+              subCategory="Bodysuits"
+              category="Infants"
+              categoryGroup="Kids"
             />
           }
         />
@@ -696,9 +676,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Kids/Infants/Rompers & Sleepsuits"
           element={
             <ProductBrowser
-              title="Rompers & Sleepsuits"
-              subCategory="Infants"
-              group="kids"
+              subCategory="Rompers & Sleepsuits"
+              category="Infants"
+              categoryGroup="Kids"
             />
           }
         />
@@ -710,9 +690,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Kids/Infants/Clothing Sets"
           element={
             <ProductBrowser
-              title="Clothing Sets"
-              subCategory="Infants"
-              group="kids"
+              subCategory="Clothing Sets"
+              category="Infants"
+              categoryGroup="Kids"
             />
           }
         />
@@ -726,9 +706,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Lifestyle/Bed Linen & Furnishing/Bed Runners"
           element={
             <ProductBrowser
-              title="Bed Runners"
-              subCategory="Bed Linen & Furnishing"
-              group="lifestyle"
+              subCategory="Bed Runners"
+              category="Bed Linen & Furnishing"
+              categoryGroup="Lifestyle"
             />
           }
         />
@@ -740,9 +720,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Lifestyle/Bed Linen & Furnishing/Bedsheets"
           element={
             <ProductBrowser
-              title="Bedsheets"
-              subCategory="Bed Linen & Furnishing"
-              group="lifestyle"
+              subCategory="Bedsheets"
+              category="Bed Linen & Furnishing"
+              categoryGroup="Lifestyle"
             />
           }
         />
@@ -754,9 +734,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Lifestyle/Bed Linen & Furnishing/Mattress Protectors"
           element={
             <ProductBrowser
-              title="Mattress Protectors"
-              subCategory="Bed Linen & Furnishing"
-              group="lifestyle"
+              subCategory="Mattress Protectors"
+              category="Bed Linen & Furnishing"
+              categoryGroup="Lifestyle"
             />
           }
         />
@@ -768,9 +748,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Lifestyle/Bath/Bath Towels"
           element={
             <ProductBrowser
-              title="Bath Towels"
-              subCategory="Bath"
-              group="lifestyle"
+              subCategory="Bath Towels"
+              category="Bath"
+              categoryGroup="Lifestyle"
             />
           }
         />
@@ -782,9 +762,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Lifestyle/Bath/Hand & Face Towels"
           element={
             <ProductBrowser
-              title="Hand & Face Towels"
-              subCategory="Bath"
-              group="lifestyle"
+              subCategory="Hand & Face Towels"
+              category="Bath"
+              categoryGroup="Lifestyle"
             />
           }
         />
@@ -796,9 +776,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Lifestyle/Bath/Beach Towels"
           element={
             <ProductBrowser
-              title="Beach Towels"
-              subCategory="Bath"
-              group="lifestyle"
+              subCategory="Beach Towels"
+              category="Bath"
+              categoryGroup="Lifestyle"
             />
           }
         />
@@ -810,9 +790,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Lifestyle/Lamps & Lighting/Floor Lamps"
           element={
             <ProductBrowser
-              title="Floor Lamps"
-              subCategory="Lamps & Lighting"
-              group="lifestyle"
+              subCategory="Floor Lamps"
+              category="Lamps & Lighting"
+              categoryGroup="Lifestyle"
             />
           }
         />
@@ -824,9 +804,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Lifestyle/Lamps & Lighting/Ceiling Lamps"
           element={
             <ProductBrowser
-              title="Ceiling Lamps"
-              subCategory="Lamps & Lighting"
-              group="lifestyle"
+              subCategory="Ceiling Lamps"
+              category="Lamps & Lighting"
+              categoryGroup="Lifestyle"
             />
           }
         />
@@ -838,9 +818,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Lifestyle/Lamps & Lighting/Table Lamps"
           element={
             <ProductBrowser
-              title="Table Lamps"
-              subCategory="Lamps & Lighting"
-              group="lifestyle"
+              subCategory="Table Lamps"
+              category="Lamps & Lighting"
+              categoryGroup="Lifestyle"
             />
           }
         />
@@ -852,9 +832,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Lifestyle/Home Decor/Plants & Planters"
           element={
             <ProductBrowser
-              title="Plants & Planters"
-              subCategory="Home Decor"
-              group="lifestyle"
+              subCategory="Plants & Planters"
+              category="Home Decor"
+              categoryGroup="Lifestyle"
             />
           }
         />
@@ -866,9 +846,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Lifestyle/Home Decor/Aromas & Candles"
           element={
             <ProductBrowser
-              title="Aromas & Candles"
-              subCategory="Home Decor"
-              group="lifestyle"
+              subCategory="Aromas & Candles"
+              category="Home Decor"
+              categoryGroup="Lifestyle"
             />
           }
         />
@@ -880,9 +860,9 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           path="/Lifestyle/Home Decor/Clocks"
           element={
             <ProductBrowser
-              title="Clocks"
-              subCategory="Home Decor"
-              group="lifestyle"
+              subCategory="Clocks"
+              category="Home Decor"
+              categoryGroup="Lifestyle"
             />
           }
         />
@@ -891,45 +871,189 @@ function RoutesList({userName, setUserName, selectedId, setSelectedId}) {
           element={<ProductDetails />}
         />
 
+        {/* Shop By Category Routes */}
+
         <Route
-          path="/Men/ActiveWear/Active T-Shirts"
-          element={<ProductBrowser title="Active T-Shirts" />}
+          path="/Men/TopWear"
+          element={<ProductBrowser categoryGroup="Men" category="TopWear" />}
+        />
+        <Route path="/Men/TopWear/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Men/BottomWear"
+          element={<ProductBrowser categoryGroup="Men" category="BottomWear" />}
+        />
+        <Route path="/Men/BottomWear/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Men/FootWear"
+          element={<ProductBrowser categoryGroup="Men" category="FootWear" />}
+        />
+        <Route path="/Men/FootWear/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Women/Western Wear"
+          element={
+            <ProductBrowser categoryGroup="Women" category="Western Wear" />
+          }
+        />
+        <Route path="/Women/Western Wear/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Women/ActiveWear"
+          element={
+            <ProductBrowser
+              categoryGroup="Women"
+              category="Sports & ActiveWear"
+            />
+          }
+        />
+        <Route path="/Women/ActiveWear/:id" element={<ProductDetails />} />
+
+        {/* Kids Page Shop by category Routes */}
+
+        <Route
+          path="/Kids/T-Shirts"
+          element={<ProductBrowser category="T-Shirts" categoryGroup="Kids" />}
+        />
+        <Route path="/Kids/T-Shirts/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Kids/Shorts"
+          element={<ProductBrowser category="Shorts" categoryGroup="Kids" />}
+        />
+        <Route path="/Kids/Shorts/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Kids/Tops"
+          element={<ProductBrowser category="Tops" categoryGroup="Kids" />}
+        />
+        <Route path="/Kids/Tops/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Kids/Flip Flops"
+          element={
+            <ProductBrowser category="Flip Flops" categoryGroup="Kids" />
+          }
+        />
+        <Route path="/Kids/Flip Flops/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Kids/Bodysuits"
+          element={<ProductBrowser category="Bodysuits" categoryGroup="Kids" />}
+        />
+        <Route path="/Kids/Bodysuits/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Lifestyle/Beach Towels"
+          element={
+            <ProductBrowser category="Beach Towels" categoryGroup="Lifestyle" />
+          }
         />
         <Route
-          path="/Men/Casual Shoes"
-          element={<ProductBrowser title="Casual Shoes" />}
+          path="/Lifestyle/Beach Towels/:id"
+          element={<ProductDetails />}
+        />
+
+        <Route
+          path="/Lifestyle/Table Lamps"
+          element={
+            <ProductBrowser category="Table Lamps" categoryGroup="Lifestyle" />
+          }
+        />
+        <Route path="/Lifestyle/Table Lamps/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Lifestyle/Bedsheets"
+          element={
+            <ProductBrowser category="Bedsheets" categoryGroup="Lifestyle" />
+          }
+        />
+        <Route path="/Lifestyle/Bedsheets/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Lifestyle/Bath Towels"
+          element={
+            <ProductBrowser category="Bath Towels" categoryGroup="Lifestyle" />
+          }
+        />
+        <Route path="/Lifestyle/Bath Towels/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/Lifestyle/Clocks"
+          element={
+            <ProductBrowser category="Clocks" categoryGroup="Lifestyle" />
+          }
+        />
+        <Route path="/Lifestyle/Clocks/:id" element={<ProductDetails />} />
+
+        {/* Product Details through Search */}
+        <Route path="/Search/:id" element={<ProductDetails />} />
+
+        <Route
+          path="/End of Season Sale"
+          element={
+            <ProductBrowser
+              categoryGroup="Men"
+              EoSSheading="End of Season Sale"
+            />
+          }
         />
         <Route
-          path="/Men/Casual Trousers"
-          element={<ProductBrowser title="Causal Trousers" />}
+          path="/End of Season Sale/Men"
+          element={
+            <ProductBrowser
+              categoryGroup="Men"
+              EoSSheading="End of Season Sale"
+            />
+          }
         />
         <Route
-          path="/Men/Formal Shoes"
-          element={<ProductBrowser title="Formal Shoes" />}
+          path="/End of Season Sale/Men/:id"
+          element={<ProductDetails />}
         />
         <Route
-          path="/Men/Formal Trousers"
-          element={<ProductBrowser title="FormalTrousers" />}
-        />
-        <Route path="/Men/Jeans" element={<ProductBrowser title="Jeans" />} />
-        <Route
-          path="/Men/Sports Shoes"
-          element={<ProductBrowser title="Sport Shoes" />}
-        />
-        <Route
-          path="/Men/Track Pants and Shorts"
-          element={<ProductBrowser title="Track Pants and Shorts" />}
+          path="/End of Season Sale/Women"
+          element={
+            <ProductBrowser
+              categoryGroup="Women"
+              EoSSheading="End of Season Sale"
+            />
+          }
         />
         <Route
-          path="/Men/Track Suits"
-          element={<ProductBrowser title="Track Suits" />}
+          path="/End of Season Sale/Women/:id"
+          element={<ProductDetails />}
         />
-        <Route path="/Women" element={<Women />} />
-        <Route path="/Kids" element={<Kids />} />
-        <Route path="/LifeStyle" element={<LifeStyle />} />
+        <Route
+          path="/End of Season Sale/Kids"
+          element={
+            <ProductBrowser
+              categoryGroup="Kids"
+              EoSSheading="End of Season Sale"
+            />
+          }
+        />
+        <Route
+          path="/End of Season Sale/Kids/:id"
+          element={<ProductDetails />}
+        />
+        <Route
+          path="/End of Season Sale/Lifestyle"
+          element={
+            <ProductBrowser
+              categoryGroup="Lifestyle"
+              EoSSheading="End of Season Sale"
+            />
+          }
+        />
+        <Route
+          path="/End of Season Sale/Lifestyle/:id"
+          element={<ProductDetails />}
+        />
       </Routes>
     </>
   );
 }
 
-export default RoutesList
+export default RoutesList;

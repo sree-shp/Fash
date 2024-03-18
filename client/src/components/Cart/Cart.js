@@ -11,10 +11,9 @@ import { Link } from "react-router-dom";
 function Cart(props) {
   // Store cart data in a state variable
   const [cartData, setCartData] = useState();
-  // Store products in a separate state
-  const [products, setProducts] = useState();
   // When removing a cart item, item's id is stored in this state received as props from App component
   const { selectedId, setSelectedId } = props;
+  const [cartUpdate, setCartUpdate] = useState(false);
   const [orderPlaced, setOrderPlaced] = useState(false);
 
   // States for loading, error and message
@@ -22,61 +21,17 @@ function Cart(props) {
   const [error, setError] = useState(false);
   const [message, setMessage] = useState("");
 
-  // To fetch the cart data from the database
-  useEffect(() => {
-    async function getCart() {
-      try {
-        //Loading is set to true which is set to false at the end
-        setLoading(true);
-        setMessage("Loading your cart");
-
-        //Store the response from the server
-        //It will return 401 status(unauthorized) when not logged in
-        const res = await axios.get(
-          `${process.env.REACT_APP_API_BASEURL}api/cart/getCart`,
-          {
-            withCredentials: true,
-          }
-        );
-        // Set Cart data
-        setCartData(res.data.cart);
-        // Set Products from cart data
-        setProducts(res.data.cart.product);
-
-        //Loading is set to false
-        setLoading(false);
-      } catch (err) {
-        // Loading is set to false once an error is encountered
-        setLoading(false);
-        if (err.response.status === 401) {
-          setMessage("Login to view your Cart");
-        } else if (err.response.status === 400) {
-          setMessage("Server Error");
-        }
-        // Set error to true
-        setError(true);
-        // Error is set to true for 1second and then set to false
-        setTimeout(() => {
-          setError(false);
-        }, 1000);
-        console.error(err.message);
-      }
-    }
-    //Calls the above function immediately to execute the function
-    getCart();
-  }, [selectedId, orderPlaced]);
-
   // Function to create cart item component from the array of data fetched from database
   function createCartItem(cartItem) {
     return (
       <CartItem
-        setSelectedId={setSelectedId}
+        setCartUpdate={setCartUpdate}
         key={cartItem._id}
         id={cartItem._id}
-        brand={cartItem.brand}
-        name={cartItem.name}
-        img={cartItem.img}
-        price={cartItem.price}
+        brand={cartItem.productData[0].productBrand}
+        name={cartItem.productData[0].productName}
+        img={cartItem.productData[0].images[0]}
+        price={cartItem.productData[0].discountedPrice}
         quantity={cartItem.quantity}
         size={cartItem.size}
       />
@@ -84,9 +39,16 @@ function Cart(props) {
   }
 
   // Function to place order, executed on clicking the submit button
-  async function submitHandler(event) {
+  async function placeOrderHandler(event) {
     // prevents default behaviour
     event.preventDefault();
+    const orderItems = cartData.products.map((el) => {
+      return {
+        productId: el.productId,
+        quantity: el.quantity,
+        size: el.size,
+      };
+    });
     try {
       //Loading is set to true which is set to false at the end
       setLoading(true);
@@ -94,9 +56,9 @@ function Cart(props) {
 
       // Post request to place order
       await axios.post(
-        `${process.env.REACT_APP_API_BASEURL}api/orders/placeOrder`,
+        `${process.env.REACT_APP_API_BASEURL}/api/v2/order`,
         {
-          products: cartData.product,
+          orderItems: orderItems,
           total: cartData.total,
         },
         {
@@ -118,16 +80,56 @@ function Cart(props) {
     }
   }
 
+  // To fetch the cart data from the database
+  useEffect(() => {
+    async function getCart() {
+      try {
+        //Loading is set to true which is set to false at the end
+        setLoading(true);
+        setMessage("Loading your cart");
+        //Store the response from the server
+        //It will return 401 status(unauthorized) when not logged in
+        const res = await axios.get(
+          `${process.env.REACT_APP_API_BASEURL}/api/v2/cart`,
+          {
+            withCredentials: true,
+          }
+        );
+        // Set Cart data
+        setCartData(res.data.data.cart);
+        //Loading is set to false
+        setLoading(false);
+      } catch (err) {
+        // Loading is set to false once an error is encountered
+        setLoading(false);
+        if (err.response.status === 401) {
+          setMessage("Login to view your Cart");
+        } else if (err.response.status === 400) {
+          setMessage("Server Error");
+        }
+        // Set error to true
+        setError(true);
+        // Error is set to true for 1second and then set to false
+        setTimeout(() => {
+          setError(false);
+        }, 1000);
+        console.error(err.message);
+      }
+    }
+    //Calls the above function immediately to execute the function
+    getCart();
+  }, [cartUpdate, orderPlaced]);
+
   return (
     <div className="cart">
       {loading && <Loading msg={message} />}
       {error && <Error msg={message} />}
-      {products && products.length !== 0 ? (
+      {cartData && cartData.products.length !== 0 ? (
         <>
           <h2 className="cart-heading">Your Shopping Cart</h2>
           <div className="cart-wrapper">
             <div className="cart-details-wrapper">
-              {products && products.map(createCartItem)}
+              {cartData && cartData.products.map(createCartItem)}
             </div>
 
             <div className="cart-summary">
@@ -147,7 +149,7 @@ function Cart(props) {
                       <span>Delivery</span>
                     </div>
                     <div className="delivery-fee-total">
-                      <span>Rs. 30</span>
+                      <span>0</span>
                     </div>
                   </div>
                   <div className="total-wrapper">
@@ -155,7 +157,7 @@ function Cart(props) {
                       <span>Total</span>
                     </div>
                     <div className="total-price">
-                      <span>{cartData.total + 30}</span>
+                      <span>{cartData.total}</span>
                     </div>
                   </div>
                 </div>
@@ -169,7 +171,7 @@ function Cart(props) {
                 )}
               </div>
               <div className="order-button-container">
-                <button onClick={submitHandler} className="order-button">
+                <button onClick={placeOrderHandler} className="order-button">
                   Place Order
                 </button>
               </div>

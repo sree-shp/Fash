@@ -9,11 +9,11 @@ import CategoryNavbar from "../CategoryNavbar/CategoryNavbar";
 
 function createCategoryCard(category) {
   return (
-    <Link to={`/Women/${category.subCategory}/${category.name}`}>
+    <Link to={`/Women/${category.category}/${category.subCategory}`}>
       <Category
         key={category.id}
         img={category.img}
-        name={category.name}
+        category={category.subCategory}
         discount={category.discount}
         color={category.color}
       />

@@ -7,15 +7,16 @@ import { Link } from "react-router-dom";
 import CategoryNavbar from "../CategoryNavbar/CategoryNavbar";
 
 function createCategoryCard(category) {
-  const categoryLink = `/Men/${category.subCategory}/${category.name}`;
-
   return (
     <div>
-      <Link to={categoryLink} className="category-link">
+      <Link
+        to={`/Men/${category.category}/${category.subCategory}`}
+        className="category-link"
+      >
         <Category
           key={category.id}
           img={category.img}
-          name={category.name}
+          category={category.subCategory}
           discount={category.discount}
           color={category.color}
         />

@@ -21,14 +21,14 @@ function Orders() {
         setLoading(true);
         setMessage("Loading Your Orders");
         const res = await axios.get(
-          `${process.env.REACT_APP_API_BASEURL}api/orders/getOrders`,
+          `${process.env.REACT_APP_API_BASEURL}/api/v2/order`,
           {
             withCredentials: true,
           }
         );
-        setOrders(res.data.order);
-        setActive(res.data.order[0]._id);
-        console.log(res.data.order);
+        setOrders(res.data.data.orders);
+        setActive(res.data.data.orders[0]._id);
+
         setLoading(false);
       } catch (err) {
         setLoading(false);
@@ -44,7 +44,6 @@ function Orders() {
   }, []);
 
   function orderClickHandler(id) {
-    console.log(id);
     setActive(id);
   }
 
@@ -52,7 +51,8 @@ function Orders() {
 
   function createOrdersList(order) {
     return (
-      <div
+      <li
+        key={order._id}
         className={`order-list-item ${
           active === order._id ? "highlight-order" : ""
         } `}
@@ -70,7 +70,7 @@ function Orders() {
           <div className="order-total-heading">Total </div>
           <div className="order-id"> {order.total}</div>
         </div>
-      </div>
+      </li>
     );
   }
 
@@ -131,6 +131,7 @@ function Orders() {
             <div className="order-details-container">
               {orders && orders.map(createOrderItem)}
             </div>
+
             {orders &&
               orders.map((order) => {
                 if (order._id === active) {

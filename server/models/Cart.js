@@ -1,43 +1,29 @@
-const { text } = require('express');
-const { ObjectId } = require('mongodb');
-const mongoose = require('mongoose');
+const { text } = require("express");
+const { ObjectId } = require("mongodb");
+const mongoose = require("mongoose");
 
 const cartSchema = new mongoose.Schema({
-    userId: {
+  userId: {
+    type: ObjectId,
+    required: true,
+  },
+  products: [
+    {
+      productId: {
         type: ObjectId,
-        required: true
-    },
-    product: [{
-        id: {
-            type: ObjectId,
-            required: true
-        },
-        name: {
-            type: String
-        },
-        brand: {
-            type: String
-        },
-        img: {
-            type: String
-        },
-        quantity: {
-            type: Number,
-            required: true
-        },
-        size: {
-            type: String, 
-            required: true
-        },
-        price: {
-            type: Number,
-            required: true
-        }
-    }],
-    total: {
+      },
+      quantity: {
         type: Number,
-        default: 0
-    }
+      },
+      size: {
+        type: String,
+      },
+    },
+  ],
+  total: {
+    type: Number,
+    default: 0,
+  },
 });
 
 module.exports = mongoose.model("Cart", cartSchema);

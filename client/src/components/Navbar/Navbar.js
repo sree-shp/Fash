@@ -6,7 +6,7 @@ import SearchBox from "./SearchBox";
 import LastMenu from "./LastMenu";
 import axios from "axios";
 
-function Navbar({ userName, setUserName, removeCookies }) {
+function Navbar({ userName, setUserName }) {
   const [account, setAccount] = useState(false);
 
   function accountClickHandler() {
@@ -15,8 +15,8 @@ function Navbar({ userName, setUserName, removeCookies }) {
 
   async function logOutHandler() {
     try {
-      await axios.post(
-        `${process.env.REACT_APP_API_BASEURL}api/users/logout`,
+      const res = await axios.post(
+        `${process.env.REACT_APP_API_BASEURL}/api/v2/user/logout`,
         {},
         {
           withCredentials: true,
@@ -24,7 +24,7 @@ function Navbar({ userName, setUserName, removeCookies }) {
       );
       setUserName("");
     } catch (err) {
-      console.error(err.message);
+      console.log(err.message);
     }
   }
 
@@ -122,7 +122,6 @@ function Navbar({ userName, setUserName, removeCookies }) {
       <LastMenu
         userName={userName}
         setUserName={setUserName}
-        removeCookies={removeCookies}
         logOutHandler={logOutHandler}
       />
     </div>

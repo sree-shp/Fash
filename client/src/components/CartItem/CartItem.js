@@ -13,20 +13,17 @@ function CartItem(props) {
   const [highlight, setHighlight] = useState(props.size);
   const [active, setActive] = useState(false);
 
-  async function onClick(event) {
+  async function removeCartItemHandler(event) {
     try {
       setLoading(true);
       setMessage("Removing cart item");
-      await axios.post(
-        `${process.env.REACT_APP_API_BASEURL}api/cart/removeItem`,
-        {
-          id: props.id,
-        },
+      await axios.delete(
+        `${process.env.REACT_APP_API_BASEURL}/api/v2/cart/${props.id}`,
         {
           withCredentials: true,
         }
       );
-      props.setSelectedId(props.id);
+      props.setCartUpdate((state) => !state);
       setLoading(false);
     } catch (err) {
       setLoading(false);
@@ -39,14 +36,71 @@ function CartItem(props) {
     }
   }
 
-  function decQuantityHandler() {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
+  async function handleChangeSize(e) {
+    setSize(e.target.textContent);
+    setHighlight(e.target.textContent);
+    try {
+      setLoading(true);
+      const res = await axios.patch(
+        `${process.env.REACT_APP_API_BASEURL}/api/v2/cart/${props.id}`,
+        {
+          update: {
+            size: e.target.textContent,
+          },
+        },
+        {
+          withCredentials: true,
+        }
+      );
+      props.setCartUpdate((state) => !state);
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 1000);
+      setMessage(err.response.data.msg);
+      console.error(err.message);
     }
   }
 
-  function incQuantityHandler() {
-    setQuantity(quantity + 1);
+  async function quantityChangeHandler(e) {
+    let value;
+    if (e.target.textContent === "-") {
+      if (quantity > 1) {
+        value = -1;
+        setQuantity(quantity - 1);
+      } else return;
+    }
+    if (e.target.textContent === "+") {
+      setQuantity(quantity + 1);
+      value = +1;
+    }
+    try {
+      setLoading(true);
+      const res = await axios.patch(
+        `${process.env.REACT_APP_API_BASEURL}/api/v2/cart/${props.id}`,
+        {
+          update: {
+            quantity: value,
+          },
+        },
+        {
+          withCredentials: true,
+        }
+      );
+      props.setCartUpdate((state) => !state);
+      setLoading(false);
+    } catch (err) {
+      setLoading(false);
+      setError(true);
+      setTimeout(() => {
+        setError(false);
+      }, 1000);
+      setMessage(err.response.data.msg);
+      console.error(err.message);
+    }
   }
   return (
     <div className="cart-item-wrapper list">
@@ -64,7 +118,7 @@ function CartItem(props) {
               <div className="cart-product-desc">{props.name}</div>
               <br />
             </div>
-            <button className="remove-item" onClick={onClick}>
+            <button className="remove-item" onClick={removeCartItemHandler}>
               <img
                 alt="remove item"
                 src="images/trash-can.png"
@@ -98,37 +152,25 @@ function CartItem(props) {
                   className={`extra-small ${
                     highlight === "XS" ? "highlight" : ""
                   }`}
-                  onClick={(event) => {
-                    setSize(event.target.textContent);
-                    setHighlight("XS");
-                  }}
+                  onClick={handleChangeSize}
                 >
                   XS
                 </div>
                 <div
                   className={`small ${highlight === "S" ? "highlight" : ""}`}
-                  onClick={(event) => {
-                    setSize(event.target.textContent);
-                    setHighlight("S");
-                  }}
+                  onClick={handleChangeSize}
                 >
                   S
                 </div>
                 <div
                   className={`middle ${highlight === "M" ? "highlight" : ""}`}
-                  onClick={(event) => {
-                    setSize(event.target.textContent);
-                    setHighlight("M");
-                  }}
+                  onClick={handleChangeSize}
                 >
                   M
                 </div>
                 <div
                   className={`large ${highlight === "L" ? "highlight" : ""}`}
-                  onClick={(event) => {
-                    setSize(event.target.textContent);
-                    setHighlight("L");
-                  }}
+                  onClick={handleChangeSize}
                 >
                   L
                 </div>
@@ -136,10 +178,7 @@ function CartItem(props) {
                   className={`extra-large ${
                     highlight === "XL" ? "highlight" : ""
                   }`}
-                  onClick={(event) => {
-                    setSize(event.target.textContent);
-                    setHighlight("XL");
-                  }}
+                  onClick={handleChangeSize}
                 >
                   XL
                 </div>
@@ -147,18 +186,14 @@ function CartItem(props) {
             </div>
 
             <div className="cart-item-quantity">
-              <div className="dec-quantity" onClick={decQuantityHandler}>
+              <div className="dec-quantity" onClick={quantityChangeHandler}>
                 -
               </div>
               <span className="cart-quantity">{quantity}</span>
-              <div className="inc-quantity" onClick={incQuantityHandler}>
+              <div className="inc-quantity" onClick={quantityChangeHandler}>
                 +
               </div>
             </div>
-
-            {/* <div className="cart-column close">
-              {props.price * props.quantity}
-            </div> */}
           </div>
         </div>
       </div>

@@ -24,15 +24,10 @@ function SearchBox(props) {
         setLoading(true);
         //Store the response from the axios get method with the searchQuery sent as params
         const res = await axios.get(
-          `${process.env.REACT_APP_API_BASEURL}api/search/searchByProducts`,
-          {
-            params: {
-              searchQuery: search,
-            },
-          }
+          `${process.env.REACT_APP_API_BASEURL}/api/v2/search?searchQuery=${search}`
         );
         //update the results state with the fetched data
-        setResults(res.data.results);
+        setResults(res.data.data.search);
         //Loading is set to false
         setLoading(false);
       } catch (err) {
@@ -56,10 +51,10 @@ function SearchBox(props) {
         }}
       >
         <div className="search-item-box">
-          <img className="search-item-img" src={searchItem.images[0]} />
+          <img className="search-item-img" src={searchItem.images[0]} alt="" />
           <div className="search-item-details">
-            <span className="search-item-brand">{searchItem.brand}</span>
-            <span className="search-item-name">{searchItem.name}</span>
+            <span className="search-item-brand">{searchItem.productBrand}</span>
+            <span className="search-item-name">{searchItem.productName}</span>
           </div>
         </div>
       </Link>

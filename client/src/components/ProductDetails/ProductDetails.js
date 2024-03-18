@@ -15,6 +15,7 @@ function ProductDetails() {
   const discount = 15;
   const [selectSize, setSelectSize] = useState("S");
   const [isAdded, setIsAdded] = useState(false);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(
     function () {
@@ -22,24 +23,22 @@ function ProductDetails() {
         try {
           setLoading(true);
           const res = await axios.get(
-            `${process.env.REACT_APP_API_BASEURL}api/products/getProductDetails`,
-            {
-              params: {
-                _id: params.id,
-              },
-            }
+            `${process.env.REACT_APP_API_BASEURL}/api/v2/product/${params.id}`
           );
-          setData(res.data[0]);
+          setData(res.data.data.product[0]);
           setLoading(false);
         } catch (err) {
-          console.error(err.message);
-          setError("Something went wrong");
           setLoading(false);
+          setError(true);
+          setErrorMsg("Login/Resgister to add to cart");
+          setTimeout(() => {
+            setError(false);
+          }, 1000);
         }
       }
       fetchData();
     },
-    [params.id]
+    [params]
   );
 
   async function handleFormSubmit(event) {
@@ -48,15 +47,11 @@ function ProductDetails() {
     try {
       setLoading(true);
       const res = await axios.post(
-        `${process.env.REACT_APP_API_BASEURL}api/cart/addToCart`,
+        `${process.env.REACT_APP_API_BASEURL}/api/v2/cart`,
         {
           productId: data._id,
-          quantity: 1,
+          quantity: quantity,
           size: selectSize,
-          price: data.price,
-          img: data.images[0],
-          name: data.name,
-          brand: data.brand,
         },
         {
           withCredentials: true,
@@ -66,7 +61,6 @@ function ProductDetails() {
       setLoading(false);
       setIsAdded(true);
     } catch (err) {
-      console.error(err.message);
       setLoading(false);
       setError(true);
       setErrorMsg("Login/Resgister to add to cart");
@@ -81,6 +75,16 @@ function ProductDetails() {
     setSelectSize(event.target.value);
   }
 
+  function decQuantityHandler() {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  }
+
+  function incQuantityHandler() {
+    setQuantity(quantity + 1);
+  }
+
   return (
     <div className="product-details">
       <div className="photos-pane">
@@ -93,8 +97,8 @@ function ProductDetails() {
           <div className="heading">
             {data && (
               <>
-                <h1 className="product-brand-name">{data.brand}</h1>
-                <span className="product-desc">{data.name}</span>
+                <h1 className="product-brand-name">{data.productBrand}</h1>
+                <span className="product-desc">{data.productName}</span>
               </>
             )}
           </div>
@@ -104,26 +108,43 @@ function ProductDetails() {
                 <>
                   <div className="price-row-1">
                     <span className="final-price">
-                      Rs.
-                      {Math.round(data.price - data.price * (discount / 100))}
+                      Rs. {data.discountedPrice}
                     </span>
                     <span className="discount-percentage">
                       {discount + "% Off"}
                     </span>
                   </div>
                   <div>
-                    <span className="original-price">MRP Rs.{data.price}</span>
+                    <span className="original-price">MRP Rs.{data.mrp}</span>
                   </div>
                 </>
               )}
             </div>
             <div className="place-order">
+              <div className="quantity-wrapper">
+                <p>Select Quantity</p>
+                <div className="quantity-selector">
+                  <div
+                    className="decrease-quantity"
+                    onClick={decQuantityHandler}
+                  >
+                    -
+                  </div>
+                  <span className="quantity">{quantity}</span>
+                  <div
+                    className="increase-quantity"
+                    onClick={incQuantityHandler}
+                  >
+                    +
+                  </div>
+                </div>
+              </div>
               <p className="select-size-heading">Select Size</p>
               <form className="order-form" onSubmit={handleFormSubmit}>
                 <div className="select-size">
                   <label
                     className={"size " + (selectSize === "XS" ? "select" : "")}
-                    for="xs"
+                    htmlFor="xs"
                   >
                     <input
                       id="xs"
@@ -136,7 +157,7 @@ function ProductDetails() {
                     XS
                   </label>
                   <label
-                    for="s"
+                    htmlFor="s"
                     className={"size " + (selectSize === "S" ? "select" : "")}
                   >
                     <input
@@ -150,7 +171,7 @@ function ProductDetails() {
                     S
                   </label>
                   <label
-                    for="m"
+                    htmlFor="m"
                     className={"size " + (selectSize === "M" ? "select" : "")}
                   >
                     <input
@@ -164,7 +185,7 @@ function ProductDetails() {
                     M
                   </label>
                   <label
-                    for="l"
+                    htmlFor="l"
                     className={"size " + (selectSize === "L" ? "select" : "")}
                   >
                     <input
@@ -178,7 +199,7 @@ function ProductDetails() {
                     L
                   </label>
                   <label
-                    for="xl"
+                    htmlFor="xl"
                     className={"size " + (selectSize === "XL" ? "select" : "")}
                   >
                     <input

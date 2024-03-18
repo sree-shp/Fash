@@ -1,50 +1,70 @@
-const { ObjectId } = require('mongodb');
-const mongoose = require('mongoose');
+const { ObjectId } = require("mongodb");
+const mongoose = require("mongoose");
 
 const productsSchema = new mongoose.Schema({
-    brand: {
-        type: String,
-        required: true
+  productBrand: {
+    type: String,
+    required: true,
+  },
+  productName: {
+    type: String,
+    required: true,
+  },
+  category_id: {
+    type: ObjectId,
+    required: true,
+  },
+  images: [
+    {
+      type: String,
     },
-    name: {
-        type: String,
-        required: true
+  ],
+  inventory: {
+    XS: {
+      type: Number,
+      default: 100,
     },
-    category_id: {
-        type: ObjectId,
-        required: true
+    S: {
+      type: Number,
+      default: 100,
     },
-    inventory_id: {
-        type: ObjectId
+    M: {
+      type: Number,
+      default: 100,
     },
-    images:[{
-        type: String
-    }],
-    price: {
-        type: Number,
-        required: true
+    L: {
+      type: Number,
+      default: 100,
     },
-    discountedPrice: {
-        type: Number,
-        default: 0
+    XL: {
+      type: Number,
+      default: 100,
     },
-    discount: {
-        type: Number,
-    },
-    rating: {
-        type: Number
-    },
-    created_at: {
-        type: Date,
-        default: () => Date.now()
-    },
-    modified_at: {
-        type: Date,
-        default: () => Date.now()
-    },
-    deleted_at: {
-        type: Date
-    }
+  },
+  mrp: {
+    type: Number,
+    required: true,
+  },
+  discountedPrice: {
+    type: Number,
+  },
+  discount: {
+    type: Number,
+  },
+  rating: {
+    type: Number,
+    default: 4,
+  },
+  created_at: {
+    type: Date,
+    default: () => Date.now(),
+  },
+  modified_at: {
+    type: Date,
+  },
+  deleted_at: {
+    type: Date,
+  },
 });
 
 module.exports = mongoose.model("Products", productsSchema);

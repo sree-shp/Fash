@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from "react";
-import ProductContainer from "../ProductsContainer/ProductContainer";
 import "./ProductsBrowser.css";
 import axios from "axios";
 import Error from "../Error/Error";
 import ProductCardSkeleton from "../Skeletons/ProductCardSkeleton";
+import ProductCard from "../ProductCard/ProductCard";
+import { Link } from "react-router-dom";
+import Filters from "../Filters/Filters";
 
 //Entry point to view products
 //Refer Component Tree
 //ProductBrowser -->  ProductContainer --> ProductCard
 
-function ProductsBrowser(props) {
+function ProductsBrowser({
+  category,
+  categoryGroup,
+  subCategory,
+  EoSSheading,
+}) {
   // State to store fetched Products
   const [data, setData] = useState([]);
+  const [heading, setHeading] = useState(
+    EoSSheading || subCategory || category || categoryGroup
+  );
 
   // Extra States
   const [loading, setLoading] = useState(false);
@@ -20,6 +30,43 @@ function ProductsBrowser(props) {
   // State for filters
   const [filters, setFilters] = useState([]);
   const [sort, setSort] = useState(1);
+
+  const [active, setActive] = useState(false);
+
+  function filtersClickHandler() {
+    setActive(!active);
+  }
+
+  function handleSortChange(event) {
+    setSort(event.target.value);
+  }
+
+  //Function to create Product cards
+  function createProductCard(product, index) {
+    let link;
+
+    if (EoSSheading) {
+      link = `/End Of Season Sale/${categoryGroup}/${product._id}`;
+    } else if (!subCategory) {
+      link = `/${categoryGroup}/${category}/${product._id}`;
+    } else {
+      link = `/${categoryGroup}/${category}/${subCategory}/${product._id}`;
+    }
+    return (
+      <li key={index}>
+        <Link to={link}>
+          <ProductCard
+            key={index}
+            productImg={product.images[0]}
+            productBrand={product.productBrand}
+            productPrice={product.mrp}
+            productDiscountedPrice={product.discountedPrice}
+            productDiscount={product.discount}
+          />
+        </Link>
+      </li>
+    );
+  }
 
   //Fetches data from database
   //useEffect with dependencies filters and props.title
@@ -34,39 +81,24 @@ function ProductsBrowser(props) {
         try {
           //Loading is set to true which is set to false at the end
           setLoading(true);
-
-          //Store the response from the axios get method with the name and filters sent as params
-          let res;
-
-          if (props.EoSS) {
-            res = await axios.get(
-              `${process.env.REACT_APP_API_BASEURL}api/products/getEndOfSeasonSaleProducts`,
-              {
-                params: {
-                  group: props.title,
-
-                  filters: filters,
-                  sort: sort,
-                },
-              }
-            );
+          let requestURL;
+          if (EoSSheading && categoryGroup === "") {
+            requestURL = ``;
+          } else if (EoSSheading) {
+            requestURL = `/EndOfSeasonSale/${categoryGroup}`;
+          } else if (!subCategory) {
+            requestURL = `/${categoryGroup}/${category}`;
           } else {
-            res = await axios.get(
-              `${process.env.REACT_APP_API_BASEURL}api/products/getProducts`,
-              {
-                params: {
-                  name: props.title,
-                  group: props.group,
-                  filters: filters,
-                  sort: sort,
-                },
-              }
-            );
+            requestURL = `/${categoryGroup}/${category}/${subCategory}`;
           }
+          const res = await axios.get(
+            `${process.env.REACT_APP_API_BASEURL}/api/v2/product${requestURL}`
+          );
+
           //Update the results state with the fetched data
-          setData(res.data);
+          setData(res.data.data.products);
           //Checks if the array is empty and sets error message
-          if (res.data.length === 0) {
+          if (res.data.data.products.length === 0) {
             setError("No Matches Found");
           } else setError("");
           //Loading is set to false
@@ -83,7 +115,7 @@ function ProductsBrowser(props) {
       //Calls the above function immediately to execute the function
       fetchData();
     },
-    [filters, props.title, sort]
+    [filters, subCategory, category, categoryGroup, sort]
   );
 
   return (
@@ -94,16 +126,46 @@ function ProductsBrowser(props) {
       {loading && <ProductCardSkeleton />}
       {/* Not loading, No error, show ProductContainer with title, category, group sent as a props */}
       {!loading && !error && (
-        <ProductContainer
-          ProductContainerName={props.title || props.EoSSheading}
-          productSubCategory={props.subCategory}
-          productGroup={props.group}
-          list={data}
-          sort={sort}
-          setSort={setSort}
-          filters={filters}
-          setFilters={setFilters}
-        />
+        <div className="product-container">
+          <div className="product-container-header">
+            <h2 className="product-container-heading">
+              {/* to capitalize the text */}
+              {heading.charAt(0).toUpperCase() + heading.slice(1)}
+            </h2>
+
+            <div
+              onClick={filtersClickHandler}
+              className="filters-icon-container"
+            >
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3839/3839020.png"
+                alt=""
+                className="filter-icon"
+              />
+            </div>
+            {active && (
+              <>
+                <div className="filters-container">
+                  <div className="backdrop" onClick={filtersClickHandler}></div>
+                  <div className="filters-pane">
+                    <div className="product-sort-wrapper">
+                      <span>Sort:</span>
+                      <select onChange={handleSortChange}>
+                        <option value={1}>Price: Lowest to Highest</option>
+                        <option value={-1}> Price: Highest to Lowest</option>
+                      </select>
+                    </div>
+                    <Filters filters={filters} setFilters={setFilters} />
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+          {/* Map the array objects received as props from the ProductBrowser  */}
+          <div className="product-card-wrapper">
+            {data.map(createProductCard)}
+          </div>
+        </div>
       )}
       {/* if error, show Error component with error state sent as props */}
       {error && <Error msg={error} />}
