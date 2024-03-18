@@ -9,7 +9,7 @@ exports.searchByProducts = async (req, res) => {
     const searchResults = await Products.find({
       $text: { $search: searchQuery },
     })
-      .select("brand name images")
+      .select("productBrand productName images")
       .limit(5);
     //  Send status as 200(All Ok) along with the message
     res.status(200).json({

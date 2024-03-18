@@ -19,9 +19,7 @@ function ProductsBrowser({
 }) {
   // State to store fetched Products
   const [data, setData] = useState([]);
-  const [heading, setHeading] = useState(
-    EoSSheading || subCategory || category || categoryGroup
-  );
+  const heading = EoSSheading || subCategory || category || categoryGroup;
 
   // Extra States
   const [loading, setLoading] = useState(false);
@@ -68,13 +66,6 @@ function ProductsBrowser({
     );
   }
 
-  //Fetches data from database
-  //useEffect with dependencies filters and props.title
-  //Everytime filters and props.title change, useEffect runs and fetches the data
-  //Name and filters as parameters
-  //Name parameter is used for searching the required category
-  //Filter is an array
-
   useEffect(
     function () {
       async function fetchData() {
@@ -115,7 +106,7 @@ function ProductsBrowser({
       //Calls the above function immediately to execute the function
       fetchData();
     },
-    [filters, subCategory, category, categoryGroup, sort]
+    [filters, EoSSheading, subCategory, category, categoryGroup, sort]
   );
 
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import "./ProductCardSkeleton.css";
-const array = [0, 0, 0, 0, 0, 0, 0, 0];
+
 function ProductCardSkeleton() {
   return (
     <div className="wrapper">

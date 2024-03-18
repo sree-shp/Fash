@@ -1,146 +1,145 @@
-.search{
-    font-family: "Poppins", sans-serif;
-    padding: 0rem 1.5rem;
-    height: 100%;
+.search {
+  font-family: "Poppins", sans-serif;
+  padding: 0rem 1.5rem;
+  height: 100%;
 }
 
-.search-heading{
-    color: black;
-    font-weight: 600;
+.search-heading {
+  color: black;
+  font-weight: 600;
 }
 
-.page-search-container{
+.page-search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 4px 8px;
+  border-radius: 0.5rem;
+  border: 1px solid #ededed;
+}
+
+.search-results-box {
+  margin: 1rem 0rem;
+}
+
+.search-textbox {
+  font-size: 1rem;
+}
+
+.search-item-img {
+  width: 15%;
+}
+
+.search-results-box {
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  box-shadow: none;
+  width: 100%;
+}
+
+.search-textbox {
+  border-radius: 2rem;
+  position: relative;
+  outline: none;
+  border: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.search-icon-container {
+  display: flex;
+  align-items: center;
+  max-width: 20px;
+}
+
+.searchbar-icon {
+  width: 100%;
+}
+
+.results-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.search-item-brand {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.search-item-name {
+  font-size: 0.9rem;
+}
+
+.results-heading {
+  font-size: 1.15rem;
+}
+
+@media (min-width: 1024px) {
+  .page-search-container {
     display: flex;
     align-items: center;
     position: relative;
     padding: 4px 8px;
-    border-radius: 0.5rem;
+    border-radius: 2rem;
     border: 1px solid #ededed;
-}
+  }
 
-.search-results-box{
-    margin: 1rem 0rem;
-}
+  .search-container {
+    display: flex;
+    flex-direction: row;
+    width: 35%;
+    position: relative;
+    padding: 4px 8px;
+    border-radius: 2rem;
+    border: 1px solid #ededed;
+  }
 
-.search-textbox{
-    font-size: 1rem;
-}
+  .search-textbox {
+    padding: 2%;
+    font-size: 0.9rem;
+    outline: none;
+    width: 100%;
+  }
 
-.search-item-img{
-    width: 15%;
-}
+  .clear-search {
+    width: 3%;
+    padding: 2%;
+    border: 1px solid #ededed;
+  }
 
-.search-results-box{
+  .search-results-box {
     position: absolute;
     top: 100%;
     left: 0%;
-    box-shadow: none;
-    width: 100%;
-}
+    z-index: 100000;
+    width: 500px;
+    background-color: white;
+    padding: 1%;
+    margin: 0;
+  }
 
-.search-textbox{
-    border-radius: 2rem;
-    position: relative;
-    outline: none;
-    border: none;
-    padding: 0.5rem;
-    font-size: 1rem;
-}
+  .react-loader-box {
+    display: flex;
+    justify-content: center;
+    padding: 15%;
+  }
 
-.search-icon-container{
-    display:flex;
-    align-items: center;
-    max-width: 20px;
-}
+  .search-item-box {
+    display: flex;
+    flex-direction: row;
+    padding: 1%;
+  }
 
-.searchbar-icon{
-    width: 100%;
-}
+  .search-item-img {
+    width: 8%;
+  }
 
-.results-wrapper{
+  .search-item-details {
     display: flex;
     flex-direction: column;
-    gap: 25px;
-}
-
-.search-item-brand{
-    font-size: 1.15rem;
-    font-weight: 500
-}
-
-.search-item-name{
-    font-size: 0.9rem;
-}
-
-.results-heading{
-    font-size: 1.15rem;
-}
-
-@media (min-width: 1024px) {
-
-    .page-search-container{
-        display: flex;
-        align-items: center;
-        position: relative;
-        padding: 4px 8px;
-        border-radius: 2rem;
-        border: 1px solid #ededed;
-    }
-    
-    .search-container {
-        display: flex;
-        flex-direction: row;
-        width: 35%;
-        position: relative;
-        padding: 4px 8px;
-        border-radius: 2rem;
-        border: 1px solid #ededed;
-      }
-    
-      .search-textbox {
-        padding: 2%;
-        font-size: 0.9rem;
-        outline: none;
-        width: 100%;
-      }
-    
-      .clear-search {
-        width: 3%;
-        padding: 2%;
-        border: 1px solid #ededed;
-      }
-    
-      .search-results-box {
-        position: absolute;
-        top: 100%;
-        left: 0%;
-        z-index: 1000;
-        width: 100%;
-        background-color: white;
-        padding: 1%;
-        margin: 0;
-      }
-    
-      .react-loader-box {
-        display: flex;
-        justify-content: center;
-        padding: 15%;
-      }
-    
-      .search-item-box {
-        display: flex;
-        flex-direction: row;
-        padding: 1%;
-      }
-    
-      .search-item-img {
-        width: 8%;
-      }
-    
-      .search-item-details {
-        display: flex;
-        flex-direction: column;
-        padding: 1%;
-      }
-    
+    padding: 1%;
+  }
 }

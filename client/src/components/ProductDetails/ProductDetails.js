@@ -14,7 +14,6 @@ function ProductDetails() {
   const [errorMsg, setErrorMsg] = useState("");
   const discount = 15;
   const [selectSize, setSelectSize] = useState("S");
-  const [isAdded, setIsAdded] = useState(false);
   const [quantity, setQuantity] = useState(1);
 
   useEffect(
@@ -46,7 +45,7 @@ function ProductDetails() {
 
     try {
       setLoading(true);
-      const res = await axios.post(
+      await axios.post(
         `${process.env.REACT_APP_API_BASEURL}/api/v2/cart`,
         {
           productId: data._id,
@@ -59,7 +58,6 @@ function ProductDetails() {
       );
 
       setLoading(false);
-      setIsAdded(true);
     } catch (err) {
       setLoading(false);
       setError(true);

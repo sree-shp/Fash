@@ -1,93 +1,85 @@
-.photos{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 25px;
-    
+.photos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
 }
 
-.photo-display{
-    display: flex;
-    align-items: center;
-    flex-grow: 10;
-    width: 90%;
-    max-width: 400px;
+.photo-display {
+  display: flex;
+  align-items: center;
+  flex-grow: 10;
+  width: 90%;
+  max-width: 400px;
 }
 
-.photo-display-img{
-    width: 100%;
+.photo-display-img {
+  width: 100%;
 }
 
-.photo-options{
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-    width: 100%;
-    overflow: auto;
-}  
+.photo-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  overflow: auto;
+}
 
 .photo-options::-webkit-scrollbar {
-    height: 5px;
-    
+  height: 5px;
 }
 
 .photo-options::-webkit-scrollbar-button {
-    display:none;
+  display: none;
 }
 
 .photo-options::-webkit-scrollbar-thumb {
-    background: #9e9e9e; 
+  background: #9e9e9e;
 }
 
-.photo-options::-webkit-scrollbar-track{
-    background: #ccc;
+.photo-options::-webkit-scrollbar-track {
+  background: #ccc;
 }
 
-.highlight-image{
-    width: 31%;
+.highlight-image {
+  width: 31%;
 }
 
-.photo-card{
+.photo-card {
+  width: 100%;
+}
+
+.photo-card-img {
+  width: 100%;
+  border-radius: 4px;
+  max-width: 75px;
+}
+
+.photo-card-img:hover {
+  border: 1px solid black;
+}
+
+@media (min-width: 1024px) {
+  .photos {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
     width: 100%;
-    
+  }
+
+  .photo-display {
+    width: 70%;
+    max-width: 450px;
+  }
+
+  .photo-card {
+    width: 80%;
+  }
+
+  .photo-options {
+    flex-direction: column;
+    align-items: center;
+    width: 15%;
+    overflow: visible;
+  }
 }
-
-.photo-card-img{
-    width: 100%;
-    border-radius: 4px;
-    max-width: 75px;
-}
-
-
-.photo-card-img:hover{
-    border: 1px solid black;
-}
-
-
-@media (min-width: 1024px){
-    .photos{
-        flex-direction: row-reverse;
-        justify-content: flex-end;
-        width: 100%;
-    }
-
-    .photo-display{
-        width: 70%;
-        max-width: 450px;
-    }
-
-    .photo-card{
-        width: 80%;
-    }
-
-    
-    .photo-options{
-        flex-direction: column;
-        align-items: center;
-        width: 15%;
-        overflow: visible
-    }
-}
-
-
-

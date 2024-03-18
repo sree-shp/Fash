@@ -42,9 +42,10 @@ function SearchBox(props) {
     fetchSearch();
   }, [search]);
 
-  function createResultsList(searchItem) {
+  function createResultsList(searchItem, index) {
     return (
       <Link
+        key={index}
         to={"/Search/" + searchItem._id}
         onClick={(e) => {
           setSearch("");
