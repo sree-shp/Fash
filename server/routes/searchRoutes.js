@@ -1,8 +1,8 @@
 const express = require("express");
-const router = express.Router();
-const searchController = require("../controllers/searchController");
+const router = express.Router(); // Create a new Router instance
+const searchController = require("../controllers/searchController"); // Import the search controller
 
-//route to get an array of products from the database for the given search Query
-router.get("/", searchController.searchByProducts);
+// Define a route to handle product search
+router.get("/", searchController.searchByProducts); // GET Request to get an array of products based on search query
 
-module.exports = router;
+module.exports = router; // Export the router instance with defined route
